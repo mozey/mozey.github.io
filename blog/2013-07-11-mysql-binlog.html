@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<title>mozey.co</title>
+<xmp theme="spruce" style="display:none;">
+<br>
+
+###Restore a database from binary logs
+
+Login to the database and flush the logs
+
+    flush logs;
+    
+Copy the log so we can edit it
+
+    mysqlbinlog mysql-bin.xxx > ~/mysql-bin.xxx.sql
+
+Remove unwanted queries from the log file
+
+    vi ~/mysql-bin.xxx.sql
+
+Restore the database
+
+    mysql -u -p < ~/mysql-bin.xxx.sql
+</xmp>
+<script src="../external/strapdown-0.2/strapdown.js"></script>
+</html>

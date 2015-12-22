@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<title>mozey.co</title>
+<xmp theme="spruce" style="display:none;">
+<br>
+
+To enable remote access we have to grant this privilege to an existing user
+
+    grant all on myDatabaseName.* to 'myUserName'@'myIPAddress';
+
+Or create a new user and give it access to all databases
+
+    grant all privileges on *.* to 'myUserName'@'myIPAddress' identified by 'myPassword' with grant option;
+    
+    flush privileges;
+    
+Note that instead of 'myIPAddress' we can specify '%' to allow access from any IP Address.
+
+Additionally it might be required to open port 3306 on the firewall.
+
+Then configure the MySQL bind address
+
+    sudo vi /etc/mysql/my.cnf
+    
+To listen on the servers public IP address
+
+    bind-address = xxx.xxx.xxx.xxx
+    
+And restart the database service
+
+    sudo service mysql restart</xmp>
+<script src="../external/strapdown-0.2/strapdown.js"></script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<title>mozey.co</title>
+<xmp theme="spruce" style="display:none;">
+<br>
+
+When using Ubuntu server edition with VMWare we have to install the tools using the command line.
+
+First select "Install VMWare Tools" from the menu. Then mount the ISO image and copy the installer.
+
+    sudo mkdir /mnt/cdrom
+
+    sudo mount /dev/cdrom /mnt/cdrom
+
+    cp /mnt/cdrom/VMwareTools-xxx.tar.gz ~/tmp && cd ~/tmp
+
+    tar xvzf VMwareTools-xxx.tar.gz
+
+    sudo apt-get install build-essential
+
+    sudo apt-get install linux-headers-`uname -r`
+
+    sudo ./vmware-install.pl
+
+    sudo reboot
+
+Now share some folders with the Ubuntu guest OS and view the shares.
+
+    ls /mnt/hgfs/
+
+Notes
+
+- This works on Ubuntu 12.04
+</xmp>
+<script src="../external/strapdown-0.2/strapdown.js"></script>
+</html>

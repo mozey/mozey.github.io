@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<title>mozey.co</title>
+<xmp theme="spruce" style="display:none;">
+<br>
+
+Setting up a new repos might involve lots of experimenting and backtracking.
+To clean the slate and do a proper initial commit it is useful to reset the git history.
+
+    cd /path/to/repos
+
+Remove all version control info
+
+    rm -rf .git
+
+Create a new repos
+
+    git add .
+    git commit -m "Initial commit"
+
+Push it to an existing github repos, overwriting the history.
+
+    git remote add origin https://github.com/username/repos
+    git push -u --force origin master
+
+After this commit and push changes as usual.
+
+Reference
+
+- [How do I remove all version history for a Git / Github repository?](http://stackoverflow.com/questions/9683279/how-do-i-remove-all-version-history-for-a-git-github-repository/9683337#9683337)
+</xmp>
+<script src="../external/strapdown-0.2/strapdown.js"></script>
+</html>

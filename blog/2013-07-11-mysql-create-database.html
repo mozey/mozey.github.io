@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<title>mozey.co</title>
+<xmp theme="spruce" style="display:none;">
+<br>
+
+First create the new database
+
+    create database myDatabaseName;
+    
+Then create a user for the database
+
+    create user 'myUserName'@'localhost' identified by 'myPassword';
+    
+And grant all privileges on the database to the user
+
+    grant all on myDatabaseName.* to 'myUserName'@'localhost';
+     
+Or to create a read only user
+
+    grant select on myDatabaseName.* to 'myUserName'@'localhost';
+    
+To delete a database and it user execute
+
+    drop database myDatabaseName;
+    
+    drop user myUserName;
+
+</xmp>
+<script src="../external/strapdown-0.2/strapdown.js"></script>
+</html>

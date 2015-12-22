@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<title>mozey.co</title>
+<xmp theme="spruce" style="display:none;">
+<br>
+
+One way to keep an offline copy of gmail is to setup a mail client that support imap, Mail.app, Outlook, etc.
+
+But this requires a graphical interface and is not easily automated. Another option is to use offlineimap.
+
+    sudo apt-get install offlineimap
+
+Create a backup folder and config file.
+
+    mkdir ~/gmail_backup && cd ~/gmail_backup
+
+    sudo vi username.imaprc
+
+Then setup a config file with the account details.
+
+    [general]
+    accounts = Gmail
+    maxsyncaccounts = 3
+
+    [Account Gmail]
+    localrepository = Local
+    remoterepository = Remote
+
+    [Repository Local]
+    type = Maildir
+    localfolders = /backup/username/mail
+
+    [Repository Remote]
+    type = IMAP
+    remotehost = imap.gmail.com
+    remoteuser = username@gmail.com
+    remotepass = password
+    ssl = yes
+    maxconnections = 1
+    realdelete = no
+
+Now sync the backup folder with the gmail account.
+
+    offlineimap -c username.imaprc -u Noninteractive.Basic
+
+To view the backup use mutt.
+
+    sudo apt-get install mutt
+
+    mutt -f ~/gmail_backup/username/INBOX
+
+Reference
+
+- [gmail backup imap](http://www.h4ck3r.net/2011/03/13/gmail-backup-imap/)
+</xmp>
+<script src="../external/strapdown-0.2/strapdown.js"></script>
+</html>

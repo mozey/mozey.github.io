@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<title>mozey.co</title>
+<xmp theme="spruce" style="display:none;">
+<br>
+
+**How Replication Works** <sup>1</sup>
+
+- Enables data from one MySQL database server (the master) to be replicated to one or more MySQL database servers (the slaves).
+
+- Asynchronous, slaves need not be connected permanently to receive updates from the master.
+
+- Replicate all databases, selected databases or tables within a database.
+
+
+**Setting up replication** <sup>2</sup>
+
+***Master***
+
+Edit the MySQL config file
+    
+    sudo vi /etc/mysql/my.cnf
+
+Unique server ID
+
+- Positive integer from 1 to (2<sup>32</sup>) - 1
+
+- Arbitrary user selected number
+
+
+    [mysqld]
+    server-id = 1
+
+Binary logging must be enabled
+
+
+    log_bin = /var/log/mysql/mysql-bin.log
+    binlog-ignore-db = mysql # Skip system database
+    
+For innodb also add
+
+    innodb_flush_log_at_trx_commit = 1
+    sync_binlog = 1
+    
+The master must be listening on a public IP address.
+For extra security check that only the replication user is allowed to connect from outside localhost.
+
+    bind-address = publicIpAddress
+    
+Or for any interface that is connected
+
+    bind-address = 0.0.0.0
+     
+Create replication user
+
+    create user 'replicationUser'@'%.domain.com' identified by 'replicationUserPassword';
+    grant replication slave on *.* to 'replicationUser'@'%.domain.com';
+    
+Restart the MySQL service on the master
+
+    sudo service mysql restart
+    
+Obtain the replication master binary log coordinates
+
+    flush tables with read lock; show master status; 
+
+Creating a database snapshot
+
+    mysqldump -u root -p --master-data mydb > mydb.sql
+    
+Unlock tables
+
+    unlock tables;
+
+    
+***Slave***
+
+The slave also requires a server ID
+
+    [mysqld]
+    server-id = 2
+    
+Slave does not require binary logging unless it will also replicated
+
+Restart the MySQL service on the slave
+
+Setup the master database on the slave
+
+    stop slave; create database mydb; use mydb; source mydb.sql
+    
+And setup the slave config by running the following SQL query
+
+    change master to
+    master_host='master_host_name',
+    master_user='replication_user_name',
+    master_password='replication_password',
+    master_log_file='recorded_log_file_name',
+    master_log_pos=recorded_log_position;
+    
+    grant to replication_user_name super, replication client, replication slave;
+
+Start the slave
+ 
+    start slave;
+
+And show slave status
+
+    show slave status\G;
+    
+**Debugging**
+
+Skip a query on the slave
+
+    stop slave; set global sql_slave_skip_counter=1; start slave;
+
+
+**Reference**
+
+1. [MySQL Docs: Chapter 16 Replication](http://dev.mysql.com/doc/refman/5.0/en/replication.html)
+
+2. [How to Set Up Replication](http://dev.mysql.com/doc/refman/5.0/en/replication-howto.html)
+
+3. [MySQL Docs: FAQ Replication](http://dev.mysql.com/doc/refman/5.0/en/faqs-replication.html)
+
+4. [How MySQL replication works](http://www.percona.com/blog/2013/01/09/how-does-mysql-replication-really-work/)
+
+5. [MySQL Point in Time Recovery](http://dba.stackexchange.com/a/34088)
+</xmp>
+<script src="../external/strapdown-0.2/strapdown.js"></script>
+</html>

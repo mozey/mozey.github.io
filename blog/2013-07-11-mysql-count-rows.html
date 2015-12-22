@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<title>mozey.co</title>
+<xmp theme="spruce" style="display:none;">
+<br>
+
+Count a rows from a single table.
+
+    select count(*) from myTableName;
+    
+View rows counts from all tables as reported by the information schema, this is not always up to date and might not give back exact row counts.
+
+    SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'myDatabaseName';
+
+
+Another option to get exact row counts is to use this query:
+
+    select concat(
+        'select "', 
+        table_name, 
+        '" as table_name, count(*) as exact_row_count from ', 
+        table_schema,
+        '.',
+        table_name, 
+        ' union '
+    ) 
+    from INFORMATION_SCHEMA.TABLES 
+    where table_schema = 'myDatabaseName';
+</xmp>
+<script src="../external/strapdown-0.2/strapdown.js"></script>
+</html>

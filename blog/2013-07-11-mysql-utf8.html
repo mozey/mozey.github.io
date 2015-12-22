@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<title>mozey.co</title>
+<xmp theme="spruce" style="display:none;">
+<br>
+
+###Make the server support utf8 by default
+
+**Reference**
+
+- [change mysql default character set to UTF8 in my.cnf?](http://stackoverflow.com/questions/3513773/change-mysql-default-character-set-to-utf8-in-my-cnf)
+
+- [What's the difference between utf8_general_ci and utf8_unicode_ci](http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci)
+
+Configure mysql
+
+    sudo vi /etc/mysql/my.cnf
+    
+With the following settings
+
+    [client]
+    default_character_set = utf8
+
+    [mysqld]
+    character_set_server = utf8
+    collation_server = utf8_unicode_ci
+    init_connect='SET NAMES utf8'
+    init_connect='SET collation_connection = utf8_unicode_ci'
+    skip-character-set-client-handshake   
+
+    [mysql]
+    default_character_set = utf8
+    
+Test the config file
+
+    sudo /usr/sbin/mysqld --help
+    
+And restart the database service
+
+    sudo service mysql restart
+    
+Connection to the database
+
+     mysql -u root -p
+     
+And check that the configuration has taken effect
+
+    show variables like "%character%";show variables like "%collation%";
+    
+        
+###Change the character set of an existing database
+
+Dump the database to make a backup.
+
+    mysqldump myDatabaseName > myDatabaseName.sql
+        
+Inspect the database dump, for example
+
+    cat myDatabaseName.sql | grep latin1
+    
+Remove character set definitions
+
+    sed -i 's/DEFAULT CHARSET=latin1//g' myDatabaseName.sql
+    
+Change the character set
+
+    alter database myDatabaseName default character set utf8 default collate utf8_unicode_ci;
+    
+Import the dump
+
+    source myDatabaseName.sql
+    
+</xmp>
+<script src="../external/strapdown-0.2/strapdown.js"></script>
+</html>

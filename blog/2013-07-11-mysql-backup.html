@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<title>mozey.co</title>
+<xmp theme="spruce" style="display:none;">
+<br>
+
+This command can be used to backup a MySQL database
+
+    mysqldump --user myUserName --password=myPassword myDatabaseName > myDatabaseName.sql
+
+The backup file can also be gzipped
+
+    mysqldump --user myUserName --password=myPassword myDatabaseName | gzip -c | cat > myDatabaseName.sql.gz
+    
+To unzip the backup use
+
+    gunzip myDatabaseName.sql.gz
+     </xmp>
+<script src="../external/strapdown-0.2/strapdown.js"></script>
+</html>
