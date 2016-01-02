@@ -4,19 +4,6 @@
 <head>
 <title>mozey.co</title>
 <link rel=icon href="../img/favicon.ico">
-</head>
-<body>
-<textarea theme="spruce" style="display:none;">
-
-<br>
-
-One liner to rsync a folder to an Amazon EC2 instance.
-
-    rsync --rsh "ssh -i /path/to/key.pem" -av --exclude '*.xxx' source user@host:/path/to/destination
-
-
-</textarea>
-<script src="../external/strapdown-0.2/strapdown.js"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -29,6 +16,19 @@ One liner to rsync a folder to an Amazon EC2 instance.
 
 </script>
 
+</head>
+<body>
+<br>
+<textarea theme="spruce" style="display:none;">
+
+
+One liner to rsync a folder to an Amazon EC2 instance.
+
+    rsync --rsh "ssh -i /path/to/key.pem" -av --exclude '*.xxx' source user@host:/path/to/destination
+
+
+</textarea>
+<script src="../external/strapdown-0.2/strapdown.js"></script>
 </body>
 </html>
 
