@@ -6,7 +6,7 @@
 a,
 a:focus,
 a:hover {
-  color: #FFFFF0;
+  color: ivory;
 }
 
 /* Custom default button */
@@ -15,8 +15,8 @@ a:hover {
 .btn-default:focus {
   color: #333;
   text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #FFFFF0;
-  border: 1px solid #FFFFF0;
+  background-color: ivory;
+  border: 1px solid ivory;
 }
 
 
@@ -28,10 +28,10 @@ html,
 body {
   height: 100%;
   /*background-color: #333;*/
-  background-color:  #2F4F4F; /*DarkSlateGray*/
+  background-color:  darkslategray;
 }
 body {
-  color: #FFFFF0;
+  color: ivory;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
@@ -79,7 +79,7 @@ body {
   padding-left: 0;
   font-size: 16px;
   font-weight: bold;
-  color: #FFFFF0; /* IE8 proofing */
+  color: ivory; /* IE8 proofing */
   color: rgba(255,255,255,.75);
   border-bottom: 2px solid transparent;
 }
@@ -90,15 +90,15 @@ body {
   border-bottom-color: rgba(255,255,255,.25);
   */
   background-color: transparent;
-  color: #FFFFF0;
-  border-bottom-color: #FFFFF0;
+  color: ivory;
+  border-bottom-color: ivory;
 }
 /*
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
-  color: #FFFFF0;
-  border-bottom-color: #FFFFF0;
+  color: ivory;
+  border-bottom-color: ivory;
 }
 */
 

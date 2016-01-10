@@ -4,6 +4,7 @@
 <head>
 <title>mozey.co</title>
 <link rel=icon href="../img/favicon.ico">
+<link rel=stylesheet href="../css/blog.css">
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -19,34 +20,21 @@
 </head>
 <body>
 <br>
-<textarea theme="spruce" style="display:none;">
 
+<p>First create the new database</p>
+<pre><code>create database myDatabaseName;</code></pre>
+<p>Then create a user for the database</p>
+<pre><code>create user &#39;myUserName&#39;@&#39;localhost&#39; identified by &#39;myPassword&#39;;</code></pre>
+<p>And grant all privileges on the database to the user</p>
+<pre><code>grant all on myDatabaseName.* to &#39;myUserName&#39;@&#39;localhost&#39;;
+ </code></pre>
+<p>Or to create a read only user</p>
+<pre><code>grant select on myDatabaseName.* to &#39;myUserName&#39;@&#39;localhost&#39;;</code></pre>
+<p>To delete a database and it user execute</p>
+<pre><code>drop database myDatabaseName;
 
-First create the new database
+drop user myUserName;</code></pre>
 
-    create database myDatabaseName;
-    
-Then create a user for the database
-
-    create user 'myUserName'@'localhost' identified by 'myPassword';
-    
-And grant all privileges on the database to the user
-
-    grant all on myDatabaseName.* to 'myUserName'@'localhost';
-     
-Or to create a read only user
-
-    grant select on myDatabaseName.* to 'myUserName'@'localhost';
-    
-To delete a database and it user execute
-
-    drop database myDatabaseName;
-    
-    drop user myUserName;
-
-
-</textarea>
-<script src="../external/strapdown-0.2/strapdown.js"></script>
 </body>
 </html>
 

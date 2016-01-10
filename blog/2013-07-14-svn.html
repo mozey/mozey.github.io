@@ -4,6 +4,7 @@
 <head>
 <title>mozey.co</title>
 <link rel=icon href="../img/favicon.ico">
+<link rel=stylesheet href="../css/blog.css">
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -19,218 +20,133 @@
 </head>
 <body>
 <br>
-<textarea theme="spruce" style="display:none;">
 
+<h3 id="general-notes-about-working-with-svn.">General notes about working with SVN.</h3>
+<h4 id="the-.svn-folder">The .svn folder</h4>
+<p>Typically every folder under the working copy root will contain a <em>.svn</em> hidden folder. If this is damaged or removed we can reconstruct it by removing the parent using a normal file system delete and then running and <em>svn update</em> to restore from repos. Assuming the repos contains the latest versions of the files.</p>
+<p>When we copy folders from other projects versioned using svn into our own svn working copy it might be necessary to remove the old <em>.svn</em> folders.</p>
+<p><strong>remove all .svn folders</strong></p>
+<pre><code>cd /path/to/copied/folder
+
+find . -name &#39;.svn&#39; -exec rm -rf {} \;</code></pre>
+<h4 id="create-a-repos-and-import-files">Create a repos and import files</h4>
+<p>To create a new repository</p>
+<pre><code>svnadmin create /path/to/repos</code></pre>
+<p>Then import files directly</p>
+<pre><code>svn import /path/to/file file:///path/to/repos -m &quot;Initial import&quot;</code></pre>
+<p>Or checkout a working copy, add some files and commit.</p>
+<h4 id="typical-work-flow">Typical work flow</h4>
+<p><strong>Checkout a working copy</strong></p>
+<pre><code>svn checkout https://exmample.com/path/to/repos /working/copy</code></pre>
+<p><strong>Update the working working copy</strong></p>
+<pre><code>svn update</code></pre>
+<p><strong>Make changes</strong></p>
+<pre><code>svn add
+
+svn delete
+
+svn copy
+
+svn move</code></pre>
+<p><strong>Examine changes</strong></p>
+<p>Show local change only</p>
+<pre><code>svn status</code></pre>
+<p>Show local and server changes</p>
+<pre><code>svn status -u</code></pre>
+<p>The command line diff can be unwieldy, on OSX we can use svn diff with FileMerge.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<pre><code>svn diff</code></pre>
+<p>View the log of committed changes</p>
+<pre><code>svn log http://example.com/path/to/repos --username myUserName | less</code></pre>
+<p><strong>Undo changes</strong></p>
+<pre><code>svn revert</code></pre>
+<p><strong>Resolve conflicts and merge changes</strong></p>
+<pre><code>svn update
+
+svn resolve</code></pre>
+<p><strong>Commit your changes</strong></p>
+<pre><code>svn commit -m &quot;This is the commit message&quot;</code></pre>
+<p><strong>Export files without creating a working copy</strong></p>
+<p>We might want to export all files from a repos, for example on a server, without creating a working copy, i.e. all the <em>.svn</em> folders.</p>
+<p>If the repos exists on the same server we can use a file URL</p>
+<pre><code>svn export file:///example.com/path/to/repos ~/path/on/server</code></pre>
+<p>We could also specify an optional version number</p>
+<pre><code>svn export http://example.com/path/to/repos@version ~/path/on/server</code></pre>
+<h4 id="add-all-untracked-files-in-current-folder">Add all untracked files in current folder</h4>
+<pre><code>svn add `svn status | grep ?`</code></pre>
+<h4 id="delete-a-file-directly-from-the-repository">Delete a file directly from the repository</h4>
+<pre><code>svn delete https://exmample.com/path/to/repos/the/file
+
+cd /working/copy
+
+svn update</code></pre>
+<h4 id="ignore-files">Ignore files</h4>
+<p>Sometimes we need to ignore some files we don't want to store in the repository. These could be logs, configuration files or sensitive data.</p>
+<pre><code>cd /path/to/parent/folder</code></pre>
+<p>Create a file mask to ignore the file <em>config.js</em> and all files ending in <em>.log</em></p>
+<pre><code>svn propedit svn:ignore .
+*.log
+config.js</code></pre>
+<p>Or use a one liner to ignore a single file</p>
+<pre><code>svn propset svn:ignore config.js .</code></pre>
+<p>List ignored files</p>
+<pre><code>svn propget svn:ignore .
+
+svn status --no-ignore</code></pre>
+<p>For these setting to take effect we have to do a commit. Note that files already existing in the repos must first be deleted before the ignore will take effect.</p>
+<pre><code>svn commit -m &quot;Ignoring some files&quot;</code></pre>
+<h4 id="relocate-a-working-copy">Relocate a working copy</h4>
+<p>The URL or path to the server hosting the repos might change. If this happens we can relocate the working copy</p>
+<pre><code>svn switch --relocate http://exmample.com:8080/path/to/repos https://exmample.com/path/to/repos</code></pre>
+<h4 id="restore-a-deleted-file">Restore a deleted file</h4>
+<p>We first have to find the last revision in which the file existed. Create a log file</p>
+<pre><code>svn log -v https://exmample.com/path/to/repos &gt; log.txt</code></pre>
+<p>Now search for the file in the log</p>
+<pre><code>less log.txt</code></pre>
+<p>The last revision the file existed is the revision number of the delete minus one.</p>
+<p>Resurrect the file and keep its version history</p>
+<pre><code>svn copy https://exmample.com/path/to/repos/the/file@lastRevisionNumber -r lastRevisionNumber /working/copy/the/file</code></pre>
+<p>And if you are only interested in the contents of the file</p>
+<pre><code>svn cat https://exmample.com/path/to/repos/the/file@lastRevisionNumber -r lastRevisionNumber &gt; the.file</code></pre>
+<h4 id="list-files-changed-between-revisions">List files changed between revisions</h4>
+<pre><code>svn diff --summarize -rXXX:YYY https://example.com/path/to/repos</code></pre>
+<h4 id="work-on-a-branch">Work on a branch</h4>
+<p>First create a branch from an existing repos location</p>
+<pre><code>svn cp --parents https://example.com/path/to/repos/trunk/some/folder https://example.com/path/to/repos/branches/some/folder</code></pre>
+<p>Then switch the same location in your working copy to the branch URL</p>
+<pre><code>cd /working/copy/some/folder
+
+svn info
+
+svn switch https://example.com/path/to/repos/branches/some/folder
+
+svn update</code></pre>
+<p><strong>Be careful not to switch the wrong folder, this might mess up the working copy!</strong></p>
+<p>Changes to the branch can be be committed as usual.</p>
+<p>We can merge the latest changes on trunk into the branch</p>
+<pre><code>cd /working/copy/some/folder
+
+svn merge https://example.com/path/to/repos/trunk/some/folder
+
+svn commit -m &quot;Merging changes into branch&quot;</code></pre>
+<p>And when we are done with the branch we can merge it into trunk</p>
+<pre><code>cd /working/copy/some/folder
+
+svn switch https://example.com/path/to/repos/trunk/some/folder
+
+svn merge --reintegrate https://example.com/path/to/repos/branches/some/folder
+
+svn commit -m &quot;Merging branch into trunk&quot;</code></pre>
+<p>Finally we can also delete a branch</p>
+<pre><code>svn rm https://example.com/path/to/repos/branches/some/folder</code></pre>
+<h4 id="tag-a-revision">Tag a revision</h4>
+<pre><code>svn copy https://example.com/path/to/repos/trunk https://example.com/path/to/repos/tags/v0.1 -m &quot;Tagging version 0.1&quot;</code></pre>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="http://www.defraine.net/~brunod/fmdiff/">Using FileMerge as a diff command for Subversion</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
 
-###General notes about working with SVN.
-
-####The .svn folder
-
-Typically every folder under the working copy root will contain a *.svn* hidden folder. If this is damaged or removed we can reconstruct it by removing the parent using a normal file system delete and then running and *svn update* to restore from repos. Assuming the repos contains the latest versions of the files.
-
-When we copy folders from other projects versioned using svn into our own svn working copy it might be necessary to remove the old *.svn* folders.
-
-**remove all .svn folders**
-
-    cd /path/to/copied/folder
-
-    find . -name '.svn' -exec rm -rf {} \;
-    
-####Create a repos and import files
-
-To create a new repository
-
-    svnadmin create /path/to/repos
-    
-Then import files directly
-    
-    svn import /path/to/file file:///path/to/repos -m "Initial import"
-    
-Or checkout a working copy, add some files and commit.
-    
-
-####Typical work flow
-
-**Checkout a working copy**
-
-    svn checkout https://exmample.com/path/to/repos /working/copy
-
-**Update the working working copy**
-
-    svn update
-
-**Make changes**
-
-    svn add
-    
-    svn delete
-    
-    svn copy
-    
-    svn move
-
-**Examine changes**
-
-Show local change only
-
-    svn status
-    
-Show local and server changes
-    
-    svn status -u
-    
-The command line diff can be unwieldy, on OSX we can use svn diff with FileMerge.[^1]
-    
-    svn diff
-
-[^1]: [Using FileMerge as a diff command for Subversion](http://www.defraine.net/~brunod/fmdiff/)
-
-View the log of committed changes
-    
-    svn log http://example.com/path/to/repos --username myUserName | less
-
-**Undo changes**
-
-    svn revert
-
-**Resolve conflicts and merge changes**
-
-    svn update
-    
-    svn resolve
-
-**Commit your changes**
-
-    svn commit -m "This is the commit message"
-    
-**Export files without creating a working copy**
-
-We might want to export all files from a repos, for example on a server, without creating a working copy, i.e. all the *.svn* folders.
-
-If the repos exists on the same server we can use a file URL
-
-    svn export file:///example.com/path/to/repos ~/path/on/server
-
-We could also specify an optional version number
-
-    svn export http://example.com/path/to/repos@version ~/path/on/server
-
-####Add all untracked files in current folder
-
-    svn add `svn status | grep ?`
-
-####Delete a file directly from the repository
-
-    svn delete https://exmample.com/path/to/repos/the/file
-    
-    cd /working/copy
-    
-    svn update
-
-####Ignore files
-
-Sometimes we need to ignore some files we don't want to store in the repository. These could be logs, configuration files or sensitive data.
-
-    cd /path/to/parent/folder
-    
-Create a file mask to ignore the file *config.js* and all files ending in *.log*
-
-    svn propedit svn:ignore .
-    *.log
-    config.js
-    
-Or use a one liner to ignore a single file
-
-    svn propset svn:ignore config.js .
-    
-List ignored files
-
-    svn propget svn:ignore .
-    
-    svn status --no-ignore
-    
-For these setting to take effect we have to do a commit. Note that files already existing in the repos must first be deleted before the ignore will take effect.
-
-    svn commit -m "Ignoring some files"
-    
-####Relocate a working copy
-
-The URL or path to the server hosting the repos might change. If this happens we can relocate the working copy
-
-    svn switch --relocate http://exmample.com:8080/path/to/repos https://exmample.com/path/to/repos
-    
-####Restore a deleted file
-
-We first have to find the last revision in which the file existed. Create a log file
-
-    svn log -v https://exmample.com/path/to/repos > log.txt
-    
-Now search for the file in the log
-    
-    less log.txt
-    
-The last revision the file existed is the revision number of the delete minus one.
-
-Resurrect the file and keep its version history
-
-    svn copy https://exmample.com/path/to/repos/the/file@lastRevisionNumber -r lastRevisionNumber /working/copy/the/file
-    
-And if you are only interested in the contents of the file
-
-    svn cat https://exmample.com/path/to/repos/the/file@lastRevisionNumber -r lastRevisionNumber > the.file
-
-####List files changed between revisions
-
-    svn diff --summarize -rXXX:YYY https://example.com/path/to/repos
-    
-####Work on a branch
-
-First create a branch from an existing repos location
-
-    svn cp --parents https://example.com/path/to/repos/trunk/some/folder https://example.com/path/to/repos/branches/some/folder
-    
-Then switch the same location in your working copy to the branch URL
-
-    cd /working/copy/some/folder
-    
-    svn info
-    
-    svn switch https://example.com/path/to/repos/branches/some/folder
-    
-    svn update
-    
-**Be careful not to switch the wrong folder, this might mess up the working copy!**
-
-Changes to the branch can be be committed as usual. 
-
-We can merge the latest changes on trunk into the branch
-
-    cd /working/copy/some/folder
-    
-    svn merge https://example.com/path/to/repos/trunk/some/folder
-    
-    svn commit -m "Merging changes into branch"
-    
-And when we are done with the branch we can merge it into trunk
-
-    cd /working/copy/some/folder
-    
-    svn switch https://example.com/path/to/repos/trunk/some/folder
-    
-    svn merge --reintegrate https://example.com/path/to/repos/branches/some/folder
-    
-    svn commit -m "Merging branch into trunk"
-
-Finally we can also delete a branch
-
-    svn rm https://example.com/path/to/repos/branches/some/folder
-    
-####Tag a revision
-
-    svn copy https://example.com/path/to/repos/trunk https://example.com/path/to/repos/tags/v0.1 -m "Tagging version 0.1"
-
-</textarea>
-<script src="../external/strapdown-0.2/strapdown.js"></script>
 </body>
 </html>
 
