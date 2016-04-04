@@ -10,6 +10,10 @@ a h1.blog-title {
     color: darkslategrey;
 }
 
+article.post a {
+    color: SteelBlue;
+}
+
 article.post header .p-post-title {
     font-size: 1.9rem;
 }
