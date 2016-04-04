@@ -274,9 +274,7 @@ GO15VENDOREXPERIMENT=1 CERT=dlv-cert make install
       <guid>http://mozey.co/post/letsencrypt-nginx/</guid>
       <description>
 
-&lt;h1 id=&#34;let-s-encrypt-nginx:8929ffe4a04adc886cfa48c127ee0f24&#34;&gt;[Let&amp;rsquo;s Encrypt &amp;amp; Nginx]&lt;/h1&gt;
-
-&lt;p&gt;(&lt;a href=&#34;https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/&#34;&gt;https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/&lt;/a&gt;)&lt;/p&gt;
+&lt;h1 id=&#34;let-s-encrypt-nginx-https-letsecure-me-secure-web-deployment-with-lets-encrypt-and-nginx:8929ffe4a04adc886cfa48c127ee0f24&#34;&gt;&lt;a href=&#34;https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx&#34;&gt;Let&amp;rsquo;s Encrypt &amp;amp; Nginx&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;State of the art secure web deployment&lt;/p&gt;
 </description>
@@ -346,9 +344,7 @@ Tools &amp;gt; Adjust Size...
       <guid>http://mozey.co/post/python-dev-ubuntu/</guid>
       <description>
 
-&lt;h1 id=&#34;how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu:9c463ed49ed8cf83b655e0ae060739cf&#34;&gt;[How to set up and use a virtual python environment in Ubuntu?]&lt;/h1&gt;
-
-&lt;p&gt;(&lt;a href=&#34;http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu&#34;&gt;http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu&lt;/a&gt;)&lt;/p&gt;
+&lt;h1 id=&#34;how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu-http-askubuntu-com-questions-244641-how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu:9c463ed49ed8cf83b655e0ae060739cf&#34;&gt;&lt;a href=&#34;http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu&#34;&gt;How to set up and use a virtual python environment in Ubuntu?&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;Install virtualenv and wrapper&lt;/p&gt;
 
