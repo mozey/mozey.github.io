@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on mozey.co</title>
+    <link>http://mozey.co/post/</link>
+    <description>Recent content in Posts on mozey.co</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://mozey.co/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>gohugo</title>
+      <link>http://mozey.co/post/gohugo/</link>
+      <pubDate>Fri, 01 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/gohugo/</guid>
+      <description>
+
+&lt;h2 id=&#34;install:da0f48dab9453658f6115351016ea84c&#34;&gt;Install&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;brew update &amp;amp;&amp;amp; brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;what-is-hugo:da0f48dab9453658f6115351016ea84c&#34;&gt;What is Hugo?&lt;/h2&gt;
+
+&lt;p&gt;Hugo is a static site generator.
+Unlike other systems which dynamically build a page every time a visitor
+requests one, Hugo does the building when you create your content.&lt;/p&gt;
+
+&lt;p&gt;Hugo is optimized for website viewing&lt;/p&gt;
+
+&lt;h2 id=&#34;quickstart-https-gohugo-io-overview-quickstart:da0f48dab9453658f6115351016ea84c&#34;&gt;&lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;Quickstart&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo new site NAME
+
+hugo new post/good-to-great.md
+
+mkdir themes &amp;amp;&amp;amp; cd themes &amp;amp;&amp;amp; \
+git clone https://github.com/mozey/hugo-theme-mozey.git
+
+hugo server --theme=hugo-theme-mozey --buildDrafts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;make-post-public:da0f48dab9453658f6115351016ea84c&#34;&gt;Make post public&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo undraft content/post/good-to-great.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;integrate-disqus-edit-config-toml:da0f48dab9453658f6115351016ea84c&#34;&gt;Integrate Disqus, edit &lt;code&gt;config.toml&lt;/code&gt;&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;[Params]
+    Author = &amp;quot;NAME SURNAME&amp;quot;
+    disqusShortname = &amp;lt;DISQUS_SHORTNAME&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;generate-website:da0f48dab9453658f6115351016ea84c&#34;&gt;Generate website&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo --theme=hugo-theme-mozey
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;public&lt;/code&gt; folder can be deployed to a server&lt;/p&gt;
+
+&lt;p&gt;To preview change &lt;code&gt;baseurl&lt;/code&gt; in config then&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; cd ./public &amp;amp;&amp;amp; python -m http.server 1234
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;list-directory-layout-tree-name:da0f48dab9453658f6115351016ea84c&#34;&gt;List directory layout &lt;code&gt;tree ./NAME&lt;/code&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;website/
+├── archetypes
+├── config.json
+├── content
+│   └── post
+│       └── good-to-great.md
+├── data
+├── layouts
+├── public...
+├── static
+└── themes...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;archetypes:da0f48dab9453658f6115351016ea84c&#34;&gt;archetypes&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;hugo new&lt;/code&gt; adds a few configuration properties to the post like date and title,
+ define your own configuration properties with archetypes&lt;/p&gt;
+
+&lt;h4 id=&#34;config-toml:da0f48dab9453658f6115351016ea84c&#34;&gt;config.toml&lt;/h4&gt;
+
+&lt;p&gt;Can also use YAML and JSON&lt;/p&gt;
+
+&lt;h4 id=&#34;content:da0f48dab9453658f6115351016ea84c&#34;&gt;content&lt;/h4&gt;
+
+&lt;p&gt;Website sections, i.e. blog, article, or tutorial&lt;/p&gt;
+
+&lt;h4 id=&#34;data:da0f48dab9453658f6115351016ea84c&#34;&gt;data&lt;/h4&gt;
+
+&lt;p&gt;Configuration files, can be YAML, JSON or TOML&lt;/p&gt;
+
+&lt;h4 id=&#34;layouts:da0f48dab9453658f6115351016ea84c&#34;&gt;layouts&lt;/h4&gt;
+
+&lt;p&gt;Specify how your content will be converted into the static website&lt;/p&gt;
+
+&lt;h4 id=&#34;static:da0f48dab9453658f6115351016ea84c&#34;&gt;static&lt;/h4&gt;
+
+&lt;p&gt;Images, CSS, JavaScript or other static content&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-a-theme:da0f48dab9453658f6115351016ea84c&#34;&gt;Creating a theme&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo new theme hugo-theme-mozey
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>angular donts</title>
+      <link>http://mozey.co/post/angular-donts/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/angular-donts/</guid>
+      <description>
+
+&lt;h1 id=&#34;list-of-practises-that-make-angular-code-fragile-and-unmaintainable:7dc0e1db08f0f0cb8032450057252836&#34;&gt;List of practises that make angular code fragile and unmaintainable&lt;/h1&gt;
+
+&lt;p&gt;Some of the points listed also apply to javascript programming in general.&lt;/p&gt;
+
+&lt;h2 id=&#34;adding-unused-variables-onto-the-scope:7dc0e1db08f0f0cb8032450057252836&#34;&gt;Adding unused variables onto the scope&lt;/h2&gt;
+
+&lt;p&gt;Variables should only be added to the scope when
+it is used for template rendering or data binding.&lt;/p&gt;
+
+&lt;h2 id=&#34;using-scope-or-shared-objects-to-communicate-between-controllers:7dc0e1db08f0f0cb8032450057252836&#34;&gt;Using scope or shared objects to communicate between controllers&lt;/h2&gt;
+
+&lt;p&gt;Rather use event or services.&lt;/p&gt;
+
+&lt;p&gt;When services are used they should they should not expose shared objects,
+always return a copy of underlying data if simple variables are not used.&lt;/p&gt;
+
+&lt;h2 id=&#34;using-one-data-structure-for-multiple-purposes:7dc0e1db08f0f0cb8032450057252836&#34;&gt;Using one data structure for multiple purposes&lt;/h2&gt;
+
+&lt;p&gt;For example, don&amp;rsquo;t use $scope.data to render a form and then also post it to a
+web service. Rather create a function that extracts only the data required.
+The benefit is that this function then documents exactly what is intended as
+params.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>bookkeeping and accounting</title>
+      <link>http://mozey.co/post/bookkeeping-and-accounting/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/bookkeeping-and-accounting/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.dwmbeancounter.com/tutorial/Tutorial.html&#34;&gt;So, you want to learn Bookkeeping!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://martin.kleppmann.com/2011/03/07/accounting-for-computer-scientists.html&#34;&gt;Accounting for Computer Scientists&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.odoo.com/documentation/functional/accounting.html&#34;&gt;Accounting Memento For Entrepreneurs&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>github workflow</title>
+      <link>http://mozey.co/post/github-workflow/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/github-workflow/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://help.github.com/articles/what-is-a-good-git-workflow/&#34;&gt;help&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://guides.github.com/introduction/flow/&#34;&gt;guide&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>golang delve osx</title>
+      <link>http://mozey.co/post/golang-delve-osx/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/golang-delve-osx/</guid>
+      <description>
+
+&lt;h1 id=&#34;install-delve-osx-https-github-com-derekparker-delve-blob-master-documentation-installation-osx-install-md:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;&lt;a href=&#34;https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/install.md&#34;&gt;Install Delve OSX&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2 id=&#34;prerequisites:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;xcode-select --install
+
+&amp;gt; command line tools are already installed, 
+use &amp;quot;Software Update&amp;quot; to install updates
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;create-a-self-signed-certificate:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;Create a self-signed certificate&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;Keychain Access
+
+Keychain Access &amp;gt; Certificate Assistant &amp;gt; Create a Certificate
+
+name                        dlv-cert
+Identity Type               Self Signed Root
+Certificate Type            Code Signing
+Let me override defaults    Yes
+set 365 days                3650 days
+Continue...
+Specify a Location For The Certificate &amp;gt; Keychain: System
+
+In keychains select System
+Context menu &amp;gt; Get info
+Trust &amp;gt; Code Signing &amp;gt; Always Trust
+
+In category select Keys
+dlv-cert &amp;gt; right click &amp;gt; GetInfo &amp;gt; Access Control
+Allow all applications to access this item &amp;gt; Save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Quit Keychain Access&lt;/p&gt;
+
+&lt;p&gt;Kill the current running taskgated process (or restart)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; ps ax | grep taskgated
+
+ sudo kill xxx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;install-the-binary:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;Install the binary&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/derekparker/delve.git &amp;amp;&amp;amp; cd delve
+
+GO15VENDOREXPERIMENT=1 CERT=dlv-cert make install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;troubleshooting-https-github-com-derekparker-delve-blob-master-documentation-installation-osx-install-md-notes:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;&lt;a href=&#34;https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/install.md#notes&#34;&gt;Troubleshooting&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Eliminating codesign authorization prompt during builds&lt;/p&gt;
+
+&lt;p&gt;Eliminating &amp;ldquo;Developer tools access&amp;rdquo; prompt running delve&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;See troubleshooting link above
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/derekparker/delve/issues/216&#34;&gt;process instantly killed &lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;test:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;Test&lt;/h2&gt;
+
+&lt;h2 id=&#34;setup-with-go-lang-idea-plugin-in-pycharm:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;Setup with go-lang-idea-plugin in PyCharm&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>golang shared libs</title>
+      <link>http://mozey.co/post/golang-shared-libs/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/golang-shared-libs/</guid>
+      <description>
+
+&lt;h1 id=&#34;sharing-golang-packages-to-c-and-go-http-blog-ralch-com-tutorial-golang-sharing-libraries:e37244b589090c4d785e1023cf7c1809&#34;&gt;&lt;a href=&#34;http://blog.ralch.com/tutorial/golang-sharing-libraries/&#34;&gt;Sharing Golang packages to C and Go&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2 id=&#34;using-shared-library-in-go:e37244b589090c4d785e1023cf7c1809&#34;&gt;Using shared library in Go&lt;/h2&gt;
+
+&lt;h2 id=&#34;using-shared-go-library-in-c:e37244b589090c4d785e1023cf7c1809&#34;&gt;Using shared Go library in C&lt;/h2&gt;
+
+&lt;h1 id=&#34;dynamic-shared-libraries-loading-https-github-com-golang-go-issues-13751:e37244b589090c4d785e1023cf7c1809&#34;&gt;&lt;a href=&#34;https://github.com/golang/go/issues/13751&#34;&gt;Dynamic shared libraries loading&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;&amp;ldquo;No, go 1.6 will not support Go plugins. Nobody has comitted to doing that work.&amp;rdquo;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>letsencrypt nginx</title>
+      <link>http://mozey.co/post/letsencrypt-nginx/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/letsencrypt-nginx/</guid>
+      <description>
+
+&lt;h1 id=&#34;let-s-encrypt-nginx:8929ffe4a04adc886cfa48c127ee0f24&#34;&gt;[Let&amp;rsquo;s Encrypt &amp;amp; Nginx]&lt;/h1&gt;
+
+&lt;p&gt;(&lt;a href=&#34;https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/&#34;&gt;https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;State of the art secure web deployment&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>native vs web apps</title>
+      <link>http://mozey.co/post/native-vs-web-apps/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/native-vs-web-apps/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://joreteg.com/blog/why-i-switched-to-android&#34;&gt;Why I switched to Android after 7 years of iOS&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://medium.com/swlh/nobody-wants-your-app-6af1f7f69cb7&#34;&gt;Nobody Wants Your App.&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>opensprinkler</title>
+      <link>http://mozey.co/post/opensprinkler/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/opensprinkler/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://opensprinkler.com/faq/&#34;&gt;FAQ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;flow-sensor:90cf156fc627320b0fed29a976fa3560&#34;&gt;Flow sensor&lt;/h2&gt;
+
+&lt;p&gt;OpenSprinkler has a sensor terminal that can accept any off-the-shelf rain
+sensor, either normally open or normally closed type. The sensor terminal can
+also accept a dry contact flow sensor (i.e. two-wire type).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>osx batch resize images</title>
+      <link>http://mozey.co/post/osx-batch-resize-images/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/osx-batch-resize-images/</guid>
+      <description>
+
+&lt;h1 id=&#34;terminal:0c99fdcc09ae5b1b07590ed12a1c2319&#34;&gt;Terminal&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;cd path/to/images
+
+sips -Z 1024 *.jpg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;preview:0c99fdcc09ae5b1b07590ed12a1c2319&#34;&gt;Preview&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;Open images in preview
+
+Select All
+
+Tools &amp;gt; Adjust Size...
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>python dev ubuntu</title>
+      <link>http://mozey.co/post/python-dev-ubuntu/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/python-dev-ubuntu/</guid>
+      <description>
+
+&lt;h1 id=&#34;how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu:9c463ed49ed8cf83b655e0ae060739cf&#34;&gt;[How to set up and use a virtual python environment in Ubuntu?]&lt;/h1&gt;
+
+&lt;p&gt;(&lt;a href=&#34;http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu&#34;&gt;http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Install virtualenv and wrapper&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install python-pip
+
+sudo pip install virtualenv
+
+sudo pip install virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Setup virtual env&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir ~/.venvs
+
+vi ~/.profile
+
+export WORKON_HOME=~/.venvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+source ~/.profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a virtual env&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkvirtualenv -p /usr/bin/python3.5 test-python3.5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Active / de-active virtual env&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;workon test
+
+deactivate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;install-any-version-of-python-http-askubuntu-com-a-682875:9c463ed49ed8cf83b655e0ae060739cf&#34;&gt;&lt;a href=&#34;http://askubuntu.com/a/682875&#34;&gt;Install any version of python&lt;/a&gt;&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo add-apt-repository ppa:fkrull/deadsnakes
+
+sudo apt-get update
+
+sudo apt-get install python3.5
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>queues</title>
+      <link>http://mozey.co/post/queues/</link>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/queues/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://bravenewgeek.com/tag/message-queues/&#34;&gt;Benchmarking Message Queue Latency&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://bravenewgeek.com/dissecting-message-queues/&#34;&gt;Dissecting Message Queues&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://bravenewgeek.com/you-cannot-have-exactly-once-delivery/&#34;&gt;You Cannot Have Exactly-Once Delivery&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://bravenewgeek.com/a-look-at-nanomsg-and-scalability-protocols/&#34;&gt;Nanomsg vs ZermoMQ&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>angular2 typescript book</title>
+      <link>http://mozey.co/post/angular2-typescript-book/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/angular2-typescript-book/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.manning.com/books/angular-2-development-with-typescript&#34;&gt;Angular 2 Development with TypeScript&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ec2 security group ddns</title>
+      <link>http://mozey.co/post/ec2-security-group-ddns/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/ec2-security-group-ddns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>enterprise integration patterns</title>
+      <link>http://mozey.co/post/enterprise-integration-patterns/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/enterprise-integration-patterns/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns&#34;&gt;Enterprise Integration Patterns&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;sixty-five-patterns:513ac16b41ae54c00bd0ac875b568a40&#34;&gt;Sixty-five patterns&lt;/h1&gt;
+
+&lt;h2 id=&#34;1:513ac16b41ae54c00bd0ac875b568a40&#34;&gt;1&lt;/h2&gt;
+
+&lt;p&gt;TODO&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

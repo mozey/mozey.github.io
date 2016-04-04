@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="Christiaan van Zyl">
+        <meta name="keywords" content="awesome, definitely">
+	
+        <meta property="og:site_name" content="mozey.co">
+        <meta property="og:title" content="mozey.co">
+        <meta property="og:url" content="http://mozey.co/post/gohugo/">
+        <meta property="og:description" content="">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="Christiaan van Zyl" />
+        <meta property="og:article:published_time" content="2016-04-01T00:00:00Z" />
+    
+        <meta name="generator" content="Hugo 0.15" />
+        <title>gohugo &middot; mozey.co </title>
+        <link rel="canonical" href="http://mozey.co/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/main.css"/>
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/custom.css"/>
+        <link href='http://mozey.co/css/montserrat.css' rel='stylesheet' type='text/css'>
+        <link href="http://mozey.co/css/font-awesome.css" rel="stylesheet">
+        <script src="http://mozey.co/js/jquery-1.10.2.min.js"></script>
+    </head>
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://mozey.co/" alt="mozey.co"><h1 class="blog-title heading">mozey.co</h1></a>
+            <p class="blog-description"></p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="post">
+	<header class="post-header">
+        <h3 class="p-post-title">gohugo</h3>
+    </header>
+
+    <section class="post-content">
+        
+
+<h2 id="install:da0f48dab9453658f6115351016ea84c">Install</h2>
+
+<pre><code>brew update &amp;&amp; brew install hugo
+</code></pre>
+
+<h2 id="what-is-hugo:da0f48dab9453658f6115351016ea84c">What is Hugo?</h2>
+
+<p>Hugo is a static site generator.
+Unlike other systems which dynamically build a page every time a visitor
+requests one, Hugo does the building when you create your content.</p>
+
+<p>Hugo is optimized for website viewing</p>
+
+<h2 id="quickstart-https-gohugo-io-overview-quickstart:da0f48dab9453658f6115351016ea84c"><a href="https://gohugo.io/overview/quickstart/">Quickstart</a></h2>
+
+<pre><code>hugo new site NAME
+
+hugo new post/good-to-great.md
+
+mkdir themes &amp;&amp; cd themes &amp;&amp; \
+git clone https://github.com/mozey/hugo-theme-mozey.git
+
+hugo server --theme=hugo-theme-mozey --buildDrafts
+</code></pre>
+
+<h4 id="make-post-public:da0f48dab9453658f6115351016ea84c">Make post public</h4>
+
+<pre><code>hugo undraft content/post/good-to-great.md
+</code></pre>
+
+<h4 id="integrate-disqus-edit-config-toml:da0f48dab9453658f6115351016ea84c">Integrate Disqus, edit <code>config.toml</code></h4>
+
+<pre><code>[Params]
+    Author = &quot;NAME SURNAME&quot;
+    disqusShortname = &lt;DISQUS_SHORTNAME&gt;
+</code></pre>
+
+<h4 id="generate-website:da0f48dab9453658f6115351016ea84c">Generate website</h4>
+
+<pre><code>hugo --theme=hugo-theme-mozey
+</code></pre>
+
+<p><code>public</code> folder can be deployed to a server</p>
+
+<p>To preview change <code>baseurl</code> in config then</p>
+
+<pre><code> cd ./public &amp;&amp; python -m http.server 1234
+</code></pre>
+
+<h2 id="list-directory-layout-tree-name:da0f48dab9453658f6115351016ea84c">List directory layout <code>tree ./NAME</code></h2>
+
+<pre><code>website/
+├── archetypes
+├── config.json
+├── content
+│   └── post
+│       └── good-to-great.md
+├── data
+├── layouts
+├── public...
+├── static
+└── themes...
+</code></pre>
+
+<h4 id="archetypes:da0f48dab9453658f6115351016ea84c">archetypes</h4>
+
+<p><code>hugo new</code> adds a few configuration properties to the post like date and title,
+ define your own configuration properties with archetypes</p>
+
+<h4 id="config-toml:da0f48dab9453658f6115351016ea84c">config.toml</h4>
+
+<p>Can also use YAML and JSON</p>
+
+<h4 id="content:da0f48dab9453658f6115351016ea84c">content</h4>
+
+<p>Website sections, i.e. blog, article, or tutorial</p>
+
+<h4 id="data:da0f48dab9453658f6115351016ea84c">data</h4>
+
+<p>Configuration files, can be YAML, JSON or TOML</p>
+
+<h4 id="layouts:da0f48dab9453658f6115351016ea84c">layouts</h4>
+
+<p>Specify how your content will be converted into the static website</p>
+
+<h4 id="static:da0f48dab9453658f6115351016ea84c">static</h4>
+
+<p>Images, CSS, JavaScript or other static content</p>
+
+<h2 id="creating-a-theme:da0f48dab9453658f6115351016ea84c">Creating a theme</h2>
+
+<pre><code>hugo new theme hugo-theme-mozey
+</code></pre>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            <section class="author">
+                <p>Words by Christiaan van Zyl</p>
+            </section>
+            
+            
+            <p class="f-post-time"><time datetime="2016-04-01T00:00:00Z">April 1, 2016</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=gohugo&url=http%3a%2f%2fmozey.co%2fpost%2fgohugo%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmozey.co%2fpost%2fgohugo%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fmozey.co%2fpost%2fgohugo%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://mozey.co/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://mozey.co/">Christiaan van Zyl</a> 2015 | All rights reserved</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://mozey.co/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>

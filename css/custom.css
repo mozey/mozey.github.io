@@ -1,0 +1,31 @@
+body {
+    /*
+    Lighter cornsilk
+    http://www.w3schools.com/colors/color_tryit.asp?color=Cornsilk
+    */
+    background-color: #fffae6;
+}
+
+a h1.blog-title {
+    color: darkslategrey;
+}
+
+article.post header .p-post-title {
+    font-size: 1.9rem;
+}
+
+article.post h1 {
+    font-size: 1.5rem;
+}
+
+article.post h2 {
+    font-size: 1.3rem;
+}
+
+article.post h3 {
+    font-size: 1.1rem;
+}
+
+article.post h4 {
+    font-size: 0.9rem;
+}
