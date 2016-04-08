@@ -6,8 +6,73 @@
     <description>Recent content on mozey.co</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Apr 2016 19:22:00 +0000</lastBuildDate>
     <atom:link href="http://mozey.co/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>angular2 google maps quickstart</title>
+      <link>http://mozey.co/post/angular2-google-maps-quickstart/</link>
+      <pubDate>Mon, 04 Apr 2016 19:22:00 +0000</pubDate>
+      
+      <guid>http://mozey.co/post/angular2-google-maps-quickstart/</guid>
+      <description>
+
+&lt;h1 id=&#34;project-structure-https-angular-maps-com-docs-getting-started-html-project-structure:5be373a677c00d2fb447ef1d45f9a604&#34;&gt;&lt;a href=&#34;https://angular-maps.com/docs/getting-started.html#project-structure&#34;&gt;project-structure&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Install typescript&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo npm install -g typescript
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a project folder&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir angular2-google-maps-project &amp;amp;&amp;amp; cd angular2-google-maps-project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create files&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;typings.json
+
+package.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Install npm packages&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Configure typescript compiler with &lt;code&gt;tsconfig.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Create &lt;code&gt;index.html&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;angular2-google-maps-setup-https-angular-maps-com-docs-getting-started-html-angular2-google-maps-setup:5be373a677c00d2fb447ef1d45f9a604&#34;&gt;&lt;a href=&#34;https://angular-maps.com/docs/getting-started.html#angular2-google-maps-setup&#34;&gt;angular2-google-maps-setup&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Add angular2-google-maps to your project&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install --save angular2-google-maps
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Update &lt;code&gt;index.html&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Creating the app folder&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir app
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create &lt;code&gt;app.component.ts&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Create &lt;code&gt;boot.ts&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Run the application&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;troubleshooting:5be373a677c00d2fb447ef1d45f9a604&#34;&gt;Troubleshooting&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gitter.im/SebastianM/angular2-google-maps&#34;&gt;gitter&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>gohugo</title>
@@ -403,6 +468,8 @@ sudo apt-get install python3.5
 &lt;p&gt;&lt;a href=&#34;http://bravenewgeek.com/you-cannot-have-exactly-once-delivery/&#34;&gt;You Cannot Have Exactly-Once Delivery&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://bravenewgeek.com/a-look-at-nanomsg-and-scalability-protocols/&#34;&gt;Nanomsg vs ZermoMQ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/adjust/rmq&#34;&gt;Message queue system written in Go and backend by Redis&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -423,24 +490,6 @@ sudo apt-get install python3.5
       
       <guid>http://mozey.co/post/ec2-security-group-ddns/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>enterprise integration patterns</title>
-      <link>http://mozey.co/post/enterprise-integration-patterns/</link>
-      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>http://mozey.co/post/enterprise-integration-patterns/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns&#34;&gt;Enterprise Integration Patterns&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;sixty-five-patterns:513ac16b41ae54c00bd0ac875b568a40&#34;&gt;Sixty-five patterns&lt;/h1&gt;
-
-&lt;h2 id=&#34;1:513ac16b41ae54c00bd0ac875b568a40&#34;&gt;1&lt;/h2&gt;
-
-&lt;p&gt;TODO&amp;hellip;&lt;/p&gt;
-</description>
     </item>
     
   </channel>
