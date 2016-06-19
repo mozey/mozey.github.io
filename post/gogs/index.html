@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="Christiaan van Zyl">
+        <meta name="keywords" content="awesome, definitely">
+	
+        <meta property="og:site_name" content="mozey.co">
+        <meta property="og:title" content="mozey.co">
+        <meta property="og:url" content="http://mozey.co/post/gogs/">
+        <meta property="og:description" content="">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="Christiaan van Zyl" />
+        <meta property="og:article:published_time" content="2016-04-10T15:03:10&#43;02:00" />
+    
+        <meta name="generator" content="Hugo 0.15" />
+        <title>gogs &middot; mozey.co </title>
+        <link rel="canonical" href="http://mozey.co/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/main.css"/>
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/custom.css"/>
+        <link href='http://mozey.co/css/montserrat.css' rel='stylesheet' type='text/css'>
+        <link href="http://mozey.co/css/font-awesome.css" rel="stylesheet">
+        <script src="http://mozey.co/js/jquery-1.10.2.min.js"></script>
+        <link rel="icon" href="http://mozey.co/favicon.ico">
+    </head>
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://mozey.co/" alt="mozey.co"><h1 class="blog-title heading">mozey.co</h1></a>
+            <p class="blog-description"></p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="post">
+	<header class="post-header">
+        <h3 class="p-post-title">gogs</h3>
+    </header>
+
+    <section class="post-content">
+        
+
+<h1 id="gogs-https-gogs-io:774b6f23ce9f6a15436a591e1fc61630"><a href="https://gogs.io/">gogs</a></h1>
+
+<p>A painless self-hosted Git service.</p>
+
+<h2 id="install:774b6f23ce9f6a15436a591e1fc61630">Install</h2>
+
+<h3 id="requires:774b6f23ce9f6a15436a591e1fc61630">Requires</h3>
+
+<pre><code>MySQL or PostgreSQL
+
+Git
+
+SSH server
+</code></pre>
+
+<h3 id="download-binary-and-extract:774b6f23ce9f6a15436a591e1fc61630">Download binary and extract</h3>
+
+<pre><code>wget https://dl.gogs.io/gogs_v0.9.13_linux_amd64.tar.gz
+
+tar xvzf gogs_v0.9.13_linux_amd64.tar.gz
+</code></pre>
+
+<h3 id="create-database:774b6f23ce9f6a15436a591e1fc61630">Create database</h3>
+
+<pre><code>cd gogs
+
+mysql -u root -p &lt; scripts/mysql.sql 
+</code></pre>
+
+<h3 id="create-custom-config-example-https-raw-githubusercontent-com-gogits-gogs-master-conf-app-ini:774b6f23ce9f6a15436a591e1fc61630">Create custom config, <a href="https://raw.githubusercontent.com/gogits/gogs/master/conf/app.ini">example</a></h3>
+
+<pre><code>mkdir -p gogs/custom/conf
+
+vi gogs/custom/conf/app.ini
+</code></pre>
+
+<h3 id="run-server:774b6f23ce9f6a15436a591e1fc61630">Run server</h3>
+
+<pre><code>cd gogs &amp;&amp; ./gogs web
+</code></pre>
+
+<h3 id="connect-via-web-interface-to-complete-install:774b6f23ce9f6a15436a591e1fc61630">Connect via web interface to complete install</h3>
+
+<h3 id="create-self-signed-cert:774b6f23ce9f6a15436a591e1fc61630">Create self signed cert</h3>
+
+<pre><code>mkdir custom/https &amp;&amp; cd custom/https
+
+../../gogs cert -ca=true -duration=8760h0m0s -host=host.example.com
+</code></pre>
+
+<h3 id="update-config-for-https:774b6f23ce9f6a15436a591e1fc61630">Update config for HTTPS</h3>
+
+<pre><code>PROTOCOL = https
+DOMAIN = host.example.com
+ROOT_URL = https://host.example.com/
+CERT_FILE = custom/https/cert.pem
+KEY_FILE = custom/https/key.pem
+</code></pre>
+
+<h2 id="usage:774b6f23ce9f6a15436a591e1fc61630">Usage</h2>
+
+<h3 id="change-remote-to-use-https:774b6f23ce9f6a15436a591e1fc61630">Change remote to use https</h3>
+
+<pre><code>git remote -v
+
+git remote set-url origin https://git.mozey.co:8080/mozey/crm-project.git
+</code></pre>
+
+<h3 id="disable-ssl-verification-for-single-repository:774b6f23ce9f6a15436a591e1fc61630">Disable SSL verification for single repository</h3>
+
+<pre><code>git config http.sslVerify false
+</code></pre>
+
+<h1 id="go-get:774b6f23ce9f6a15436a591e1fc61630">go get</h1>
+
+<p><a href="http://stackoverflow.com/a/27501176/639133">Private repository</a></p>
+
+<pre><code>cd $GOPATH/src
+
+mkdir /path/as/required &amp;&amp; cd /path/as/required
+
+git clone git@github.com:private/repos.git
+</code></pre>
+
+<p>Update the package</p>
+
+<pre><code>go get -u
+</code></pre>
+
+<p>Install the package</p>
+
+<pre><code>go install
+</code></pre>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            <section class="author">
+                <p>Words by Christiaan van Zyl</p>
+            </section>
+            
+            
+            <p class="f-post-time"><time datetime="2016-04-10T15:03:10&#43;02:00">April 10, 2016</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=gogs&url=http%3a%2f%2fmozey.co%2fpost%2fgogs%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmozey.co%2fpost%2fgogs%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fmozey.co%2fpost%2fgogs%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://mozey.co/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://mozey.co/">Christiaan van Zyl</a> 2015 | All rights reserved</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://mozey.co/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="Christiaan van Zyl">
+        <meta name="keywords" content="awesome, definitely">
+	
+        <meta property="og:site_name" content="mozey.co">
+        <meta property="og:title" content="mozey.co">
+        <meta property="og:url" content="http://mozey.co/post/ubuntu-fresh-install/">
+        <meta property="og:description" content="">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="Christiaan van Zyl" />
+        <meta property="og:article:published_time" content="2015-07-01T00:00:00Z" />
+    
+        <meta name="generator" content="Hugo 0.15" />
+        <title>ubuntu fresh install &middot; mozey.co </title>
+        <link rel="canonical" href="http://mozey.co/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/main.css"/>
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/custom.css"/>
+        <link href='http://mozey.co/css/montserrat.css' rel='stylesheet' type='text/css'>
+        <link href="http://mozey.co/css/font-awesome.css" rel="stylesheet">
+        <script src="http://mozey.co/js/jquery-1.10.2.min.js"></script>
+        <link rel="icon" href="http://mozey.co/favicon.ico">
+    </head>
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://mozey.co/" alt="mozey.co"><h1 class="blog-title heading">mozey.co</h1></a>
+            <p class="blog-description"></p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="post">
+	<header class="post-header">
+        <h3 class="p-post-title">ubuntu fresh install</h3>
+    </header>
+
+    <section class="post-content">
+        
+
+<p>Couple of useful things to do an every fresh Ubuntu install, first update apt</p>
+
+<pre><code>sudo apt-get update
+</code></pre>
+
+<h1 id="misc:ff9e73dde60d640d32f6d0504fc8d24f">Misc</h1>
+
+<h3 id="get-rid-of-messages-like-lc-all-cannot-change-locale-en-gb-utf-8:ff9e73dde60d640d32f6d0504fc8d24f">Get rid of messages like: &ldquo;LC_ALL: cannot change locale (en_GB.UTF-8)&rdquo;</h3>
+
+<pre><code>sudo locale-gen en_GB.UTF-8
+</code></pre>
+
+<h3 id="install-network-time-protocol-client-to-keep-clock-in-sync:ff9e73dde60d640d32f6d0504fc8d24f">Install network time protocol client to keep clock in sync</h3>
+
+<pre><code>sudo apt-get install ntp
+</code></pre>
+
+<p>Configure time zone</p>
+
+<pre><code>sudo dpkg-reconfigure tzdata
+
+Servers should use Etc &gt; UTC
+</code></pre>
+
+<h3 id="customize-prompt-so-you-don-t-get-confused-about-which-server-you-ve-sshd-into:ff9e73dde60d640d32f6d0504fc8d24f">Customize prompt so you don&rsquo;t get confused about which server you&rsquo;ve SSHd into:</h3>
+
+<pre><code>vi ~/.profile
+
+PS1=&quot;\n&lt;\[\033[0;32m\]SERVER_NAME\[\033[0m\]:\[\033[0;37m\]\u\[\033[0m\]&gt; \j [\$(date +%d-%m\&quot; \&quot;%H:%M)] \w \n! &quot;
+</code></pre>
+
+<h3 id="install-software-using-tasksel:ff9e73dde60d640d32f6d0504fc8d24f">Install software using tasksel</h3>
+
+<pre><code>sudo apt-get install tasksel
+
+sudo tasksel
+</code></pre>
+
+<p>Install collections</p>
+
+<pre><code>LAMP Server
+
+PostgresSQL Database
+</code></pre>
+
+<h1 id="making-an-amazon-ebs-volume-available-for-use-http-docs-aws-amazon-com-awsec2-latest-userguide-ebs-using-volumes-html:ff9e73dde60d640d32f6d0504fc8d24f"><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Making an Amazon EBS Volume Available for Use</a></h1>
+
+<p>View available disk devices</p>
+
+<pre><code>lsblk
+</code></pre>
+
+<h3 id="determine-whether-you-need-to-create-a-file-system-on-the-volume:ff9e73dde60d640d32f6d0504fc8d24f">Determine whether you need to create a file system on the volume,</h3>
+
+<p>an example of DEVICE_NAME is <code>/dev/xvdb</code></p>
+
+<pre><code>sudo file -s DEVICE_NAME
+</code></pre>
+
+<h3 id="create-a-filesystem-if-previous-command-just-displays-data:ff9e73dde60d640d32f6d0504fc8d24f">Create a filesystem if previous command just displays &ldquo;data&rdquo;</h3>
+
+<pre><code>sudo mkfs -t ext4 DEVICE_NAME
+</code></pre>
+
+<h3 id="create-a-mount-point-directory-for-the-volume:ff9e73dde60d640d32f6d0504fc8d24f">Create a mount point directory for the volume,</h3>
+
+<p>for example <code>/home/ubuntu/data</code></p>
+
+<pre><code>sudo mkdir MOUNT_POINT
+</code></pre>
+
+<h3 id="mount-the-volume:ff9e73dde60d640d32f6d0504fc8d24f">Mount the volume</h3>
+
+<pre><code>sudo mount DEVICE_NAME MOUNT_POINT
+</code></pre>
+
+<h3 id="add-volume-to-fstab-to-enable-mount-on-reboot:ff9e73dde60d640d32f6d0504fc8d24f">Add volume to fstab to enable mount on reboot</h3>
+
+<p>Create backup of fstab</p>
+
+<pre><code>sudo cp /etc/fstab /etc/fstab.bak
+</code></pre>
+
+<p>fstab line format and example,</p>
+
+<pre><code>DEVICE_NAME     MOUNT_POINT         FILE_SYSTEM_TYPE    FS_MNTOPS                   FS_FREQ FS_PASSNO
+
+/dev/xvdb       /home/ubuntu/data   ext4                defaults,nofail             0       2
+
+sudo vi /etc/fstab
+</code></pre>
+
+<p>Adding &ldquo;nobootwait&rdquo; option as described by the article gives an error</p>
+
+<p>Check new entry works</p>
+
+<pre><code>sudo mount -a
+</code></pre>
+
+<p>Change permissions</p>
+
+<pre><code>sudo chown -R ubuntu:ubuntu /home/ubuntu/data/
+</code></pre>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            <section class="author">
+                <p>Words by Christiaan van Zyl</p>
+            </section>
+            
+            
+            <p class="f-post-time"><time datetime="2015-07-01T00:00:00Z">July 1, 2015</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=ubuntu%20fresh%20install&url=http%3a%2f%2fmozey.co%2fpost%2fubuntu-fresh-install%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmozey.co%2fpost%2fubuntu-fresh-install%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fmozey.co%2fpost%2fubuntu-fresh-install%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://mozey.co/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://mozey.co/">Christiaan van Zyl</a> 2015 | All rights reserved</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://mozey.co/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>

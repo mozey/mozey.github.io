@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="Christiaan van Zyl">
+        <meta name="keywords" content="awesome, definitely">
+	
+        <meta property="og:site_name" content="mozey.co">
+        <meta property="og:title" content="mozey.co">
+        <meta property="og:url" content="http://mozey.co/post/voicecode/">
+        <meta property="og:description" content="">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="Christiaan van Zyl" />
+        <meta property="og:article:published_time" content="2016-02-01T00:00:00Z" />
+    
+        <meta name="generator" content="Hugo 0.15" />
+        <title>voicecode &middot; mozey.co </title>
+        <link rel="canonical" href="http://mozey.co/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/main.css"/>
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/custom.css"/>
+        <link href='http://mozey.co/css/montserrat.css' rel='stylesheet' type='text/css'>
+        <link href="http://mozey.co/css/font-awesome.css" rel="stylesheet">
+        <script src="http://mozey.co/js/jquery-1.10.2.min.js"></script>
+        <link rel="icon" href="http://mozey.co/favicon.ico">
+    </head>
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://mozey.co/" alt="mozey.co"><h1 class="blog-title heading">mozey.co</h1></a>
+            <p class="blog-description"></p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="post">
+	<header class="post-header">
+        <h3 class="p-post-title">voicecode</h3>
+    </header>
+
+    <section class="post-content">
+        
+
+<h1 id="wiki-https-github-com-voicecode-docs-wiki:665b602d76b524ca3576138fd1dfe1bb"><a href="https://github.com/VoiceCode/docs/wiki">Wiki</a></h1>
+
+<h1 id="web-interface-http-localhost-5000:665b602d76b524ca3576138fd1dfe1bb"><a href="http://localhost:5000/">Web interface</a></h1>
+
+<h1 id="install:665b602d76b524ca3576138fd1dfe1bb">Install</h1>
+
+<h2 id="install-voicecode:665b602d76b524ca3576138fd1dfe1bb">Install voicecode</h2>
+
+<p>Install meteor</p>
+
+<pre><code>curl https://install.meteor.com/ | sh
+</code></pre>
+
+<p>Checkout repos</p>
+
+<p>Install / run voicecode</p>
+
+<pre><code>cd ~/voicecode &amp;&amp; ./run.sh
+</code></pre>
+
+<p>Python v3.4.3 not supported by gyp</p>
+
+<pre><code>npm config set python python2.7
+</code></pre>
+
+<p>Use Dragon Dictate version 5</p>
+
+<pre><code>vi ~/voicecode/commando/config/user_settings.coffee
+
+Settings.dragonVersion = 5
+</code></pre>
+
+<h2 id="configuring-dragon:665b602d76b524ca3576138fd1dfe1bb">Configuring dragon</h2>
+
+<h3 id="auto-formatting:665b602d76b524ca3576138fd1dfe1bb">Auto formatting</h3>
+
+<pre><code>Manage Profiles &gt; Settings cog &gt; Auto Formatting...
+</code></pre>
+
+<p>Un-check all and click apply</p>
+
+<h1 id="commands:665b602d76b524ca3576138fd1dfe1bb">Commands</h1>
+
+<p><a href="https://github.com/VoiceCode/docs/wiki/Commands-Overview">Commands Overview</a></p>
+
+<p><a href="http://localhost:5000">Commando</a></p>
+
+<h2 id="quinn:665b602d76b524ca3576138fd1dfe1bb">quinn</h2>
+
+<p>inserts an IDE code snippet</p>
+
+<h2 id="snore:665b602d76b524ca3576138fd1dfe1bb">snore</h2>
+
+<p>put dragon into sleep mode</p>
+
+<h2 id="creek:665b602d76b524ca3576138fd1dfe1bb">creek</h2>
+
+<p>repeat last complete spoken phrase [n] times (default 1)</p>
+
+<h2 id="repple:665b602d76b524ca3576138fd1dfe1bb">repple</h2>
+
+<p>Repeats an individual command component.
+Right after any command say [repple X] to repeat it X times</p>
+
+<h2 id="crew:665b602d76b524ca3576138fd1dfe1bb">crew</h2>
+
+<p>search forward for the next thing you say, then select it</p>
+
+<h2 id="keeper:665b602d76b524ca3576138fd1dfe1bb">keeper</h2>
+
+<p>whatever follows this command will be interpreted literally</p>
+
+<h2 id="scratchy:665b602d76b524ca3576138fd1dfe1bb">scratchy</h2>
+
+<p>tries to do a &lsquo;smart&rsquo; undo by deleting previously inserted characters
+if the previous command only inserted text</p>
+
+<h2 id="tragic:665b602d76b524ca3576138fd1dfe1bb">tragic</h2>
+
+<p>tries to select the previously inserted text if possible</p>
+
+<h2 id="strict-on-off:665b602d76b524ca3576138fd1dfe1bb">strict on / off</h2>
+
+<p>puts VoiceCode into one of the predefined &lsquo;strict&rsquo; modes,
+where only a subset of commands can be executed</p>
+
+<h2 id="swick:665b602d76b524ca3576138fd1dfe1bb">swick</h2>
+
+<p>Switch to most recent application</p>
+
+<h2 id="foxwitch:665b602d76b524ca3576138fd1dfe1bb">foxwitch</h2>
+
+<p>open application switcher</p>
+
+<h2 id="webseek:665b602d76b524ca3576138fd1dfe1bb">webseek</h2>
+
+<p>open a new browser tab (from anywhere)</p>
+
+<h2 id="fox:665b602d76b524ca3576138fd1dfe1bb">fox</h2>
+
+<p>open application</p>
+
+<h2 id="spark:665b602d76b524ca3576138fd1dfe1bb">spark</h2>
+
+<p>paste the clipboard (or named item from {stoosh} command)</p>
+
+<h2 id="allspark:665b602d76b524ca3576138fd1dfe1bb">allspark</h2>
+
+<p>select all then paste the clipboard</p>
+
+<h2 id="skoopark:665b602d76b524ca3576138fd1dfe1bb">skoopark</h2>
+
+<p>insert space then paste the clipboard (or named item from {stoosh} command)</p>
+
+<h2 id="stooshwick:665b602d76b524ca3576138fd1dfe1bb">stooshwick</h2>
+
+<p>copy whatever is selected then switch applications</p>
+
+<h2 id="stoosh:665b602d76b524ca3576138fd1dfe1bb">stoosh</h2>
+
+<p>copy whatever is selected (if an argument is given whatever is copied is
+stored with that name and can be pasted via {spark [name]})</p>
+
+<h2 id="allstoosh:665b602d76b524ca3576138fd1dfe1bb">allstoosh</h2>
+
+<p>select all then copy whatever is selected</p>
+
+<h2 id="snatch:665b602d76b524ca3576138fd1dfe1bb">snatch</h2>
+
+<p>cut whatever is selected</p>
+
+<h2 id="shock:665b602d76b524ca3576138fd1dfe1bb">shock</h2>
+
+<p>press the return key</p>
+
+<h2 id="junk:665b602d76b524ca3576138fd1dfe1bb">junk</h2>
+
+<p>press the delete key</p>
+
+<h2 id="spunk:665b602d76b524ca3576138fd1dfe1bb">spunk</h2>
+
+<p>pressed the forward delete key</p>
+
+<h2 id="dizzle:665b602d76b524ca3576138fd1dfe1bb">dizzle</h2>
+
+<p>undo</p>
+
+<h2 id="rizzle:665b602d76b524ca3576138fd1dfe1bb">rizzle</h2>
+
+<p>redo</p>
+
+<h2 id="tarp:665b602d76b524ca3576138fd1dfe1bb">tarp</h2>
+
+<p>inserts a tab</p>
+
+<h2 id="tarsh:665b602d76b524ca3576138fd1dfe1bb">tarsh</h2>
+
+<p>inserts a shift + tab</p>
+
+<h2 id="gibby:665b602d76b524ca3576138fd1dfe1bb">gibby</h2>
+
+<p>Switch to next window in same application</p>
+
+<h2 id="shibby:665b602d76b524ca3576138fd1dfe1bb">shibby</h2>
+
+<p>Switch to previous window in same application</p>
+
+<h2 id="shompla:665b602d76b524ca3576138fd1dfe1bb">shompla</h2>
+
+<p>zoom in</p>
+
+<h2 id="shaman:665b602d76b524ca3576138fd1dfe1bb">shaman</h2>
+
+<p>zoom out</p>
+
+<h2 id="shabble:665b602d76b524ca3576138fd1dfe1bb">shabble</h2>
+
+<p>indent to the left</p>
+
+<h2 id="shabber:665b602d76b524ca3576138fd1dfe1bb">shabber</h2>
+
+<p>indent to the right</p>
+
+<h2 id="marneck:665b602d76b524ca3576138fd1dfe1bb">marneck</h2>
+
+<p>find the next occurrence of a search term</p>
+
+<h2 id="marpreev:665b602d76b524ca3576138fd1dfe1bb">marpreev</h2>
+
+<p>find the previous occurrence of a search term</p>
+
+<h2 id="olly:665b602d76b524ca3576138fd1dfe1bb">olly</h2>
+
+<p>select all</p>
+
+<h2 id="sage:665b602d76b524ca3576138fd1dfe1bb">sage</h2>
+
+<p>file &gt; save</p>
+
+<h2 id="totch:665b602d76b524ca3576138fd1dfe1bb">totch</h2>
+
+<p>close a window or tab</p>
+
+<h2 id="marco:665b602d76b524ca3576138fd1dfe1bb">marco</h2>
+
+<p>find</p>
+
+<h2 id="talky:665b602d76b524ca3576138fd1dfe1bb">talky</h2>
+
+<p>open a new tab</p>
+
+<h2 id="randall:665b602d76b524ca3576138fd1dfe1bb">randall</h2>
+
+<p>press escape</p>
+
+<h2 id="prome:665b602d76b524ca3576138fd1dfe1bb">prome</h2>
+
+<p>press the home key</p>
+
+<h2 id="prend:665b602d76b524ca3576138fd1dfe1bb">prend</h2>
+
+<p>press the end key</p>
+
+<h2 id="shin:665b602d76b524ca3576138fd1dfe1bb">shin</h2>
+
+<p>does nothing, but enters into voice code</p>
+
+<h2 id="skoosh:665b602d76b524ca3576138fd1dfe1bb">skoosh</h2>
+
+<p>insert a space</p>
+
+<h2 id="shockoon:665b602d76b524ca3576138fd1dfe1bb">shockoon</h2>
+
+<p>Inserts a new line below the current line</p>
+
+<h2 id="shockey:665b602d76b524ca3576138fd1dfe1bb">shockey</h2>
+
+<p>Inserts a new line above the current line</p>
+
+<h2 id="doomway:665b602d76b524ca3576138fd1dfe1bb">doomway</h2>
+
+<p>move the cursor to the bottom of the page</p>
+
+<h2 id="doom:665b602d76b524ca3576138fd1dfe1bb">doom</h2>
+
+<p>press the down arrow</p>
+
+<h2 id="jeepway:665b602d76b524ca3576138fd1dfe1bb">jeepway</h2>
+
+<p>move the cursor to the top of the page</p>
+
+<h2 id="jeep:665b602d76b524ca3576138fd1dfe1bb">jeep</h2>
+
+<p>Press the up arrow</p>
+
+<h2 id="crimp:665b602d76b524ca3576138fd1dfe1bb">crimp</h2>
+
+<p>press the left arrow</p>
+
+<h2 id="chris:665b602d76b524ca3576138fd1dfe1bb">chris</h2>
+
+<p>press the right arrow</p>
+
+<h2 id="shunkrim:665b602d76b524ca3576138fd1dfe1bb">shunkrim</h2>
+
+<p>move the cursor by word to the left</p>
+
+<h2 id="shunkrish:665b602d76b524ca3576138fd1dfe1bb">shunkrish</h2>
+
+<p>move the cursor by word to the right</p>
+
+<h2 id="ricky:665b602d76b524ca3576138fd1dfe1bb">ricky</h2>
+
+<p>moves the cursor all the way to the right</p>
+
+<h2 id="derek:665b602d76b524ca3576138fd1dfe1bb">derek</h2>
+
+<p>moves the cursor on the way to the right than inserts a space</p>
+
+<h2 id="nudgle:665b602d76b524ca3576138fd1dfe1bb">nudgle</h2>
+
+<p>remove a space before the adjacent word on the left</p>
+
+<h2 id="ricksy:665b602d76b524ca3576138fd1dfe1bb">ricksy</h2>
+
+<p>selects all text to the right</p>
+
+<h2 id="lefty:665b602d76b524ca3576138fd1dfe1bb">lefty</h2>
+
+<p>move the cursor all the way to the left</p>
+
+<h2 id="lecksy:665b602d76b524ca3576138fd1dfe1bb">lecksy</h2>
+
+<p>selects all text to the left</p>
+
+<h2 id="shackle:665b602d76b524ca3576138fd1dfe1bb">shackle</h2>
+
+<p>selects the entire line</p>
+
+<h2 id="snipline:665b602d76b524ca3576138fd1dfe1bb">snipline</h2>
+
+<p>with no arguments will delete the entire line(s).
+With a single argument will move to that line and delete it.
+With a number range will delete the range of lines</p>
+
+<h2 id="snipper:665b602d76b524ca3576138fd1dfe1bb">snipper</h2>
+
+<p>will delete everything to the right</p>
+
+<h2 id="snipple:665b602d76b524ca3576138fd1dfe1bb">snipple</h2>
+
+<p>will delete everything to the left</p>
+
+<h2 id="jolt:665b602d76b524ca3576138fd1dfe1bb">jolt</h2>
+
+<p>will duplicate the current line</p>
+
+<h2 id="trough:665b602d76b524ca3576138fd1dfe1bb">trough</h2>
+
+<p>delete a word at a time (press option-delete)</p>
+
+<h2 id="kite:665b602d76b524ca3576138fd1dfe1bb">kite</h2>
+
+<p>forward delete a word at a time</p>
+
+<h2 id="goneck:665b602d76b524ca3576138fd1dfe1bb">goneck</h2>
+
+<p>go to next thing (application-specific), tab, message, etc.</p>
+
+<h2 id="gopreev:665b602d76b524ca3576138fd1dfe1bb">gopreev</h2>
+
+<p>go to previous thing (application-specific), tab, message, etc.</p>
+
+<h2 id="baxley:665b602d76b524ca3576138fd1dfe1bb">baxley</h2>
+
+<p>go &ldquo;back&rdquo; - whatever that might mean in context</p>
+
+<h2 id="fourthly:665b602d76b524ca3576138fd1dfe1bb">fourthly</h2>
+
+<p>go &ldquo;forward&rdquo; - whatever that might mean in context</p>
+
+<h2 id="freshly:665b602d76b524ca3576138fd1dfe1bb">freshly</h2>
+
+<p>reload or refresh depending on context</p>
+
+<h2 id="duke:665b602d76b524ca3576138fd1dfe1bb">duke</h2>
+
+<p>double click</p>
+
+<h2 id="chipper:665b602d76b524ca3576138fd1dfe1bb">chipper</h2>
+
+<p>chipper</p>
+
+<h2 id="chiff:665b602d76b524ca3576138fd1dfe1bb">chiff</h2>
+
+<p>left click</p>
+
+<h2 id="triplick:665b602d76b524ca3576138fd1dfe1bb">triplick</h2>
+
+<p>Tripple click</p>
+
+<h2 id="shicks:665b602d76b524ca3576138fd1dfe1bb">shicks</h2>
+
+<p>shift+click</p>
+
+<h2 id="chibble:665b602d76b524ca3576138fd1dfe1bb">chibble</h2>
+
+<p>selects the entire line of text cursor hovers over</p>
+
+<h2 id="dookoosh:665b602d76b524ca3576138fd1dfe1bb">dookoosh</h2>
+
+<p>mouse double click, then copy</p>
+
+<h2 id="chiffpark:665b602d76b524ca3576138fd1dfe1bb">chiffpark</h2>
+
+<p>mouse single click, then paste</p>
+
+<h2 id="shackloosh:665b602d76b524ca3576138fd1dfe1bb">shackloosh</h2>
+
+<p>select entire line, then copy</p>
+
+<h2 id="shacklark:665b602d76b524ca3576138fd1dfe1bb">shacklark</h2>
+
+<p>select entire line, then paste</p>
+
+<h2 id="page-up:665b602d76b524ca3576138fd1dfe1bb">page up</h2>
+
+<p>press PageUp key [N] times</p>
+
+<h2 id="page-down:665b602d76b524ca3576138fd1dfe1bb">page down</h2>
+
+<p>press PageDown key [N] times</p>
+
+<h2 id="scrodge:665b602d76b524ca3576138fd1dfe1bb">scrodge</h2>
+
+<p>scroll down</p>
+
+<h2 id="scroop:665b602d76b524ca3576138fd1dfe1bb">scroop</h2>
+
+<p>scroll up</p>
+
+<h1 id="troubleshooting:665b602d76b524ca3576138fd1dfe1bb">Troubleshooting</h1>
+
+<h2 id="difficult-to-recognize-words-https-voicecode-slack-com-archives-general-p1447545513000019:665b602d76b524ca3576138fd1dfe1bb"><a href="https://voicecode.slack.com/archives/general/p1447545513000019">Difficult to recognize words</a></h2>
+
+<p>Also for correcting command misspellings</p>
+
+<h2 id="dragon-crashes-at-startup-https-github-com-voicecode-docs-wiki-dragon-crashes-at-startup:665b602d76b524ca3576138fd1dfe1bb"><a href="https://github.com/VoiceCode/docs/wiki/Dragon-Crashes-At-Startup">Dragon Crashes At Startup</a></h2>
+
+<pre><code>Quit voicecode
+
+rm ~/Library/Application\ Support/Dragon/Commands/*
+
+Launch Dragon then quit
+
+Restart voicecode
+
+Launch Dragon
+</code></pre>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            <section class="author">
+                <p>Words by Christiaan van Zyl</p>
+            </section>
+            
+            
+            <p class="f-post-time"><time datetime="2016-02-01T00:00:00Z">February 1, 2016</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=voicecode&url=http%3a%2f%2fmozey.co%2fpost%2fvoicecode%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmozey.co%2fpost%2fvoicecode%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fmozey.co%2fpost%2fvoicecode%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://mozey.co/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://mozey.co/">Christiaan van Zyl</a> 2015 | All rights reserved</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://mozey.co/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>

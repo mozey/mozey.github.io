@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="Christiaan van Zyl">
+        <meta name="keywords" content="awesome, definitely">
+	
+        <meta property="og:site_name" content="mozey.co">
+        <meta property="og:title" content="mozey.co">
+        <meta property="og:url" content="http://mozey.co/post/svn/">
+        <meta property="og:description" content="">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="Christiaan van Zyl" />
+        <meta property="og:article:published_time" content="2013-07-01T00:00:00Z" />
+    
+        <meta name="generator" content="Hugo 0.15" />
+        <title>svn &middot; mozey.co </title>
+        <link rel="canonical" href="http://mozey.co/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/main.css"/>
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/custom.css"/>
+        <link href='http://mozey.co/css/montserrat.css' rel='stylesheet' type='text/css'>
+        <link href="http://mozey.co/css/font-awesome.css" rel="stylesheet">
+        <script src="http://mozey.co/js/jquery-1.10.2.min.js"></script>
+        <link rel="icon" href="http://mozey.co/favicon.ico">
+    </head>
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://mozey.co/" alt="mozey.co"><h1 class="blog-title heading">mozey.co</h1></a>
+            <p class="blog-description"></p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="post">
+	<header class="post-header">
+        <h3 class="p-post-title">svn</h3>
+    </header>
+
+    <section class="post-content">
+        
+
+<h2 id="general-notes-about-working-with-svn:f42a7e92f787126453e0bde6ccf1bb91">General notes about working with SVN.</h2>
+
+<h3 id="the-svn-folder:f42a7e92f787126453e0bde6ccf1bb91">The .svn folder</h3>
+
+<p>Typically every folder under the working copy root will contain a <em>.svn</em> hidden
+folder.</p>
+
+<p>If this is damaged or removed we can reconstruct it by removing the parent
+using a normal file system delete and then running and <em>svn update</em> to restore
+from repos.</p>
+
+<p>Assuming the repos contains the latest versions of the files.</p>
+
+<p>When we copy folders from other projects versioned using svn into our own svn
+working copy it might be necessary to remove the old <em>.svn</em> folders.</p>
+
+<h4 id="remove-all-svn-folders:f42a7e92f787126453e0bde6ccf1bb91">remove all .svn folders</h4>
+
+<pre><code>cd /path/to/copied/folder
+
+find . -name '.svn' -exec rm -rf {} \;
+</code></pre>
+
+<h3 id="create-a-repos-and-import-files:f42a7e92f787126453e0bde6ccf1bb91">Create a repos and import files</h3>
+
+<p>To create a new repository</p>
+
+<pre><code>svnadmin create /path/to/repos
+</code></pre>
+
+<p>Then import files directly</p>
+
+<pre><code>svn import /path/to/file file:///path/to/repos -m &quot;Initial import&quot;
+</code></pre>
+
+<p>Or checkout a working copy, add some files and commit.</p>
+
+<h3 id="typical-work-flow:f42a7e92f787126453e0bde6ccf1bb91">Typical work flow</h3>
+
+<h4 id="checkout-a-working-copy:f42a7e92f787126453e0bde6ccf1bb91">Checkout a working copy</h4>
+
+<pre><code>svn checkout https://exmample.com/path/to/repos /working/copy
+</code></pre>
+
+<h4 id="update-the-working-working-copy:f42a7e92f787126453e0bde6ccf1bb91">Update the working working copy</h4>
+
+<pre><code>svn update
+</code></pre>
+
+<h4 id="make-changes:f42a7e92f787126453e0bde6ccf1bb91">Make changes</h4>
+
+<pre><code>svn add
+
+svn delete
+
+svn copy
+
+svn move
+</code></pre>
+
+<h4 id="examine-changes:f42a7e92f787126453e0bde6ccf1bb91">Examine changes</h4>
+
+<p>Show local changes only</p>
+
+<pre><code>svn status
+</code></pre>
+
+<p>Show local and server changes</p>
+
+<pre><code>svn status -u
+</code></pre>
+
+<p>The command line diff can be unwieldy,
+<a href="http://www.defraine.net/~brunod/fmdiff/">Using FileMerge as a diff command for Subversion</a></p>
+
+<pre><code>svn diff
+</code></pre>
+
+<p>View the log of committed changes</p>
+
+<pre><code>svn log http://example.com/path/to/repos --username myUserName | less
+</code></pre>
+
+<h4 id="undo-changes:f42a7e92f787126453e0bde6ccf1bb91">Undo changes</h4>
+
+<pre><code>svn revert
+</code></pre>
+
+<h4 id="resolve-conflicts-and-merge-changes:f42a7e92f787126453e0bde6ccf1bb91">Resolve conflicts and merge changes</h4>
+
+<pre><code>svn update
+
+svn resolve
+</code></pre>
+
+<h4 id="commit-your-changes:f42a7e92f787126453e0bde6ccf1bb91">Commit your changes</h4>
+
+<pre><code>svn commit -m &quot;This is the commit message&quot;
+</code></pre>
+
+<h4 id="export-files-without-creating-a-working-copy:f42a7e92f787126453e0bde6ccf1bb91">Export files without creating a working copy</h4>
+
+<p>We might want to export all files from a repos, for example on a server,
+without creating a working copy, i.e. all the <code>.svn</code> folders.</p>
+
+<p>If the repos exists on the same server we can use a file URL</p>
+
+<pre><code>svn export file:///example.com/path/to/repos ~/path/on/server
+</code></pre>
+
+<p>We could also specify an optional version number</p>
+
+<pre><code>svn export http://example.com/path/to/repos@version ~/path/on/server
+</code></pre>
+
+<h3 id="add-all-un-tracked-files-in-current-folder:f42a7e92f787126453e0bde6ccf1bb91">Add all un-tracked files in current folder</h3>
+
+<pre><code>svn add `svn status | grep ?`
+</code></pre>
+
+<h3 id="delete-a-file-directly-from-the-repository:f42a7e92f787126453e0bde6ccf1bb91">Delete a file directly from the repository</h3>
+
+<pre><code>svn delete https://exmample.com/path/to/repos/the/file
+
+cd /working/copy
+
+svn update
+</code></pre>
+
+<h3 id="ignore-files:f42a7e92f787126453e0bde6ccf1bb91">Ignore files</h3>
+
+<p>Sometimes we need to ignore some files we don&rsquo;t want to store in the repository.
+These could be logs, configuration files or sensitive data.</p>
+
+<pre><code>cd /path/to/parent/folder
+</code></pre>
+
+<p>Create a file mask to ignore the file <code>config.js</code> and all files ending in <code>.log</code></p>
+
+<pre><code>svn propedit svn:ignore .
+*.log
+config.js
+</code></pre>
+
+<p>Or use a one liner to ignore a single file</p>
+
+<pre><code>svn propset svn:ignore config.js .
+</code></pre>
+
+<p>List ignored files</p>
+
+<pre><code>svn propget svn:ignore .
+
+svn status --no-ignore
+</code></pre>
+
+<p>For these settings to take effect we have to do a commit.
+Note that files already existing in the repos must first be deleted before the
+ignore will take effect.</p>
+
+<pre><code>svn commit -m &quot;Ignoring some files&quot;
+</code></pre>
+
+<h3 id="relocate-a-working-copy:f42a7e92f787126453e0bde6ccf1bb91">Relocate a working copy</h3>
+
+<p>The URL or path to the server hosting the repos might change.
+If this happens we can relocate the working copy</p>
+
+<pre><code>svn switch --relocate http://exmample.com:8080/path/to/repos \
+https://exmample.com/path/to/repos
+</code></pre>
+
+<h3 id="restore-a-deleted-file:f42a7e92f787126453e0bde6ccf1bb91">Restore a deleted file</h3>
+
+<p>We first have to find the last revision in which the file existed.
+Create a log file</p>
+
+<pre><code>svn log -v https://exmample.com/path/to/repos &gt; log.txt
+</code></pre>
+
+<p>Now search for the file in the log</p>
+
+<pre><code>grep -C 5 something log.txt
+</code></pre>
+
+<p>The last revision the file existed is the
+revision number of the delete minus one.</p>
+
+<p>Resurrect the file and keep its version history</p>
+
+<pre><code>svn copy https://exmample.com/path/to/repos/the/file@lastRevisionNumber \
+-r lastRevisionNumber /working/copy/the/file
+</code></pre>
+
+<p>And if you are only interested in the contents of the file</p>
+
+<pre><code>svn cat https://exmample.com/path/to/repos/the/file@lastRevisionNumber \
+-r lastRevisionNumber &gt; the.file
+</code></pre>
+
+<h3 id="list-files-changed-between-revisions:f42a7e92f787126453e0bde6ccf1bb91">List files changed between revisions</h3>
+
+<pre><code>svn diff --summarize -rXXX:YYY https://example.com/path/to/repos
+</code></pre>
+
+<h3 id="work-on-a-branch:f42a7e92f787126453e0bde6ccf1bb91">Work on a branch</h3>
+
+<p>First create a branch from an existing repos location</p>
+
+<pre><code>svn cp --parents https://example.com/path/to/repos/trunk/some/folder \
+https://example.com/path/to/repos/branches/some/folder
+</code></pre>
+
+<p>Then switch the same location in your working copy to the branch URL</p>
+
+<pre><code>cd /working/copy/some/folder
+
+svn info
+
+svn switch https://example.com/path/to/repos/branches/some/folder
+
+svn update
+</code></pre>
+
+<h4 id="be-careful-not-to-switch-the-wrong-folder-might-mess-up-the-working-copy:f42a7e92f787126453e0bde6ccf1bb91">Be careful not to switch the wrong folder, might mess up the working copy!</h4>
+
+<p>Changes to the branch can be be committed as usual.</p>
+
+<p>We can merge the latest changes on trunk into the branch</p>
+
+<pre><code>cd /working/copy/some/folder
+
+svn merge https://example.com/path/to/repos/trunk/some/folder
+
+svn commit -m &quot;Merging changes into branch&quot;
+</code></pre>
+
+<p>And when we are done with the branch we can merge it into trunk</p>
+
+<pre><code>cd /working/copy/some/folder
+
+svn switch https://example.com/path/to/repos/trunk/some/folder
+
+svn merge --reintegrate \
+https://example.com/path/to/repos/branches/some/folder
+
+svn commit -m &quot;Merging branch into trunk&quot;
+</code></pre>
+
+<p>Finally we can also delete a branch</p>
+
+<pre><code>svn rm https://example.com/path/to/repos/branches/some/folder
+</code></pre>
+
+<h3 id="tag-a-revision:f42a7e92f787126453e0bde6ccf1bb91">Tag a revision</h3>
+
+<pre><code>svn copy \
+https://example.com/path/to/repos/trunk \
+https://example.com/path/to/repos/tags/v0.1 \
+-m &quot;Tagging version 0.1&quot;
+</code></pre>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            <section class="author">
+                <p>Words by Christiaan van Zyl</p>
+            </section>
+            
+            
+            <p class="f-post-time"><time datetime="2013-07-01T00:00:00Z">July 1, 2013</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=svn&url=http%3a%2f%2fmozey.co%2fpost%2fsvn%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmozey.co%2fpost%2fsvn%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fmozey.co%2fpost%2fsvn%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://mozey.co/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://mozey.co/">Christiaan van Zyl</a> 2015 | All rights reserved</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://mozey.co/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>
