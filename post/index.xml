@@ -6,8 +6,175 @@
     <description>Recent content in Posts on mozey.co</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Apr 2016 19:22:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Apr 2016 20:27:49 +0200</lastBuildDate>
     <atom:link href="http://mozey.co/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>letsencrypt</title>
+      <link>http://mozey.co/post/letsencrypt/</link>
+      <pubDate>Sun, 10 Apr 2016 20:27:49 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/letsencrypt/</guid>
+      <description>
+
+&lt;h2 id=&#34;getting-started-https-letsencrypt-org-getting-started:b1ded643d32a1f7beb1d1f4046dee1f9&#34;&gt;&lt;a href=&#34;https://letsencrypt.org/getting-started/&#34;&gt;Getting Started&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install letsencrypt
+
+sudo letsencrypt --apache
+
+TODO...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;let-s-encrypt-nginx-https-letsecure-me-secure-web-deployment-with-lets-encrypt-and-nginx:b1ded643d32a1f7beb1d1f4046dee1f9&#34;&gt;&lt;a href=&#34;https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx&#34;&gt;Let&amp;rsquo;s Encrypt &amp;amp; Nginx&lt;/a&gt;&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>gogs</title>
+      <link>http://mozey.co/post/gogs/</link>
+      <pubDate>Sun, 10 Apr 2016 15:03:10 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/gogs/</guid>
+      <description>
+
+&lt;h1 id=&#34;gogs-https-gogs-io:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;&lt;a href=&#34;https://gogs.io/&#34;&gt;gogs&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;A painless self-hosted Git service.&lt;/p&gt;
+
+&lt;h2 id=&#34;install:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Install&lt;/h2&gt;
+
+&lt;h3 id=&#34;requires:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Requires&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;MySQL or PostgreSQL
+
+Git
+
+SSH server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;download-binary-and-extract:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Download binary and extract&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://dl.gogs.io/gogs_v0.9.13_linux_amd64.tar.gz
+
+tar xvzf gogs_v0.9.13_linux_amd64.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;create-database:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Create database&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;cd gogs
+
+mysql -u root -p &amp;lt; scripts/mysql.sql 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;create-custom-config-example-https-raw-githubusercontent-com-gogits-gogs-master-conf-app-ini:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Create custom config, &lt;a href=&#34;https://raw.githubusercontent.com/gogits/gogs/master/conf/app.ini&#34;&gt;example&lt;/a&gt;&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir -p gogs/custom/conf
+
+vi gogs/custom/conf/app.ini
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;run-server:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Run server&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;cd gogs &amp;amp;&amp;amp; ./gogs web
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;connect-via-web-interface-to-complete-install:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Connect via web interface to complete install&lt;/h3&gt;
+
+&lt;h3 id=&#34;create-self-signed-cert:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Create self signed cert&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir custom/https &amp;amp;&amp;amp; cd custom/https
+
+../../gogs cert -ca=true -duration=8760h0m0s -host=host.example.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;update-config-for-https:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Update config for HTTPS&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;PROTOCOL = https
+DOMAIN = host.example.com
+ROOT_URL = https://host.example.com/
+CERT_FILE = custom/https/cert.pem
+KEY_FILE = custom/https/key.pem
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;usage:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Usage&lt;/h2&gt;
+
+&lt;h3 id=&#34;change-remote-to-use-https:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Change remote to use https&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;git remote -v
+
+git remote set-url origin https://git.mozey.co:8080/mozey/crm-project.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;disable-ssl-verification-for-single-repository:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Disable SSL verification for single repository&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;git config http.sslVerify false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;go-get:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;go get&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/27501176/639133&#34;&gt;Private repository&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd $GOPATH/src
+
+mkdir /path/as/required &amp;amp;&amp;amp; cd /path/as/required
+
+git clone git@github.com:private/repos.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Update the package&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;go get -u
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Install the package&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;go install
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>whatsapp encryption</title>
+      <link>http://mozey.co/post/whatsapp-encryption/</link>
+      <pubDate>Fri, 08 Apr 2016 10:29:35 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/whatsapp-encryption/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://mybroadband.co.za/news/security/160824-how-whatsapp-keeps-your-messages-secret.html&#34;&gt;How it works&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>choosing colors</title>
+      <link>http://mozey.co/post/choosing-colors/</link>
+      <pubDate>Wed, 06 Apr 2016 13:52:49 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/choosing-colors/</guid>
+      <description>
+
+&lt;h1 id=&#34;a-simple-web-developer-s-guide-to-color-https-www-smashingmagazine-com-2016-04-web-developer-guide-color:1dd567fd3a3badc6e0d316cdc666b65f&#34;&gt;&lt;a href=&#34;https://www.smashingmagazine.com/2016/04/web-developer-guide-color/&#34;&gt;A Simple Web Developer’s Guide To Color&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2 id=&#34;choosing-a-base-color:1dd567fd3a3badc6e0d316cdc666b65f&#34;&gt;Choosing A Base Color&lt;/h2&gt;
+
+&lt;p&gt;Use what you have, e.g. existing logo&lt;/p&gt;
+
+&lt;p&gt;Eliminate your competitors colors&lt;/p&gt;
+
+&lt;p&gt;Think about your target audience,
+but don’t default to stereotypes&lt;/p&gt;
+
+&lt;p&gt;Write down any words that you associate with the clients business&lt;/p&gt;
+
+&lt;p&gt;Light and brighter for fresh and energetic,
+darker for more corporate and serious.&lt;/p&gt;
+
+&lt;h2 id=&#34;color-palette:1dd567fd3a3badc6e0d316cdc666b65f&#34;&gt;Color palette&lt;/h2&gt;
+
+&lt;h2 id=&#34;accent:1dd567fd3a3badc6e0d316cdc666b65f&#34;&gt;Accent&lt;/h2&gt;
+
+&lt;h2 id=&#34;grays:1dd567fd3a3badc6e0d316cdc666b65f&#34;&gt;Grays&lt;/h2&gt;
+</description>
+    </item>
     
     <item>
       <title>angular2 google maps quickstart</title>
@@ -226,28 +393,16 @@ params.&lt;/p&gt;
     </item>
     
     <item>
-      <title>github workflow</title>
-      <link>http://mozey.co/post/github-workflow/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>http://mozey.co/post/github-workflow/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://help.github.com/articles/what-is-a-good-git-workflow/&#34;&gt;help&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://guides.github.com/introduction/flow/&#34;&gt;guide&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>golang delve osx</title>
-      <link>http://mozey.co/post/golang-delve-osx/</link>
+      <link>http://mozey.co/post/golang-dev-osx/</link>
       <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://mozey.co/post/golang-delve-osx/</guid>
+      <guid>http://mozey.co/post/golang-dev-osx/</guid>
       <description>
 
-&lt;h1 id=&#34;install-delve-osx-https-github-com-derekparker-delve-blob-master-documentation-installation-osx-install-md:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;&lt;a href=&#34;https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/install.md&#34;&gt;Install Delve OSX&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;install-delve-osx-https-github-com-derekparker-delve-blob-master-documentation-installation-osx-install-md:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/install.md&#34;&gt;Install Delve OSX&lt;/a&gt;&lt;/h1&gt;
 
-&lt;h2 id=&#34;prerequisites:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;h2 id=&#34;prerequisites:44420976362a88fd192f5d01a1ebcf51&#34;&gt;Prerequisites&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;xcode-select --install
 
@@ -255,7 +410,7 @@ params.&lt;/p&gt;
 use &amp;quot;Software Update&amp;quot; to install updates
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;create-a-self-signed-certificate:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;Create a self-signed certificate&lt;/h2&gt;
+&lt;h2 id=&#34;create-a-self-signed-certificate:44420976362a88fd192f5d01a1ebcf51&#34;&gt;Create a self-signed certificate&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;Keychain Access
 
@@ -287,14 +442,14 @@ Allow all applications to access this item &amp;gt; Save
  sudo kill xxx
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;install-the-binary:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;Install the binary&lt;/h2&gt;
+&lt;h2 id=&#34;install-the-binary:44420976362a88fd192f5d01a1ebcf51&#34;&gt;Install the binary&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;git clone https://github.com/derekparker/delve.git &amp;amp;&amp;amp; cd delve
 
 GO15VENDOREXPERIMENT=1 CERT=dlv-cert make install
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;troubleshooting-https-github-com-derekparker-delve-blob-master-documentation-installation-osx-install-md-notes:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;&lt;a href=&#34;https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/install.md#notes&#34;&gt;Troubleshooting&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;troubleshooting-https-github-com-derekparker-delve-blob-master-documentation-installation-osx-install-md-notes:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/install.md#notes&#34;&gt;Troubleshooting&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Eliminating codesign authorization prompt during builds&lt;/p&gt;
 
@@ -305,9 +460,82 @@ GO15VENDOREXPERIMENT=1 CERT=dlv-cert make install
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/derekparker/delve/issues/216&#34;&gt;process instantly killed &lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;test:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;Test&lt;/h2&gt;
+&lt;h1 id=&#34;tutorial-https-blog-gopheracademy-com-advent-2015-debugging-with-delve:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;https://blog.gopheracademy.com/advent-2015/debugging-with-delve/&#34;&gt;Tutorial&lt;/a&gt;&lt;/h1&gt;
 
-&lt;h2 id=&#34;setup-with-go-lang-idea-plugin-in-pycharm:ac3bd50c380dd40badbd63bf6f2adcdf&#34;&gt;Setup with go-lang-idea-plugin in PyCharm&lt;/h2&gt;
+&lt;p&gt;Start debugger&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dlv debug example.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Start debugger (multiple files)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dlv debug ./
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Set breakpoint&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;break example.go:123
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Continue to breakpoint&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;c
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next line&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;n
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Show help&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;help
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Passing flags to the process&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dlv debug example.go -- -flag
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;setup-with-go-lang-idea-plugin-in-pycharm:44420976362a88fd192f5d01a1ebcf51&#34;&gt;Setup with go-lang-idea-plugin in PyCharm&lt;/h1&gt;
+
+&lt;p&gt;Running debugger from IDE doesn&amp;rsquo;t work reliably as of 2016-04-11&lt;/p&gt;
+
+&lt;h1 id=&#34;add-content-root-in-pycharm-http-stackoverflow-com-a-9605030-639133:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;http://stackoverflow.com/a/9605030/639133&#34;&gt;Add content root in PyCharm&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Name spacing is done using packages,
+packages can be added to the IDE project like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Settings &amp;gt; Project &amp;gt; Project Structure &amp;gt; Add Content Root
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;live-reload-utility:44420976362a88fd192f5d01a1ebcf51&#34;&gt;Live reload utility&lt;/h1&gt;
+
+&lt;h2 id=&#34;gin-https-github-com-codegangsta-gin:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;https://github.com/codegangsta/gin&#34;&gt;gin&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Install&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;go get github.com/codegangsta/gin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Verify installation&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gin -h
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;fresh-https-github-com-pilu-fresh:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;https://github.com/pilu/fresh&#34;&gt;fresh&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Install&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;go get github.com/pilu/fresh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Usage&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /path/to/app
+
+fresh
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -327,21 +555,7 @@ GO15VENDOREXPERIMENT=1 CERT=dlv-cert make install
 
 &lt;h1 id=&#34;dynamic-shared-libraries-loading-https-github-com-golang-go-issues-13751:e37244b589090c4d785e1023cf7c1809&#34;&gt;&lt;a href=&#34;https://github.com/golang/go/issues/13751&#34;&gt;Dynamic shared libraries loading&lt;/a&gt;&lt;/h1&gt;
 
-&lt;p&gt;&amp;ldquo;No, go 1.6 will not support Go plugins. Nobody has comitted to doing that work.&amp;rdquo;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>letsencrypt nginx</title>
-      <link>http://mozey.co/post/letsencrypt-nginx/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>http://mozey.co/post/letsencrypt-nginx/</guid>
-      <description>
-
-&lt;h1 id=&#34;let-s-encrypt-nginx-https-letsecure-me-secure-web-deployment-with-lets-encrypt-and-nginx:8929ffe4a04adc886cfa48c127ee0f24&#34;&gt;&lt;a href=&#34;https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx&#34;&gt;Let&amp;rsquo;s Encrypt &amp;amp; Nginx&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;State of the art secure web deployment&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;No, go 1.6 will not support Go plugins. Nobody has committed to doing that work.&amp;rdquo;&lt;/p&gt;
 </description>
     </item>
     
@@ -386,8 +600,11 @@ also accept a dry contact flow sensor (i.e. two-wire type).&lt;/p&gt;
 &lt;h1 id=&#34;terminal:0c99fdcc09ae5b1b07590ed12a1c2319&#34;&gt;Terminal&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;cd path/to/images
+&lt;/code&gt;&lt;/pre&gt;
 
-sips -Z 1024 *.jpg
+&lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt; This command overwrites the original files&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sips -Z 1024 *.jpg
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;preview:0c99fdcc09ae5b1b07590ed12a1c2319&#34;&gt;Preview&lt;/h1&gt;
@@ -469,27 +686,10 @@ sudo apt-get install python3.5
 
 &lt;p&gt;&lt;a href=&#34;http://bravenewgeek.com/a-look-at-nanomsg-and-scalability-protocols/&#34;&gt;Nanomsg vs ZermoMQ&lt;/a&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;a href=&#34;https://appliedgo.net/messaging/&#34;&gt;Message Queues, or how you can make processes talk to each other&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;a href=&#34;https://github.com/adjust/rmq&#34;&gt;Message queue system written in Go and backend by Redis&lt;/a&gt;&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>angular2 typescript book</title>
-      <link>http://mozey.co/post/angular2-typescript-book/</link>
-      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>http://mozey.co/post/angular2-typescript-book/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.manning.com/books/angular-2-development-with-typescript&#34;&gt;Angular 2 Development with TypeScript&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ec2 security group ddns</title>
-      <link>http://mozey.co/post/ec2-security-group-ddns/</link>
-      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>http://mozey.co/post/ec2-security-group-ddns/</guid>
-      <description></description>
     </item>
     
   </channel>
