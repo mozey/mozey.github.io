@@ -6,689 +6,599 @@
     <description>Recent content in Posts on mozey.co</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Apr 2016 20:27:49 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 02 Feb 2017 12:03:23 +0200</lastBuildDate>
     <atom:link href="http://mozey.co/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>letsencrypt</title>
-      <link>http://mozey.co/post/letsencrypt/</link>
-      <pubDate>Sun, 10 Apr 2016 20:27:49 +0200</pubDate>
+      <title>google chrome</title>
+      <link>http://mozey.co/post/google-chrome/</link>
+      <pubDate>Thu, 02 Feb 2017 12:03:23 +0200</pubDate>
       
-      <guid>http://mozey.co/post/letsencrypt/</guid>
+      <guid>http://mozey.co/post/google-chrome/</guid>
+      <description>&lt;p&gt;Opening a history tab and then searching is too slow, here is a shortcut.&lt;/p&gt;
+
+&lt;p&gt;First add &lt;a href=&#34;https://www.cnet.com/how-to/the-fastest-way-to-search-your-chrome-history-or-bookmarks&#34;&gt;search engine for history&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Except they&amp;rsquo;ve got the syntax wrong leave out the hash:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;chrome://history/?q=%s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And set the keyword to &lt;a href=&#34;http://superuser.com/questions/1021124/toggle-between-search-engines-in-google-chrome&#34;&gt;something short&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;History =&amp;gt; hi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now I can quickly find, for example google docs I&amp;rsquo;ve worked on,
+by typing into the search bar like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hi some title
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ledger</title>
+      <link>http://mozey.co/post/ledger/</link>
+      <pubDate>Sat, 07 Jan 2017 16:33:41 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/ledger/</guid>
       <description>
 
-&lt;h2 id=&#34;getting-started-https-letsencrypt-org-getting-started:b1ded643d32a1f7beb1d1f4046dee1f9&#34;&gt;&lt;a href=&#34;https://letsencrypt.org/getting-started/&#34;&gt;Getting Started&lt;/a&gt;&lt;/h2&gt;
+&lt;h1 id=&#34;hledger-http-hledger-org:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;http://hledger.org/&#34;&gt;hledger&lt;/a&gt;&lt;/h1&gt;
 
-&lt;pre&gt;&lt;code&gt;sudo apt-get install letsencrypt
+&lt;p&gt;Simple, precise, &lt;a href=&#34;http://plaintextaccounting.org/&#34;&gt;plain text accounting&lt;/a&gt;&lt;/p&gt;
 
-sudo letsencrypt --apache
+&lt;p&gt;Built in tools for&lt;/p&gt;
 
-TODO...
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;adding transactions from cli&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;api&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;web ui&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://hledger.org/how-to-read-csv-files.html&#34;&gt;How to read CSV files&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;choosing-accounts-http-plaintextaccounting-org-choosing-accounts:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;http://plaintextaccounting.org/#choosing-accounts&#34;&gt;Choosing accounts&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Also see &lt;a href=&#34;http://www.ledger-cli.org/3.0/doc/ledger3.html#Structuring-your-Accounts&#34;&gt;structuring accounts&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;account-aliases-http-hledger-org-how-to-use-account-aliases-html:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;http://hledger.org/how-to-use-account-aliases.html&#34;&gt;Account aliases&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h1 id=&#34;tabula-http-tabula-technology:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;http://tabula.technology/&#34;&gt;tabula&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Tabula is a tool for liberating data tables locked inside PDF files.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/tabulapdf/tabula-java/&#34;&gt;tabula-java&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can use tabula-java as a command-line tool to programmatically extract tables from PDFs&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;java -jar ./tabula-0.9.1-jar-with-dependencies.jar --help
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;let-s-encrypt-nginx-https-letsecure-me-secure-web-deployment-with-lets-encrypt-and-nginx:b1ded643d32a1f7beb1d1f4046dee1f9&#34;&gt;&lt;a href=&#34;https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx&#34;&gt;Let&amp;rsquo;s Encrypt &amp;amp; Nginx&lt;/a&gt;&lt;/h2&gt;
+&lt;h1 id=&#34;ledger-http-www-ledger-cli-org:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;http://www.ledger-cli.org/&#34;&gt;ledger&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Double-entry accounting system that is accessed from the UNIX command-line&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ledger-cli.org/3.0/doc/ledger3.html&#34;&gt;docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;pete-keen-on-ledger-https-www-petekeen-net-finance:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;https://www.petekeen.net/finance&#34;&gt;Pete Keen on Ledger&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Over the past few years I&amp;rsquo;ve written a number of posts about Ledger&lt;/p&gt;
+
+&lt;h2 id=&#34;vim-ledger-https-github-com-ledger-vim-ledger:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;https://github.com/ledger/vim-ledger&#34;&gt;vim-ledger&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Vim plugin for Ledger&lt;/p&gt;
+
+&lt;h2 id=&#34;entering-data-https-github-com-ledger-ledger-wiki-entering-data:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;https://github.com/ledger/ledger/wiki/Entering-data&#34;&gt;Entering data&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h3 id=&#34;ledgerhelpers-https-github-com-rudd-o-ledgerhelpers:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;https://github.com/Rudd-O/ledgerhelpers&#34;&gt;ledgerhelpers&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;A collection of helper programs and a helper library for Ledger (ledger-cli)&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>gogs</title>
-      <link>http://mozey.co/post/gogs/</link>
-      <pubDate>Sun, 10 Apr 2016 15:03:10 +0200</pubDate>
+      <title>vim</title>
+      <link>http://mozey.co/post/vim/</link>
+      <pubDate>Thu, 22 Dec 2016 15:16:08 +0200</pubDate>
       
-      <guid>http://mozey.co/post/gogs/</guid>
+      <guid>http://mozey.co/post/vim/</guid>
       <description>
 
-&lt;h1 id=&#34;gogs-https-gogs-io:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;&lt;a href=&#34;https://gogs.io/&#34;&gt;gogs&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;vim-8:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Vim 8&lt;/h1&gt;
 
-&lt;p&gt;A painless self-hosted Git service.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.hostingadvice.com/blog/vim-creator-champions-charityware/&#34;&gt;Reference&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;install:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Install&lt;/h2&gt;
+&lt;h2 id=&#34;install-from-source-http-www-vim-org-git-php:06a5fa759d42479fba23ece5dc900b51&#34;&gt;&lt;a href=&#34;http://www.vim.org/git.php&#34;&gt;Install from source&lt;/a&gt;&lt;/h2&gt;
 
-&lt;h3 id=&#34;requires:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Requires&lt;/h3&gt;
+&lt;h2 id=&#34;config:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Config&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;MySQL or PostgreSQL
+&lt;p&gt;&lt;a href=&#34;https://github.com/db-pj/dotfiles/blob/master/.vimrc&#34;&gt;.vimrc&lt;/a&gt;&lt;/p&gt;
 
-Git
+&lt;h2 id=&#34;plugins:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Plugins&lt;/h2&gt;
 
-SSH server
+&lt;p&gt;NerdTree&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Display your file system as a tree, enabling you to easily explore and open various files and directories.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;download-binary-and-extract:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Download binary and extract&lt;/h3&gt;
+&lt;p&gt;NerdCommenter&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;wget https://dl.gogs.io/gogs_v0.9.13_linux_amd64.tar.gz
-
-tar xvzf gogs_v0.9.13_linux_amd64.tar.gz
+&lt;pre&gt;&lt;code&gt;Easily toggle the comment status of various amounts of code based on your key mappings.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;create-database:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Create database&lt;/h3&gt;
+&lt;p&gt;Snipmate&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;cd gogs
-
-mysql -u root -p &amp;lt; scripts/mysql.sql 
+&lt;pre&gt;&lt;code&gt;Glide through often-typed code, or snippets, that you can quickly insert into your file. Update variables as you type.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;create-custom-config-example-https-raw-githubusercontent-com-gogits-gogs-master-conf-app-ini:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Create custom config, &lt;a href=&#34;https://raw.githubusercontent.com/gogits/gogs/master/conf/app.ini&#34;&gt;example&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Ctrl-P&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;mkdir -p gogs/custom/conf
-
-vi gogs/custom/conf/app.ini
+&lt;pre&gt;&lt;code&gt;Find full paths to files, buffers, and tags. Open multiple files at once and create new files or directories.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;run-server:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Run server&lt;/h3&gt;
+&lt;p&gt;Syntastic&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;cd gogs &amp;amp;&amp;amp; ./gogs web
+&lt;pre&gt;&lt;code&gt;Check your syntax and be notified about errors before compiling your code or executing your script.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;connect-via-web-interface-to-complete-install:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Connect via web interface to complete install&lt;/h3&gt;
+&lt;h1 id=&#34;spell-checking:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Spell checking&lt;/h1&gt;
 
-&lt;h3 id=&#34;create-self-signed-cert:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Create self signed cert&lt;/h3&gt;
+&lt;p&gt;Enable spell checking&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;mkdir custom/https &amp;amp;&amp;amp; cd custom/https
+&lt;pre&gt;&lt;code&gt;set spell
 
-../../gogs cert -ca=true -duration=8760h0m0s -host=host.example.com
+set spelllang=en,af
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;update-config-for-https:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Update config for HTTPS&lt;/h3&gt;
+&lt;p&gt;Show suggestions&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;PROTOCOL = https
-DOMAIN = host.example.com
-ROOT_URL = https://host.example.com/
-CERT_FILE = custom/https/cert.pem
-KEY_FILE = custom/https/key.pem
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;usage:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Usage&lt;/h2&gt;
-
-&lt;h3 id=&#34;change-remote-to-use-https:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Change remote to use https&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;git remote -v
-
-git remote set-url origin https://git.mozey.co:8080/mozey/crm-project.git
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;disable-ssl-verification-for-single-repository:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;Disable SSL verification for single repository&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;git config http.sslVerify false
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;go-get:774b6f23ce9f6a15436a591e1fc61630&#34;&gt;go get&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/27501176/639133&#34;&gt;Private repository&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd $GOPATH/src
-
-mkdir /path/as/required &amp;amp;&amp;amp; cd /path/as/required
-
-git clone git@github.com:private/repos.git
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Update the package&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;go get -u
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Install the package&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;go install
+&lt;pre&gt;&lt;code&gt;z=
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
     <item>
-      <title>whatsapp encryption</title>
-      <link>http://mozey.co/post/whatsapp-encryption/</link>
-      <pubDate>Fri, 08 Apr 2016 10:29:35 +0200</pubDate>
+      <title>htop</title>
+      <link>http://mozey.co/post/htop/</link>
+      <pubDate>Sat, 03 Dec 2016 14:02:56 +0200</pubDate>
       
-      <guid>http://mozey.co/post/whatsapp-encryption/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://mybroadband.co.za/news/security/160824-how-whatsapp-keeps-your-messages-secret.html&#34;&gt;How it works&lt;/a&gt;&lt;/p&gt;
+      <guid>http://mozey.co/post/htop/</guid>
+      <description>&lt;p&gt;htop display is nicer than top&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://peteris.rocks/blog/htop/&#34;&gt;htop explained&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>choosing colors</title>
-      <link>http://mozey.co/post/choosing-colors/</link>
-      <pubDate>Wed, 06 Apr 2016 13:52:49 +0200</pubDate>
+      <title>sars contractor</title>
+      <link>http://mozey.co/post/sars-contractor/</link>
+      <pubDate>Thu, 01 Dec 2016 18:44:46 +0200</pubDate>
       
-      <guid>http://mozey.co/post/choosing-colors/</guid>
+      <guid>http://mozey.co/post/sars-contractor/</guid>
       <description>
 
-&lt;h1 id=&#34;a-simple-web-developer-s-guide-to-color-https-www-smashingmagazine-com-2016-04-web-developer-guide-color:1dd567fd3a3badc6e0d316cdc666b65f&#34;&gt;&lt;a href=&#34;https://www.smashingmagazine.com/2016/04/web-developer-guide-color/&#34;&gt;A Simple Web Developer’s Guide To Color&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Notes about South African Revenue Service and how Independent Contractors are taxed&lt;/p&gt;
 
-&lt;h2 id=&#34;choosing-a-base-color:1dd567fd3a3badc6e0d316cdc666b65f&#34;&gt;Choosing A Base Color&lt;/h2&gt;
+&lt;h2 id=&#34;when-are-you-an-independent-contractor-according-to-sars:413d3e1234f58f657ec7242a1a25b3bb&#34;&gt;When are you an independent contractor according to SARS?&lt;/h2&gt;
 
-&lt;p&gt;Use what you have, e.g. existing logo&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.fin24.com/Money/Money-Clinic/Tax/Sars-not-fooled-by-independent-consultants-20140423&#34;&gt;Criteria&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Eliminate your competitors colors&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Do you earn more than 80% of your income from this one company?&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;Think about your target audience,
-but don’t default to stereotypes&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Do you get paid the same amount every time and do you receive it at regular intervals, for example weekly or monthly?&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;Write down any words that you associate with the clients business&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Do you work mainly from the company&amp;rsquo;s offices?&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;Light and brighter for fresh and energetic,
-darker for more corporate and serious.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Do you have a boss at the company who checks up on you and tells you what your working hours are, and when you are allowed to take leave?&lt;/p&gt;&lt;/li&gt;
 
-&lt;h2 id=&#34;color-palette:1dd567fd3a3badc6e0d316cdc666b65f&#34;&gt;Color palette&lt;/h2&gt;
+&lt;li&gt;&lt;p&gt;Do you (or will you) receive any benefits from the company that you work for - for example a company car, cellphone or training?&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h2 id=&#34;accent:1dd567fd3a3badc6e0d316cdc666b65f&#34;&gt;Accent&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.taxtim.com/za/help/am-i-an-independent-contractor?js=1&#34;&gt;Three possible scenarios&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;grays:1dd567fd3a3badc6e0d316cdc666b65f&#34;&gt;Grays&lt;/h2&gt;
+&lt;p&gt;You ARE an Independent Contractor. You should have no PAYE (employee&amp;rsquo;s tax) deducted from your income. You need to register for Provisional Tax and you should be responsible for your own tax affairs. Make use of the Local Business Income section of your ITR12 to declare your incomes/expenses.&lt;/p&gt;
+
+&lt;p&gt;You are an Independent Contractor, BUT SARS will want your employer to deduct PAYE (employee&amp;rsquo;s tax) at 25%. Your income must be coded to 3616 on your IRP5. You may deduct your business related expenses.&lt;/p&gt;
+
+&lt;p&gt;You are NOT an Independent Contractor. Your employer should be deducting PAYE (employee&amp;rsquo;s tax) from you every month based on the normal tax tables.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-a-provisional-taxpayer-https-www-taxtim-com-za-help-definition-provisional-taxpayer:413d3e1234f58f657ec7242a1a25b3bb&#34;&gt;&lt;a href=&#34;https://www.taxtim.com/za/help/definition/provisional-taxpayer&#34;&gt;What is a provisional taxpayer?&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Provisional taxpayers are people who earn income other than a salary / remuneration.&lt;/p&gt;
+
+&lt;h2 id=&#34;sars-important-dates:413d3e1234f58f657ec7242a1a25b3bb&#34;&gt;SARS important dates&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sars.gov.za/TaxTypes/PIT/Tax-Season/Pages/default.aspx&#34;&gt;Individuals&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sars.gov.za/Pages/Important-Dates.aspx&#34;&gt;Important Dates&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>angular2 google maps quickstart</title>
-      <link>http://mozey.co/post/angular2-google-maps-quickstart/</link>
-      <pubDate>Mon, 04 Apr 2016 19:22:00 +0000</pubDate>
+      <title>kubernetes</title>
+      <link>http://mozey.co/post/kubernetes/</link>
+      <pubDate>Thu, 10 Nov 2016 10:08:13 +0200</pubDate>
       
-      <guid>http://mozey.co/post/angular2-google-maps-quickstart/</guid>
+      <guid>http://mozey.co/post/kubernetes/</guid>
       <description>
 
-&lt;h1 id=&#34;project-structure-https-angular-maps-com-docs-getting-started-html-project-structure:5be373a677c00d2fb447ef1d45f9a604&#34;&gt;&lt;a href=&#34;https://angular-maps.com/docs/getting-started.html#project-structure&#34;&gt;project-structure&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;minikube-http-kubernetes-io-docs-getting-started-guides-minikube:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;&lt;a href=&#34;http://kubernetes.io/docs/getting-started-guides/minikube/&#34;&gt;Minikube&lt;/a&gt;&lt;/h1&gt;
 
-&lt;p&gt;Install typescript&lt;/p&gt;
+&lt;p&gt;Minikube starts a single node kubernetes cluster locally for purposes of development and testing&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;sudo npm install -g typescript
+&lt;h2 id=&#34;install-virtual-box-https-www-virtualbox-org-wiki-downloads:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Install &lt;a href=&#34;https://www.virtualbox.org/wiki/Downloads&#34;&gt;virtual box&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&#34;install-minikube-https-github-com-kubernetes-minikube-releases:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Install &lt;a href=&#34;https://github.com/kubernetes/minikube/releases&#34;&gt;minikube&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.12.2/minikube-darwin-amd64 &amp;amp;&amp;amp; chmod +x minikube &amp;amp;&amp;amp; sudo mv minikube /usr/local/bin/
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Create a project folder&lt;/p&gt;
+&lt;h2 id=&#34;install-kubectl-http-kubernetes-io-docs-getting-started-guides-minikube:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Install &lt;a href=&#34;http://kubernetes.io/docs/getting-started-guides/minikube/&#34;&gt;kubectl&lt;/a&gt;&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;mkdir angular2-google-maps-project &amp;amp;&amp;amp; cd angular2-google-maps-project
+&lt;pre&gt;&lt;code&gt;curl -Lo kubectl http://storage.googleapis.com/kubernetes-release/release/v1.3.0/bin/darwin/amd64/kubectl &amp;amp;&amp;amp; chmod +x kubectl &amp;amp;&amp;amp; sudo mv kubectl /usr/local/bin/fire
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Create files&lt;/p&gt;
+&lt;h2 id=&#34;dashboard:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Dashboard&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;typings.json
+&lt;p&gt;Install and open the latest stable release&lt;/p&gt;
 
-package.json
+&lt;pre&gt;&lt;code&gt;kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+
+minikube dashboard
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Install npm packages&lt;/p&gt;
+&lt;h2 id=&#34;pod-runs-boot2docker:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Pod runs boot2docker&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;npm install
+&lt;pre&gt;&lt;code&gt;minikube docker-env
+
+minikube ssh
+
+ls /Users
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Configure typescript compiler with &lt;code&gt;tsconfig.json&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;getting-started-https-medium-com-claudiopro-getting-started-with-kubernetes-via-minikube-ada8c7a29620:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;&lt;a href=&#34;https://medium.com/@claudiopro/getting-started-with-kubernetes-via-minikube-ada8c7a29620&#34;&gt;Getting Started&lt;/a&gt;&lt;/h1&gt;
 
-&lt;p&gt;Create &lt;code&gt;index.html&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Inspect the cluster&lt;/p&gt;
 
-&lt;h1 id=&#34;angular2-google-maps-setup-https-angular-maps-com-docs-getting-started-html-angular2-google-maps-setup:5be373a677c00d2fb447ef1d45f9a604&#34;&gt;&lt;a href=&#34;https://angular-maps.com/docs/getting-started.html#angular2-google-maps-setup&#34;&gt;angular2-google-maps-setup&lt;/a&gt;&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;kubectl get pods --all-namespaces
 
-&lt;p&gt;Add angular2-google-maps to your project&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;npm install --save angular2-google-maps
+kubectl get nodes
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Update &lt;code&gt;index.html&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;run-the-built-in-hello-minikube:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Run the built-in hello-minikube&lt;/h2&gt;
 
-&lt;p&gt;Creating the app folder&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
 
-&lt;pre&gt;&lt;code&gt;mkdir app
+kubectl get pods
+
+kubectl get deployments
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Create &lt;code&gt;app.component.ts&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Expose the deployment to an external IP&lt;/p&gt;
 
-&lt;p&gt;Create &lt;code&gt;boot.ts&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl expose deployment hello-minikube --type=NodePort
 
-&lt;p&gt;Run the application&lt;/p&gt;
+kubectl get services
 
-&lt;pre&gt;&lt;code&gt;npm start
+curl $(minikube service hello-minikube --url)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;troubleshooting:5be373a677c00d2fb447ef1d45f9a604&#34;&gt;Troubleshooting&lt;/h1&gt;
+&lt;p&gt;Delete deployment and service&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://gitter.im/SebastianM/angular2-google-maps&#34;&gt;gitter&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl delete service,deployment hello-minikube
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;build-and-install-a-node-service-with-docker:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Build and install a node service with Docker&lt;/h2&gt;
+
+&lt;p&gt;Install &lt;a href=&#34;https://docs.docker.com/docker-for-mac/docker-toolbox&#34;&gt;Docker for Mac&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Start Docker.app&lt;/p&gt;
+
+&lt;p&gt;Create service files and build image&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~ &amp;amp;&amp;amp; mkdir hello-node
+
+echo &amp;quot;var http = require(&#39;http&#39;);
+var handleRequest = function(request, response) {
+  response.writeHead(200);
+  response.end(&#39;Hello World!&#39;);
+};
+var helloServer = http.createServer(handleRequest);
+helloServer.listen(8080);&amp;quot; &amp;gt; hello-node/server.js
+
+echo &amp;quot;FROM node:4.4
+EXPOSE 8080
+COPY server.js .
+CMD node server.js&amp;quot; &amp;gt; hello-node/Dockerfile
+
+tree hello-node
+
+cd hello-node 
+
+docker build -t hello-node:v1 .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Show images&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker images
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sethlakowske.com/articles/howto-install-docker-kubernets-local-registry/&#34;&gt;Run a private local registry&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d -p 5000:5000 --restart=always --name registry registry:2
+
+docker tag c9fb1ebe09f8 localhost:5000/hello-node:v1
+
+docker push localhost:5000/hello-node:v1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Deploy the hello-node pod&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ifconfig
+
+kubectl run hello-node --image=192.168.1.101:5000/hello-node:v1 --port=8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;todo-kubectl-run-error:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;TODO &lt;code&gt;kubectl run&lt;/code&gt; error&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;Get https://192.168.1.101:5000/v1/_ping: tls: oversized record received with length 20527&lt;/code&gt;
+from &lt;a href=&#34;http://192.168.99.100:32657/#/deployment?namespace=default&#34;&gt;kubernetes dashboard&lt;/a&gt;
+possibly because of &amp;ndash;image url format?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl expose deployment hello-node --type=NodePort
+
+curl $(minikube service hello-node --url)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cleanup&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl delete service,deployment hello-node
+
+docker rmi hello-node
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;kubectl-for-docker-users-http-kubernetes-io-docs-user-guide-docker-cli-to-kubectl:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;&lt;a href=&#34;http://kubernetes.io/docs/user-guide/docker-cli-to-kubectl&#34;&gt;kubectl for Docker Users&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h1 id=&#34;elasticsearch-https-hub-docker-com-elasticsearch:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;&lt;a href=&#34;https://hub.docker.com/_/elasticsearch/&#34;&gt;elasticsearch&lt;/a&gt;&lt;/h1&gt;
 </description>
     </item>
     
     <item>
-      <title>gohugo</title>
-      <link>http://mozey.co/post/gohugo/</link>
-      <pubDate>Fri, 01 Apr 2016 00:00:00 +0000</pubDate>
+      <title>elastic search</title>
+      <link>http://mozey.co/post/elastic-search/</link>
+      <pubDate>Mon, 24 Oct 2016 12:18:27 +0200</pubDate>
       
-      <guid>http://mozey.co/post/gohugo/</guid>
+      <guid>http://mozey.co/post/elastic-search/</guid>
       <description>
 
-&lt;h2 id=&#34;install:da0f48dab9453658f6115351016ea84c&#34;&gt;Install&lt;/h2&gt;
+&lt;h1 id=&#34;elasticsearch-https-www-digitalocean-com-community-tutorials-how-to-install-and-configure-elasticsearch-on-ubuntu-14-04:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-14-04&#34;&gt;Elasticsearch&lt;/a&gt;&lt;/h1&gt;
 
-&lt;pre&gt;&lt;code&gt;brew update &amp;amp;&amp;amp; brew install hugo
+&lt;h2 id=&#34;install-jdk:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;Install JDK&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install openjdk-7-jre
+
+java -version
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;what-is-hugo:da0f48dab9453658f6115351016ea84c&#34;&gt;What is Hugo?&lt;/h2&gt;
+&lt;h2 id=&#34;install-elasticsearch:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;Install elasticsearch&lt;/h2&gt;
 
-&lt;p&gt;Hugo is a static site generator.
-Unlike other systems which dynamically build a page every time a visitor
-requests one, Hugo does the building when you create your content.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.2.deb
 
-&lt;p&gt;Hugo is optimized for website viewing&lt;/p&gt;
-
-&lt;h2 id=&#34;quickstart-https-gohugo-io-overview-quickstart:da0f48dab9453658f6115351016ea84c&#34;&gt;&lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;Quickstart&lt;/a&gt;&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;hugo new site NAME
-
-hugo new post/good-to-great.md
-
-mkdir themes &amp;amp;&amp;amp; cd themes &amp;amp;&amp;amp; \
-git clone https://github.com/mozey/hugo-theme-mozey.git
-
-hugo server --theme=hugo-theme-mozey --buildDrafts
+sudo dpkg -i elasticsearch-1.7.2.deb
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;make-post-public:da0f48dab9453658f6115351016ea84c&#34;&gt;Make post public&lt;/h4&gt;
+&lt;p&gt;Make sure elasticsearch starts and stops automatically&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;hugo undraft content/post/good-to-great.md
+&lt;pre&gt;&lt;code&gt;sudo update-rc.d elasticsearch defaults
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;integrate-disqus-edit-config-toml:da0f48dab9453658f6115351016ea84c&#34;&gt;Integrate Disqus, edit &lt;code&gt;config.toml&lt;/code&gt;&lt;/h4&gt;
+&lt;h2 id=&#34;is-it-working:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;Is it working?&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;[Params]
-    Author = &amp;quot;NAME SURNAME&amp;quot;
-    disqusShortname = &amp;lt;DISQUS_SHORTNAME&amp;gt;
+&lt;p&gt;This will list cluster name, version, etc&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -XGET &#39;localhost:9200&#39; 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;generate-website:da0f48dab9453658f6115351016ea84c&#34;&gt;Generate website&lt;/h4&gt;
+&lt;h1 id=&#34;kibana-https-www-elastic-co-downloads-kibana:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;&lt;a href=&#34;https://www.elastic.co/downloads/kibana&#34;&gt;Kibana&lt;/a&gt;&lt;/h1&gt;
 
-&lt;pre&gt;&lt;code&gt;hugo --theme=hugo-theme-mozey
+&lt;h2 id=&#34;install:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;Install&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://download.elastic.co/kibana/kibana/kibana-4.6.1-amd64.deb
+
+sudo dpkg -i kibana-4.6.1-amd64.deb
+
+sudo update-rc.d kibana defaults
+
+sudo service kibana start
+
+curl -XGET &#39;localhost:5601&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;public&lt;/code&gt; folder can be deployed to a server&lt;/p&gt;
+&lt;h2 id=&#34;getting-started-https-www-elastic-co-guide-en-kibana-current-getting-started-html:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/kibana/current/getting-started.html&#34;&gt;Getting started&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;To preview change &lt;code&gt;baseurl&lt;/code&gt; in config then&lt;/p&gt;
+&lt;p&gt;Download Shakespeare data set&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt; cd ./public &amp;amp;&amp;amp; python -m http.server 1234
+&lt;pre&gt;&lt;code&gt;wget https://www.elastic.co/guide/en/kibana/3.0/snippets/shakespeare.json
+
+wget https://github.com/bly2k/files/blob/master/accounts.zip
+
+unzip accounts.zip
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;list-directory-layout-tree-name:da0f48dab9453658f6115351016ea84c&#34;&gt;List directory layout &lt;code&gt;tree ./NAME&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Setup mapping for the Shakespeare data set,
+accounts doesn&amp;rsquo;t require a mapping.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;website/
-├── archetypes
-├── config.json
-├── content
-│   └── post
-│       └── good-to-great.md
-├── data
-├── layouts
-├── public...
-├── static
-└── themes...
+&lt;p&gt;Bulk load into elasticsearch&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -XPOST &#39;localhost:9200/shakespeare/_bulk?pretty&#39; --data-binary @shakespeare.json
+curl -XPOST &#39;localhost:9200/bank/account/_bulk?pretty&#39; --data-binary @accounts.json
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;archetypes:da0f48dab9453658f6115351016ea84c&#34;&gt;archetypes&lt;/h4&gt;
+&lt;p&gt;Verify bulk load&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;hugo new&lt;/code&gt; adds a few configuration properties to the post like date and title,
- define your own configuration properties with archetypes&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl &#39;localhost:9200/_cat/indices?v&#39;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;config-toml:da0f48dab9453658f6115351016ea84c&#34;&gt;config.toml&lt;/h4&gt;
+&lt;h1 id=&#34;elk-stack-arduino-https-www-elastic-co-blog-arduino-based-home-weather-station-on-the-elastic-stack:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;&lt;a href=&#34;https://www.elastic.co/blog/arduino-based-home-weather-station-on-the-elastic-stack&#34;&gt;ELK Stack Arduino&lt;/a&gt;&lt;/h1&gt;
 
-&lt;p&gt;Can also use YAML and JSON&lt;/p&gt;
+&lt;h1 id=&#34;docker-https-hub-docker-com-elasticsearch:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;&lt;a href=&#34;https://hub.docker.com/_/elasticsearch/&#34;&gt;Docker&lt;/a&gt;&lt;/h1&gt;
 
-&lt;h4 id=&#34;content:da0f48dab9453658f6115351016ea84c&#34;&gt;content&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;docker run -d -v &amp;quot;$PWD/esdata&amp;quot;:/usr/share/elasticsearch/data elasticsearch -p 9200:9200
 
-&lt;p&gt;Website sections, i.e. blog, article, or tutorial&lt;/p&gt;
+docker ps
 
-&lt;h4 id=&#34;data:da0f48dab9453658f6115351016ea84c&#34;&gt;data&lt;/h4&gt;
+docker exec -it ac10fbffff12 bash
 
-&lt;p&gt;Configuration files, can be YAML, JSON or TOML&lt;/p&gt;
-
-&lt;h4 id=&#34;layouts:da0f48dab9453658f6115351016ea84c&#34;&gt;layouts&lt;/h4&gt;
-
-&lt;p&gt;Specify how your content will be converted into the static website&lt;/p&gt;
-
-&lt;h4 id=&#34;static:da0f48dab9453658f6115351016ea84c&#34;&gt;static&lt;/h4&gt;
-
-&lt;p&gt;Images, CSS, JavaScript or other static content&lt;/p&gt;
-
-&lt;h2 id=&#34;creating-a-theme:da0f48dab9453658f6115351016ea84c&#34;&gt;Creating a theme&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;hugo new theme hugo-theme-mozey
+curl -XGET &#39;localhost:9200&#39;
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
     <item>
-      <title>angular donts</title>
-      <link>http://mozey.co/post/angular-donts/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      <title>taskwarrior</title>
+      <link>http://mozey.co/post/taskwarrior/</link>
+      <pubDate>Wed, 19 Oct 2016 13:13:02 +0200</pubDate>
       
-      <guid>http://mozey.co/post/angular-donts/</guid>
+      <guid>http://mozey.co/post/taskwarrior/</guid>
       <description>
 
-&lt;h1 id=&#34;list-of-practises-that-make-angular-code-fragile-and-unmaintainable:7dc0e1db08f0f0cb8032450057252836&#34;&gt;List of practises that make angular code fragile and unmaintainable&lt;/h1&gt;
+&lt;h1 id=&#34;taskserver-backups-https-taskwarrior-org-docs-taskserver-prep-html:e587b81f0529e47751cf387ee8a1fa0e&#34;&gt;&lt;a href=&#34;https://taskwarrior.org/docs/taskserver/prep.html&#34;&gt;Taskserver Backups&lt;/a&gt;&lt;/h1&gt;
 
-&lt;p&gt;Some of the points listed also apply to javascript programming in general.&lt;/p&gt;
+&lt;p&gt;Alternative&lt;/p&gt;
 
-&lt;h2 id=&#34;adding-unused-variables-onto-the-scope:7dc0e1db08f0f0cb8032450057252836&#34;&gt;Adding unused variables onto the scope&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use script to do rolling backups when bash profile is loaded&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;Variables should only be added to the scope when
-it is used for template rendering or data binding.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Use git to version dot and data files in home dir&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h2 id=&#34;using-scope-or-shared-objects-to-communicate-between-controllers:7dc0e1db08f0f0cb8032450057252836&#34;&gt;Using scope or shared objects to communicate between controllers&lt;/h2&gt;
+&lt;h1 id=&#34;time-tracking-https-taskwarrior-org-docs-timewarrior:e587b81f0529e47751cf387ee8a1fa0e&#34;&gt;&lt;a href=&#34;https://taskwarrior.org/docs/timewarrior&#34;&gt;Time tracking&lt;/a&gt;&lt;/h1&gt;
 
-&lt;p&gt;Rather use event or services.&lt;/p&gt;
+&lt;h2 id=&#34;install-timewarrior:e587b81f0529e47751cf387ee8a1fa0e&#34;&gt;Install timewarrior&lt;/h2&gt;
 
-&lt;p&gt;When services are used they should they should not expose shared objects,
-always return a copy of underlying data if simple variables are not used.&lt;/p&gt;
+&lt;p&gt;Use &lt;a href=&#34;https://taskwarrior.org/docs/timewarrior/taskwarrior.html&#34;&gt;on-modify hook&lt;/a&gt;
+to integrate with taskwarrior&lt;/p&gt;
 
-&lt;h2 id=&#34;using-one-data-structure-for-multiple-purposes:7dc0e1db08f0f0cb8032450057252836&#34;&gt;Using one data structure for multiple purposes&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;brew install timewarrior
 
-&lt;p&gt;For example, don&amp;rsquo;t use $scope.data to render a form and then also post it to a
-web service. Rather create a function that extracts only the data required.
-The benefit is that this function then documents exactly what is intended as
-params.&lt;/p&gt;
+cp /usr/local/Cellar/timewarrior/1.0.0/share/doc/timew/ext/on-modify.timewarrior ~/.task/hooks/
+
+chmod +x ~/.task/hooks/on-modify.timewarrior
+
+task diagnostics
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;commands:e587b81f0529e47751cf387ee8a1fa0e&#34;&gt;Commands&lt;/h2&gt;
 </description>
     </item>
     
     <item>
-      <title>bookkeeping and accounting</title>
-      <link>http://mozey.co/post/bookkeeping-and-accounting/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      <title>postgres</title>
+      <link>http://mozey.co/post/postgres/</link>
+      <pubDate>Thu, 06 Oct 2016 11:32:38 +0200</pubDate>
       
-      <guid>http://mozey.co/post/bookkeeping-and-accounting/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://www.dwmbeancounter.com/tutorial/Tutorial.html&#34;&gt;So, you want to learn Bookkeeping!&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://martin.kleppmann.com/2011/03/07/accounting-for-computer-scientists.html&#34;&gt;Accounting for Computer Scientists&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.odoo.com/documentation/functional/accounting.html&#34;&gt;Accounting Memento For Entrepreneurs&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>golang delve osx</title>
-      <link>http://mozey.co/post/golang-dev-osx/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>http://mozey.co/post/golang-dev-osx/</guid>
+      <guid>http://mozey.co/post/postgres/</guid>
       <description>
 
-&lt;h1 id=&#34;install-delve-osx-https-github-com-derekparker-delve-blob-master-documentation-installation-osx-install-md:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/install.md&#34;&gt;Install Delve OSX&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;scaling:d0a66ac5be0a2f43494c1149b643e1b4&#34;&gt;Scaling&lt;/h1&gt;
 
-&lt;h2 id=&#34;prerequisites:44420976362a88fd192f5d01a1ebcf51&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.citusdata.com/blog/2016/10/03/designing-your-saas-database-for-high-scalability/&#34;&gt;Designing your SaaS Database for Scale with Postgres&lt;/a&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;xcode-select --install
-
-&amp;gt; command line tools are already installed, 
-use &amp;quot;Software Update&amp;quot; to install updates
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;create-a-self-signed-certificate:44420976362a88fd192f5d01a1ebcf51&#34;&gt;Create a self-signed certificate&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;Keychain Access
-
-Keychain Access &amp;gt; Certificate Assistant &amp;gt; Create a Certificate
-
-name                        dlv-cert
-Identity Type               Self Signed Root
-Certificate Type            Code Signing
-Let me override defaults    Yes
-set 365 days                3650 days
-Continue...
-Specify a Location For The Certificate &amp;gt; Keychain: System
-
-In keychains select System
-Context menu &amp;gt; Get info
-Trust &amp;gt; Code Signing &amp;gt; Always Trust
-
-In category select Keys
-dlv-cert &amp;gt; right click &amp;gt; GetInfo &amp;gt; Access Control
-Allow all applications to access this item &amp;gt; Save
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Quit Keychain Access&lt;/p&gt;
-
-&lt;p&gt;Kill the current running taskgated process (or restart)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; ps ax | grep taskgated
-
- sudo kill xxx
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;install-the-binary:44420976362a88fd192f5d01a1ebcf51&#34;&gt;Install the binary&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone https://github.com/derekparker/delve.git &amp;amp;&amp;amp; cd delve
-
-GO15VENDOREXPERIMENT=1 CERT=dlv-cert make install
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;troubleshooting-https-github-com-derekparker-delve-blob-master-documentation-installation-osx-install-md-notes:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/install.md#notes&#34;&gt;Troubleshooting&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Eliminating codesign authorization prompt during builds&lt;/p&gt;
-
-&lt;p&gt;Eliminating &amp;ldquo;Developer tools access&amp;rdquo; prompt running delve&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;See troubleshooting link above
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/derekparker/delve/issues/216&#34;&gt;process instantly killed &lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;tutorial-https-blog-gopheracademy-com-advent-2015-debugging-with-delve:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;https://blog.gopheracademy.com/advent-2015/debugging-with-delve/&#34;&gt;Tutorial&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;Start debugger&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;dlv debug example.go
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Start debugger (multiple files)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;dlv debug ./
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Set breakpoint&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;break example.go:123
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Continue to breakpoint&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;c
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Next line&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;n
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Show help&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;help
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Passing flags to the process&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;dlv debug example.go -- -flag
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;setup-with-go-lang-idea-plugin-in-pycharm:44420976362a88fd192f5d01a1ebcf51&#34;&gt;Setup with go-lang-idea-plugin in PyCharm&lt;/h1&gt;
-
-&lt;p&gt;Running debugger from IDE doesn&amp;rsquo;t work reliably as of 2016-04-11&lt;/p&gt;
-
-&lt;h1 id=&#34;add-content-root-in-pycharm-http-stackoverflow-com-a-9605030-639133:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;http://stackoverflow.com/a/9605030/639133&#34;&gt;Add content root in PyCharm&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;Name spacing is done using packages,
-packages can be added to the IDE project like this&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Settings &amp;gt; Project &amp;gt; Project Structure &amp;gt; Add Content Root
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;live-reload-utility:44420976362a88fd192f5d01a1ebcf51&#34;&gt;Live reload utility&lt;/h1&gt;
-
-&lt;h2 id=&#34;gin-https-github-com-codegangsta-gin:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;https://github.com/codegangsta/gin&#34;&gt;gin&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Install&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;go get github.com/codegangsta/gin
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Verify installation&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gin -h
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;fresh-https-github-com-pilu-fresh:44420976362a88fd192f5d01a1ebcf51&#34;&gt;&lt;a href=&#34;https://github.com/pilu/fresh&#34;&gt;fresh&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Install&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;go get github.com/pilu/fresh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Usage&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd /path/to/app
-
-fresh
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://news.ycombinator.com/item?id=12649734&#34;&gt;HN Comments&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>golang shared libs</title>
-      <link>http://mozey.co/post/golang-shared-libs/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      <title>distributing python applications</title>
+      <link>http://mozey.co/post/distributing-python-applications/</link>
+      <pubDate>Tue, 20 Sep 2016 10:03:34 +0200</pubDate>
       
-      <guid>http://mozey.co/post/golang-shared-libs/</guid>
-      <description>
+      <guid>http://mozey.co/post/distributing-python-applications/</guid>
+      <description>&lt;p&gt;Currently using &lt;code&gt;cx_Freeze&lt;/code&gt;, investigate alternatives below&lt;/p&gt;
 
-&lt;h1 id=&#34;sharing-golang-packages-to-c-and-go-http-blog-ralch-com-tutorial-golang-sharing-libraries:e37244b589090c4d785e1023cf7c1809&#34;&gt;&lt;a href=&#34;http://blog.ralch.com/tutorial/golang-sharing-libraries/&#34;&gt;Sharing Golang packages to C and Go&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/kholia/dedrop&#34;&gt;dedrop&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;using-shared-library-in-go:e37244b589090c4d785e1023cf7c1809&#34;&gt;Using shared library in Go&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.openwall.com/presentations/WOOT13-Security-Analysis-of-Dropbox/&#34;&gt;Looking inside the (Drop) box&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;using-shared-go-library-in-c:e37244b589090c4d785e1023cf7c1809&#34;&gt;Using shared Go library in C&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/2678180/how-does-dropbox-use-python-on-windows-and-os-x&#34;&gt;How does Dropbox use Python on Windows and OS X?&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;dynamic-shared-libraries-loading-https-github-com-golang-go-issues-13751:e37244b589090c4d785e1023cf7c1809&#34;&gt;&lt;a href=&#34;https://github.com/golang/go/issues/13751&#34;&gt;Dynamic shared libraries loading&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;&amp;ldquo;No, go 1.6 will not support Go plugins. Nobody has committed to doing that work.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://hackerboss.com/how-to-distribute-commercial-python-applications/&#34;&gt;How to Distribute Commercial Python Applications&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>native vs web apps</title>
-      <link>http://mozey.co/post/native-vs-web-apps/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      <title>tail</title>
+      <link>http://mozey.co/post/tail/</link>
+      <pubDate>Tue, 13 Sep 2016 15:30:45 +0200</pubDate>
       
-      <guid>http://mozey.co/post/native-vs-web-apps/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://joreteg.com/blog/why-i-switched-to-android&#34;&gt;Why I switched to Android after 7 years of iOS&lt;/a&gt;&lt;/p&gt;
+      <guid>http://mozey.co/post/tail/</guid>
+      <description>&lt;p&gt;Use scan-back logic from link to do exactly the number of lines requested.
+Possibly by counting newlines?&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://medium.com/swlh/nobody-wants-your-app-6af1f7f69cb7&#34;&gt;Nobody Wants Your App.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/17864134/639133&#34;&gt;How to Read last lines from a big file with Go&amp;hellip;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://trac.mondorescue.org/browser/trunk/mindi-busybox/coreutils/tail.c&#34;&gt;GNU tail source code&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>opensprinkler</title>
-      <link>http://mozey.co/post/opensprinkler/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      <title>button presser</title>
+      <link>http://mozey.co/post/button-presser/</link>
+      <pubDate>Fri, 12 Aug 2016 10:31:24 +0200</pubDate>
       
-      <guid>http://mozey.co/post/opensprinkler/</guid>
-      <description>
+      <guid>http://mozey.co/post/button-presser/</guid>
+      <description>&lt;p&gt;Remote controlled device that mechanically presses buttons on a keypad&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://opensprinkler.com/faq/&#34;&gt;FAQ&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/DIY/comments/335rdx/help_a_mechanical_device_that_will_press_a_button/&#34;&gt;A mechanical device that will press a button at certain time.&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;flow-sensor:90cf156fc627320b0fed29a976fa3560&#34;&gt;Flow sensor&lt;/h2&gt;
-
-&lt;p&gt;OpenSprinkler has a sensor terminal that can accept any off-the-shelf rain
-sensor, either normally open or normally closed type. The sensor terminal can
-also accept a dry contact flow sensor (i.e. two-wire type).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://electronics.stackexchange.com/questions/4094/hardware-for-pushing-buttons&#34;&gt;hardware for pushing buttons&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>osx batch resize images</title>
-      <link>http://mozey.co/post/osx-batch-resize-images/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      <title>scipy</title>
+      <link>http://mozey.co/post/scipy/</link>
+      <pubDate>Thu, 28 Jul 2016 14:14:15 +0200</pubDate>
       
-      <guid>http://mozey.co/post/osx-batch-resize-images/</guid>
-      <description>
+      <guid>http://mozey.co/post/scipy/</guid>
+      <description>&lt;p&gt;One document to learn numerics, science, and data with Python&lt;/p&gt;
 
-&lt;h1 id=&#34;terminal:0c99fdcc09ae5b1b07590ed12a1c2319&#34;&gt;Terminal&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;cd path/to/images
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt; This command overwrites the original files&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sips -Z 1024 *.jpg
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;preview:0c99fdcc09ae5b1b07590ed12a1c2319&#34;&gt;Preview&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;Open images in preview
-
-Select All
-
-Tools &amp;gt; Adjust Size...
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.scipy-lectures.org/&#34;&gt;scipy-lectures&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>python dev ubuntu</title>
-      <link>http://mozey.co/post/python-dev-ubuntu/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      <title>docker osx dev</title>
+      <link>http://mozey.co/post/docker-osx-dev/</link>
+      <pubDate>Thu, 21 Jul 2016 12:21:29 +0200</pubDate>
       
-      <guid>http://mozey.co/post/python-dev-ubuntu/</guid>
-      <description>
-
-&lt;h1 id=&#34;how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu-http-askubuntu-com-questions-244641-how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu:9c463ed49ed8cf83b655e0ae060739cf&#34;&gt;&lt;a href=&#34;http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu&#34;&gt;How to set up and use a virtual python environment in Ubuntu?&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;Install virtualenv and wrapper&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install python-pip
-
-sudo pip install virtualenv
-
-sudo pip install virtualenvwrapper
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Setup virtual env&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;mkdir ~/.venvs
-
-vi ~/.profile
-
-export WORKON_HOME=~/.venvs
-source /usr/local/bin/virtualenvwrapper.sh
-
-source ~/.profile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Create a virtual env&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;mkvirtualenv -p /usr/bin/python3.5 test-python3.5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Active / de-active virtual env&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;workon test
-
-deactivate
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;install-any-version-of-python-http-askubuntu-com-a-682875:9c463ed49ed8cf83b655e0ae060739cf&#34;&gt;&lt;a href=&#34;http://askubuntu.com/a/682875&#34;&gt;Install any version of python&lt;/a&gt;&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo add-apt-repository ppa:fkrull/deadsnakes
-
-sudo apt-get update
-
-sudo apt-get install python3.5
-&lt;/code&gt;&lt;/pre&gt;
+      <guid>http://mozey.co/post/docker-osx-dev/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.ybrikman.com/writing/2015/05/19/docker-osx-dev/&#34;&gt;docker-osx-dev&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>queues</title>
-      <link>http://mozey.co/post/queues/</link>
-      <pubDate>Tue, 01 Mar 2016 00:00:00 +0000</pubDate>
+      <title>angularjs validation</title>
+      <link>http://mozey.co/post/angularjs-validation/</link>
+      <pubDate>Sun, 10 Jul 2016 09:13:55 +0200</pubDate>
       
-      <guid>http://mozey.co/post/queues/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://bravenewgeek.com/tag/message-queues/&#34;&gt;Benchmarking Message Queue Latency&lt;/a&gt;&lt;/p&gt;
+      <guid>http://mozey.co/post/angularjs-validation/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://docs.angularjs.org/api/ngMessages/directive/ngMessages&#34;&gt;ngMessages&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://bravenewgeek.com/dissecting-message-queues/&#34;&gt;Dissecting Message Queues&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/37092124/639133&#34;&gt;Using Bootstrap for Angular and Material design for Angular together&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://bravenewgeek.com/you-cannot-have-exactly-once-delivery/&#34;&gt;You Cannot Have Exactly-Once Delivery&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.angularjs.org/guide/forms&#34;&gt;guide forms&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://bravenewgeek.com/a-look-at-nanomsg-and-scalability-protocols/&#34;&gt;Nanomsg vs ZermoMQ&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.w3schools.com/angular/angular_validation.asp&#34;&gt;w3schools angular validation&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://appliedgo.net/messaging/&#34;&gt;Message Queues, or how you can make processes talk to each other&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mozey/angularjs-validation&#34;&gt;angularjs-validation&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/adjust/rmq&#34;&gt;Message queue system written in Go and backend by Redis&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TODO&lt;/strong&gt; Cleanup &lt;code&gt;angularjs-validation&lt;/code&gt; code and push to github&lt;/p&gt;
 </description>
     </item>
     

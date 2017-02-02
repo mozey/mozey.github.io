@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="Christiaan van Zyl">
+        <meta name="keywords" content="awesome, definitely">
+	
+        <meta property="og:site_name" content="mozey.co">
+        <meta property="og:title" content="mozey.co">
+        <meta property="og:url" content="http://mozey.co/post/kubernetes/">
+        <meta property="og:description" content="">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="Christiaan van Zyl" />
+        <meta property="og:article:published_time" content="2016-11-10T10:08:13&#43;02:00" />
+    
+        <meta name="generator" content="Hugo 0.15" />
+        <title>kubernetes &middot; mozey.co </title>
+        <link rel="canonical" href="http://mozey.co/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/main.css"/>
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/custom.css"/>
+        <link href='http://mozey.co/css/montserrat.css' rel='stylesheet' type='text/css'>
+        <link href="http://mozey.co/css/font-awesome.css" rel="stylesheet">
+        <script src="http://mozey.co/js/jquery-1.10.2.min.js"></script>
+        <link rel="icon" href="http://mozey.co/favicon.ico">
+    </head>
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://mozey.co/" alt="mozey.co"><h1 class="blog-title heading">mozey.co</h1></a>
+            <p class="blog-description"></p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="post">
+	<header class="post-header">
+        <h3 class="p-post-title">kubernetes</h3>
+    </header>
+
+    <section class="post-content">
+        
+
+<h1 id="minikube-http-kubernetes-io-docs-getting-started-guides-minikube:9fab9770b5d5cab6474d45bd9cd5273a"><a href="http://kubernetes.io/docs/getting-started-guides/minikube/">Minikube</a></h1>
+
+<p>Minikube starts a single node kubernetes cluster locally for purposes of development and testing</p>
+
+<h2 id="install-virtual-box-https-www-virtualbox-org-wiki-downloads:9fab9770b5d5cab6474d45bd9cd5273a">Install <a href="https://www.virtualbox.org/wiki/Downloads">virtual box</a></h2>
+
+<h2 id="install-minikube-https-github-com-kubernetes-minikube-releases:9fab9770b5d5cab6474d45bd9cd5273a">Install <a href="https://github.com/kubernetes/minikube/releases">minikube</a></h2>
+
+<pre><code>curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.12.2/minikube-darwin-amd64 &amp;&amp; chmod +x minikube &amp;&amp; sudo mv minikube /usr/local/bin/
+</code></pre>
+
+<h2 id="install-kubectl-http-kubernetes-io-docs-getting-started-guides-minikube:9fab9770b5d5cab6474d45bd9cd5273a">Install <a href="http://kubernetes.io/docs/getting-started-guides/minikube/">kubectl</a></h2>
+
+<pre><code>curl -Lo kubectl http://storage.googleapis.com/kubernetes-release/release/v1.3.0/bin/darwin/amd64/kubectl &amp;&amp; chmod +x kubectl &amp;&amp; sudo mv kubectl /usr/local/bin/fire
+</code></pre>
+
+<h2 id="dashboard:9fab9770b5d5cab6474d45bd9cd5273a">Dashboard</h2>
+
+<p>Install and open the latest stable release</p>
+
+<pre><code>kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+
+minikube dashboard
+</code></pre>
+
+<h2 id="pod-runs-boot2docker:9fab9770b5d5cab6474d45bd9cd5273a">Pod runs boot2docker</h2>
+
+<pre><code>minikube docker-env
+
+minikube ssh
+
+ls /Users
+</code></pre>
+
+<h1 id="getting-started-https-medium-com-claudiopro-getting-started-with-kubernetes-via-minikube-ada8c7a29620:9fab9770b5d5cab6474d45bd9cd5273a"><a href="https://medium.com/@claudiopro/getting-started-with-kubernetes-via-minikube-ada8c7a29620">Getting Started</a></h1>
+
+<p>Inspect the cluster</p>
+
+<pre><code>kubectl get pods --all-namespaces
+
+kubectl get nodes
+</code></pre>
+
+<h2 id="run-the-built-in-hello-minikube:9fab9770b5d5cab6474d45bd9cd5273a">Run the built-in hello-minikube</h2>
+
+<pre><code>kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
+
+kubectl get pods
+
+kubectl get deployments
+</code></pre>
+
+<p>Expose the deployment to an external IP</p>
+
+<pre><code>kubectl expose deployment hello-minikube --type=NodePort
+
+kubectl get services
+
+curl $(minikube service hello-minikube --url)
+</code></pre>
+
+<p>Delete deployment and service</p>
+
+<pre><code>kubectl delete service,deployment hello-minikube
+</code></pre>
+
+<h2 id="build-and-install-a-node-service-with-docker:9fab9770b5d5cab6474d45bd9cd5273a">Build and install a node service with Docker</h2>
+
+<p>Install <a href="https://docs.docker.com/docker-for-mac/docker-toolbox">Docker for Mac</a></p>
+
+<p>Start Docker.app</p>
+
+<p>Create service files and build image</p>
+
+<pre><code>cd ~ &amp;&amp; mkdir hello-node
+
+echo &quot;var http = require('http');
+var handleRequest = function(request, response) {
+  response.writeHead(200);
+  response.end('Hello World!');
+};
+var helloServer = http.createServer(handleRequest);
+helloServer.listen(8080);&quot; &gt; hello-node/server.js
+
+echo &quot;FROM node:4.4
+EXPOSE 8080
+COPY server.js .
+CMD node server.js&quot; &gt; hello-node/Dockerfile
+
+tree hello-node
+
+cd hello-node 
+
+docker build -t hello-node:v1 .
+</code></pre>
+
+<p>Show images</p>
+
+<pre><code>docker images
+</code></pre>
+
+<p><a href="http://sethlakowske.com/articles/howto-install-docker-kubernets-local-registry/">Run a private local registry</a></p>
+
+<pre><code>docker run -d -p 5000:5000 --restart=always --name registry registry:2
+
+docker tag c9fb1ebe09f8 localhost:5000/hello-node:v1
+
+docker push localhost:5000/hello-node:v1
+</code></pre>
+
+<p>Deploy the hello-node pod</p>
+
+<pre><code>ifconfig
+
+kubectl run hello-node --image=192.168.1.101:5000/hello-node:v1 --port=8080
+</code></pre>
+
+<h1 id="todo-kubectl-run-error:9fab9770b5d5cab6474d45bd9cd5273a">TODO <code>kubectl run</code> error</h1>
+
+<p><code>Get https://192.168.1.101:5000/v1/_ping: tls: oversized record received with length 20527</code>
+from <a href="http://192.168.99.100:32657/#/deployment?namespace=default">kubernetes dashboard</a>
+possibly because of &ndash;image url format?</p>
+
+<pre><code>kubectl expose deployment hello-node --type=NodePort
+
+curl $(minikube service hello-node --url)
+</code></pre>
+
+<p>Cleanup</p>
+
+<pre><code>kubectl delete service,deployment hello-node
+
+docker rmi hello-node
+</code></pre>
+
+<h1 id="kubectl-for-docker-users-http-kubernetes-io-docs-user-guide-docker-cli-to-kubectl:9fab9770b5d5cab6474d45bd9cd5273a"><a href="http://kubernetes.io/docs/user-guide/docker-cli-to-kubectl">kubectl for Docker Users</a></h1>
+
+<h1 id="elasticsearch-https-hub-docker-com-elasticsearch:9fab9770b5d5cab6474d45bd9cd5273a"><a href="https://hub.docker.com/_/elasticsearch/">elasticsearch</a></h1>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            <section class="author">
+                <p>Words by Christiaan van Zyl</p>
+            </section>
+            
+            
+            <p class="f-post-time"><time datetime="2016-11-10T10:08:13&#43;02:00">November 10, 2016</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=kubernetes&url=http%3a%2f%2fmozey.co%2fpost%2fkubernetes%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmozey.co%2fpost%2fkubernetes%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fmozey.co%2fpost%2fkubernetes%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://mozey.co/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://mozey.co/">Christiaan van Zyl</a> 2015 | All rights reserved</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://mozey.co/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>

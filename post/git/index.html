@@ -89,6 +89,13 @@ git branch -D temp
 <pre><code>git remote set-url origin https://change.url.for.origin.to.this
 </code></pre>
 
+<p>Or if no exiting remotes</p>
+
+<pre><code>git remote add origin https://github.com/user/repo.git
+
+git push --set-upstream origin master
+</code></pre>
+
 <h1 id="stashing-https-git-scm-com-book-en-v1-git-tools-stashing:1c1ef82aae62aeea8eedcb5f455b129b"><a href="https://git-scm.com/book/en/v1/Git-Tools-Stashing">Stashing</a></h1>
 
 <p>Stash changes</p>
@@ -136,11 +143,8 @@ git branch -D temp
 <p>Undo the commit, leaving files intact</p>
 
 <pre><code>git reset --soft HEAD~
-</code></pre>
 
-<p>Undo the commit and everything that was staged, leaving files intact</p>
-
-<pre><code>git reset HEAD^
+git reset HEAD^
 </code></pre>
 
 <p>Reset to previous commit, throwing away changed made in between</p>
@@ -160,6 +164,163 @@ git branch -D temp
 <p><a href="https://help.github.com/articles/what-is-a-good-git-workflow/">help</a></p>
 
 <p><a href="https://guides.github.com/introduction/flow/">guide</a></p>
+
+<p><a href="https://codewords.recurse.com/issues/two/git-from-the-inside-out">tutorial</a></p>
+
+<h1 id="remove-unused-files-from-git-http-stackoverflow-com-a-5277575-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/5277575/639133">Remove unused files from .git</a></h1>
+
+<p>If you added the files and then removed them</p>
+
+<pre><code>git fsck
+
+git prune
+</code></pre>
+
+<h1 id="syncing-a-github-fork-https-help-github-com-articles-syncing-a-fork:1c1ef82aae62aeea8eedcb5f455b129b"><a href="https://help.github.com/articles/syncing-a-fork/">Syncing a github fork</a></h1>
+
+<p>Assuming the fork has already been cloned.</p>
+
+<pre><code>git clone https://github.com/FORK_OWNER/FORK_REPOSITORY.git
+</code></pre>
+
+<p>The github docs suggests adding an <code>upstream</code> remote.</p>
+
+<p>See <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork/">configuring a remote for a fork</a></p>
+
+<pre><code>git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+</code></pre>
+
+<h2 id="information-about-local-and-remote-branches:1c1ef82aae62aeea8eedcb5f455b129b">Information about local and remote branches</h2>
+
+<pre><code>git remote -v
+
+git remote show upstream
+
+git ls-remote --heads upstream
+
+git branch -a
+
+git branch -r
+</code></pre>
+
+<h2 id="pull-changes-from-upstream-and-push-to-origin:1c1ef82aae62aeea8eedcb5f455b129b">Pull changes from upstream and push to origin</h2>
+
+<pre><code>git checkout master
+
+git pull upstream master 
+
+git push origin master
+</code></pre>
+
+<h2 id="fetch-branch-from-upstream-that-does-not-exist-in-origin:1c1ef82aae62aeea8eedcb5f455b129b">Fetch branch from upstream that does not exist in origin</h2>
+
+<p>The <code>git pull</code> command does a fetch and merge, it changes the working copy.</p>
+
+<p>To update the remote-tracking branches without changing the working copy,
+use the <code>git fetch</code> command</p>
+
+<pre><code>git fetch upstream/BRANCH
+</code></pre>
+
+<p>Track the remote branch</p>
+
+<pre><code>git checkout -b BRANCH upstream/BRANCH
+</code></pre>
+
+<p>Make some changes and push to origin</p>
+
+<pre><code>git commit -a -m &quot;Changes to branch...&quot;
+
+git push origin BRANCH
+</code></pre>
+
+<p>Now use github to compare with upstream</p>
+
+<h2 id="show-which-branches-are-tracking-what-http-stackoverflow-com-questions-4950725-how-do-i-get-git-to-show-me-which-branches-are-tracking-what:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/questions/4950725/how-do-i-get-git-to-show-me-which-branches-are-tracking-what">Show which branches are tracking what</a></h2>
+
+<pre><code>git branch -vv
+</code></pre>
+
+<h2 id="change-the-remote-a-git-branch-is-tracking-http-stackoverflow-com-questions-4878249-how-do-i-change-the-remote-a-git-branch-is-tracking:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/questions/4878249/how-do-i-change-the-remote-a-git-branch-is-tracking">Change the remote a git branch is tracking</a></h2>
+
+<pre><code>git branch BRANCH -u upstream/BRANCH
+</code></pre>
+
+<h1 id="find-and-restore-a-deleted-file-http-stackoverflow-com-a-953573-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/953573/639133">Find and restore a deleted file</a></h1>
+
+<p>Find the commit where the file was deleted</p>
+
+<pre><code>git log --diff-filter=D --summary | grep -C 10 FILE_NAME
+</code></pre>
+
+<p>Restore the deleted file,
+use tilde to refer to the nth grandchild of the commit.</p>
+
+<pre><code>git checkout COMMIT_HASH~1 filename
+</code></pre>
+
+<h1 id="list-all-the-files-in-a-commit-http-stackoverflow-com-questions-424071-how-to-list-all-the-files-in-a-commit:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/questions/424071/how-to-list-all-the-files-in-a-commit">List all the files in a commit</a></h1>
+
+<h2 id="user-facing-porcelain-command:1c1ef82aae62aeea8eedcb5f455b129b">User facing (porcelain) command</h2>
+
+<pre><code>git show --pretty=&quot;&quot; --name-only 5e7b36e
+</code></pre>
+
+<h2 id="plumbing-command-for-use-in-scripts:1c1ef82aae62aeea8eedcb5f455b129b">Plumbing command for use in scripts</h2>
+
+<p>List all files in the commit</p>
+
+<pre><code>git ls-tree --name-only -r 5e7b36e
+</code></pre>
+
+<p>List changed files only</p>
+
+<pre><code>git diff-tree --no-commit-id --name-only -r 5e7b36e
+</code></pre>
+
+<h1 id="remove-commits-from-a-remote-branch-http-stackoverflow-com-a-3293592-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/3293592/639133">Remove commits from a remote branch</a></h1>
+
+<p>Use <code>git reset</code> to remove the commit</p>
+
+<p>Push revised local branch to the remote</p>
+
+<pre><code> git push origin --force
+</code></pre>
+
+<h1 id="protected-branches-and-required-status-checks-https-github-com-blog-2051-protected-branches-and-required-status-checks:1c1ef82aae62aeea8eedcb5f455b129b"><a href="https://github.com/blog/2051-protected-branches-and-required-status-checks">Protected branches and required status checks</a></h1>
+
+<p>&rdquo;&hellip;gives repository administrators the ability to disable force pushes to specific branches.&rdquo;</p>
+
+<h1 id="dropbox:1c1ef82aae62aeea8eedcb5f455b129b">Dropbox</h1>
+
+<p><a href="https://github.com/anishathalye/git-remote-dropbox">git-remote-dropbox</a></p>
+
+<p>&rdquo;&hellip;is a transparent bidirectional bridge between Git and Dropbox.
+It lets you use a Dropbox folder or a shared folder as a Git remote&rdquo;</p>
+
+<p><a href="https://github.com/anishathalye/git-remote-dropbox#setup">Setup</a></p>
+
+<p>Remember to set <a href="https://www.dropbox.com/en/help/175#select">selective sync</a>
+and the dropbox folder</p>
+
+<h2 id="push-existing-repos-to-dropbox:1c1ef82aae62aeea8eedcb5f455b129b">Push existing repos to dropbox</h2>
+
+<pre><code>git remote -v
+
+git remote add origin &quot;dropbox://nosync/REPOS&quot;
+
+git push --set-upstream origin master
+</code></pre>
+
+<h2 id="clone-repos:1c1ef82aae62aeea8eedcb5f455b129b">Clone repos</h2>
+
+<pre><code>git clone dropbox://nosync/REPOS
+</code></pre>
+
+<p>git will not automatically checkout a branch, <a href="https://github.com/anishathalye/git-remote-dropbox#notes">why?</a></p>
+
+<pre><code>git branch -a
+</code></pre>
 
     </section>
 

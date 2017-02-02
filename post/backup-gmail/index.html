@@ -52,21 +52,62 @@
     </header>
 
     <section class="post-content">
-        <p>One way to keep an offline copy of gmail is to setup a mail client that support imap, Mail.app, Outlook, etc.</p>
+        
 
-<p>But this requires a graphical interface and is not easily automated. Another option is to use offlineimap.</p>
+<h1 id="gmvault-http-gmvault-org:7b304df5cf7e76248bc7d2a6f6956dc7"><a href="http://gmvault.org/">Gmvault</a></h1>
+
+<p><strong>2017-01-27</strong>
+For some reason offlineimap was marking my old messages as unread in gmail,
+maybe my config was wrong, but I probably won&rsquo;t use it again!</p>
+
+<p>Using Python 2.7.12</p>
+
+<h2 id="install:7b304df5cf7e76248bc7d2a6f6956dc7">Install</h2>
+
+<pre><code>pip install gmvault
+
+gmvault -v
+</code></pre>
+
+<h2 id="sync-gmail-http-gmvault-org-gmail-setup-html-quickstart:7b304df5cf7e76248bc7d2a6f6956dc7"><a href="http://gmvault.org/gmail_setup.html#quickstart">Sync gmail</a></h2>
+
+<pre><code>[Setup gmail for imap](http://gmvault.org/gmail_setup.html#gmailsetup)
+
+gmvault sync foo.bar@gmail.com
+</code></pre>
+
+<p>Credentials stored in <code>~/.gmvault</code></p>
+
+<p>Backup created at <code>~/gmvault-db</code></p>
+
+<h1 id="calendar:7b304df5cf7e76248bc7d2a6f6956dc7">Calendar</h1>
+
+<p>Got to calendar settings</p>
+
+<p>Copy URL for ics private address</p>
+
+<pre><code>wget URL
+</code></pre>
+
+<h1 id="offlineimap:7b304df5cf7e76248bc7d2a6f6956dc7">offlineimap</h1>
+
+<p>One way to keep an offline copy of gmail is to setup a mail client that support imap, Mail.app, Outlook, etc.</p>
+
+<p>But this requires a graphical interface and is not easily automated.</p>
+
+<p>Another option is to use <a href="http://www.h4ck3r.net/2011/03/13/gmail-backup-imap/">offlineimap</a></p>
 
 <pre><code>sudo apt-get install offlineimap
 </code></pre>
 
-<p>Create a backup folder and config file.</p>
+<h2 id="create-a-backup-folder-and-config-file:7b304df5cf7e76248bc7d2a6f6956dc7">Create a backup folder and config file.</h2>
 
-<pre><code>mkdir ~/gmail_backup &amp;&amp; cd ~/gmail_backup
+<pre><code>mkdir ~/Gmail &amp;&amp; cd ~/Gmail
 
 sudo vi username.imaprc
 </code></pre>
 
-<p>Then setup a config file with the account details.</p>
+<h2 id="then-setup-a-config-file-with-the-account-details:7b304df5cf7e76248bc7d2a6f6956dc7">Then setup a config file with the account details.</h2>
 
 <pre><code>[general]
 accounts = Gmail
@@ -90,23 +131,75 @@ maxconnections = 1
 realdelete = no
 </code></pre>
 
-<p>Now sync the backup folder with the gmail account.</p>
+<h1 id="2016-11-21-using-an-oauth-token:7b304df5cf7e76248bc7d2a6f6956dc7">2016-11-21 Using an Oauth token</h1>
+
+<p><a href="https://github.com/OfflineIMAP/offlineimap/issues/228">gmail blocks offlineimap due to security</a></p>
+
+<p>Setup <a href="https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf">offlineimap.conf</a>
+to use an oauth token, see comment for <code>oauth2_client_secret</code></p>
+
+<p>Create a <a href="https://console.developers.google.com/project">google project</a>,
+enable Gmail API and create credential for &ldquo;OAuth client ID&rdquo;</p>
+
+<pre><code>git clone https://github.com/google/gmail-oauth2-tools
+
+python python/oauth2.py --generate_oauth2_token --client_id=YOUR_CLIENT_ID --client_secret=YOUR_CLIENT_SECRET
+</code></pre>
+
+<p>Use the refresh token, it can be used to request a new access token.
+The access token will expire</p>
+
+<h2 id="update-offlineimap-conf:7b304df5cf7e76248bc7d2a6f6956dc7">Update offlineimap conf</h2>
+
+<pre><code>oauth2_client_id = YOUR_CLIENT_ID
+
+oauth2_client_secret = YOUR_CLIENT_SECRET
+
+oauth2_request_url = https://accounts.google.com/o/oauth2/token
+
+oauth2_refresh_token = REFRESH_TOKEN
+</code></pre>
+
+<h2 id="now-sync-the-backup-folder-with-the-gmail-account:7b304df5cf7e76248bc7d2a6f6956dc7">Now sync the backup folder with the gmail account.</h2>
 
 <pre><code>offlineimap -c username.imaprc -u Noninteractive.Basic
 </code></pre>
 
-<p>To view the backup use mutt.</p>
+<h2 id="to-view-the-backup-use-mutt:7b304df5cf7e76248bc7d2a6f6956dc7">To view the backup use mutt.</h2>
 
 <pre><code>sudo apt-get install mutt
 
-mutt -f ~/gmail_backup/username/INBOX
+mutt -f ~/Gmail/INBOX
 </code></pre>
 
-<p>Reference</p>
+<h1 id="extract-maildir-attachments-with-mu-http-manpages-ubuntu-com-manpages-precise-man1-mu-1-html:7b304df5cf7e76248bc7d2a6f6956dc7">Extract maildir attachments with <a href="http://manpages.ubuntu.com/manpages/precise/man1/mu.1.html">mu</a></h1>
 
-<ul>
-<li><a href="http://www.h4ck3r.net/2011/03/13/gmail-backup-imap/">gmail backup imap</a></li>
-</ul>
+<p>Install on OSX using brew</p>
+
+<pre><code>brew install mu
+</code></pre>
+
+<p><a href="http://manpages.ubuntu.com/manpages/wily/man1/mu-easy.1.html">tutorial</a></p>
+
+<p>Index mailbox (search DB stored at <code>/Users/mozey/.mu/xapian</code>)</p>
+
+<pre><code>mu index -m ~/Gmail
+</code></pre>
+
+<p>Search email matching SEARCH_TERM</p>
+
+<pre><code>mu find SEARCH_TERM
+</code></pre>
+
+<p>Search email matching SEARCH_TERM with attachments</p>
+
+<pre><code>mu find SEARCH_TERM flag:attach
+</code></pre>
+
+<p>Get all messages with PDF attachments</p>
+
+<pre><code>mu find mime:application/pdf
+</code></pre>
 
     </section>
 

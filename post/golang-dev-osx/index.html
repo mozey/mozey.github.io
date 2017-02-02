@@ -191,6 +191,18 @@ packages can be added to the IDE project like this</p>
 fresh
 </code></pre>
 
+<h1 id="cross-compiling-for-windows-slow:44420976362a88fd192f5d01a1ebcf51">Cross compiling for Windows slow</h1>
+
+<p>Everything is being recompiled?</p>
+
+<pre><code>GOOS=windows GOARCH=386 go build -v example.go
+</code></pre>
+
+<p>This speeds things up</p>
+
+<pre><code>GOOS=windows GOARCH=386 go install std
+</code></pre>
+
     </section>
 
     <hr>

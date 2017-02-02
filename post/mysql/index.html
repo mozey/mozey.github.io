@@ -174,14 +174,24 @@ show global variables like 'general_log';
 <p>Enable slow query log dynamically, values lost on server restart</p>
 
 <pre><code>set global slow_query_log = 'on';
-
 set global slow_query_log_file = '/var/log/mysql/localhost-slow.log';
-
 set global log_queries_not_using_indexes = 'on';
+set global long_query_time = 0.000001;
+set session long_query_time = 0.000001;
+set global min_examined_row_limit = 0;
+set session min_examined_row_limit = 0;
+</code></pre>
 
-set session long_query_time = 1;
+<p>Reset log file</p>
 
-set session min_examined_row_limit = 1;
+<pre><code>echo &quot;&quot; &gt; /var/log/mysql/localhost-slow.log
+
+cat /var/log/mysql/localhost-slow.log
+</code></pre>
+
+<p>View Top 5 queries Sorted by average time, do not Abstract params</p>
+
+<pre><code>mysqldumpslow -t 5 -s at -a /var/log/mysql/localhost-slow.log
 </code></pre>
 
 <p>Check variable values</p>
@@ -196,6 +206,18 @@ show session variables like 'long_query_time';
 <pre><code>sudo apt-get install percona-toolkit
 
 pt-query-digest /var/log/mysql/localhost-slow.log
+</code></pre>
+
+<h3 id="query-breakdown:ab516e0eaa8881ac16e2624a8791f168">Query breakdown</h3>
+
+<p>Use this to see time per query state</p>
+
+<pre><code>set session profiling = 1;
+show profiles;
+
+# Run query
+
+select * from information_schema.profiling where query_id=123;
 </code></pre>
 
 <h3 id="create-a-gzipped-mysql-dump:ab516e0eaa8881ac16e2624a8791f168">Create a gzipped mysql dump</h3>
