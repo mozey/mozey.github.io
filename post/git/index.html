@@ -140,11 +140,14 @@ git push --set-upstream origin master
 
 <h1 id="undo-the-last-commit-http-stackoverflow-com-a-2846154-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/2846154/639133">Undo the last commit</a></h1>
 
-<p>Undo the commit, leaving files intact</p>
+<p>Undo the commit, leaving files intact and staged</p>
 
-<pre><code>git reset --soft HEAD~
+<pre><code>git reset --soft HEAD^
+</code></pre>
 
-git reset HEAD^
+<p>Undo the commit and un-stage, leaving files intact</p>
+
+<pre><code>git reset HEAD^
 </code></pre>
 
 <p>Reset to previous commit, throwing away changed made in between</p>
@@ -320,6 +323,115 @@ git push --set-upstream origin master
 <p>git will not automatically checkout a branch, <a href="https://github.com/anishathalye/git-remote-dropbox#notes">why?</a></p>
 
 <pre><code>git branch -a
+</code></pre>
+
+<h1 id="pull-with-rebase-http-stackoverflow-com-a-4675513-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/4675513/639133">Pull with rebase</a></h1>
+
+<p>Use this to <code>git pull</code> and re-formulate
+&ldquo;local changes to be relative to the newer version&rdquo;
+Useful when working on the same branch as someone else.
+No need to merge an clutter the history.</p>
+
+<p>Behaves similar to <code>svn update</code>.</p>
+
+<h1 id="work-on-a-branch:1c1ef82aae62aeea8eedcb5f455b129b">Work on a branch</h1>
+
+<p>Create a new branch of development at the current commit (HEAD)</p>
+
+<pre><code>git checkout -b BRANCH_NAME
+</code></pre>
+
+<p>Push branch and add upstream tracking.
+Upstream tracking is useful for displaying server changes with <code>git status</code>.
+Many commands will apply to the upstream tracking branch by default</p>
+
+<pre><code>git push -u origin BRANCH_NAME
+</code></pre>
+
+<p><a href="http://stackoverflow.com/a/7200641/639133">Reapply branch commits on top of master</a></p>
+
+<pre><code>git fetch 
+git rebase origin/master
+
+# or
+git rebase master
+</code></pre>
+
+<p>Merge branch</p>
+
+<pre><code>git checkout master
+
+git merge BRANCH_NAME
+</code></pre>
+
+<p><a href="http://stackoverflow.com/a/3697263/639133">Merge branch as one commit</a></p>
+
+<pre><code>git merge --squash BRANCH_NAME
+
+git commit -m &quot;Merged BRANCH_NAME&quot;
+</code></pre>
+
+<p>Delete local branch</p>
+
+<pre><code># Use --force to to delete irrespective of its merged status
+git branch -d BRANCH_NAME
+</code></pre>
+
+<p>Delete remote branch</p>
+
+<pre><code># Make sure the remote branch is not deleted already
+git fetch --prune
+
+git push origin --delete BRANCH_NAME
+</code></pre>
+
+<h1 id="how-to-avoid-merge-commits-from-git-pull-http-stackoverflow-com-a-30054231-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/30054231/639133">How to avoid merge commits from git pull</a></h1>
+
+<p>This is useful when working on the <code>master</code> branch locally ::w</p>
+
+<p>Commit local changes</p>
+
+<p>Pull and re-write history to apply local commits after remote commits</p>
+
+<pre><code>git pull --rebase
+</code></pre>
+
+<p>Push as usual</p>
+
+<h1 id="remove-sensitive-data-from-history:1c1ef82aae62aeea8eedcb5f455b129b">Remove sensitive data from history</h1>
+
+<pre><code>export SENSITIVE_DATA=&quot;path/to/config.js&quot;
+
+git filter-branch --force --index-filter \
+'git rm --cached --ignore-unmatch ${SENSITIVE_DATA}' \
+--prune-empty --tag-name-filter cat -- --all
+
+echo &quot;${SENSITIVE_DATA}&quot; &gt;&gt; .gitignore
+</code></pre>
+
+<p>Search for file in history</p>
+
+<pre><code>git log --all --full-history -- ${SENSITIVE_DATA}
+
+export SENSITIVE_SHA=&quot;123ABC&quot;
+git show ${SENSITIVE_SHA} -- ${SENSITIVE_DATA}
+</code></pre>
+
+<p>Force all objects in your local repository
+to be de-referenced and garbage collected</p>
+
+<pre><code>git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
+
+git reflog expire --expire=now --all
+
+git gc --prune=now
+</code></pre>
+
+<p>Push to remote</p>
+
+<pre><code>git push origin --force --all
+
+git push origin --force --tags
 </code></pre>
 
     </section>

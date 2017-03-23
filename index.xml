@@ -6,8 +6,81 @@
     <description>Recent content on mozey.co</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Feb 2017 12:03:23 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 14 Mar 2017 09:36:10 +0200</lastBuildDate>
     <atom:link href="http://mozey.co/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>97 things every programmer should know</title>
+      <link>http://mozey.co/post/97-things-every-programmer-should-know/</link>
+      <pubDate>Tue, 14 Mar 2017 09:36:10 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/97-things-every-programmer-should-know/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/97_Things_Every_Programmer_Should_Know&#34;&gt;97 Things Every Programmer Should Know&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Contributions_Appearing_in_the_Book&#34;&gt;index&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;act-with-prudence-http-programmer-97things-oreilly-com-wiki-index-php-act-with-prudence:50084ce763616b9fc053ceb46a3fa664&#34;&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Act_with_Prudence&#34;&gt;Act with Prudence&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;If you find yourself having to choose between &amp;ldquo;doing it right&amp;rdquo; and &amp;ldquo;doing it quick&amp;rdquo;&amp;hellip;
+As soon as you make the decision to compromise, log an issue.
+Pay off technical debt as soon as possible.&lt;/p&gt;
+
+&lt;h2 id=&#34;apply-functional-programming-principles-http-programmer-97things-oreilly-com-wiki-index-php-apply-functional-programming-principles:50084ce763616b9fc053ceb46a3fa664&#34;&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Apply_Functional_Programming_Principles&#34;&gt;Apply Functional Programming Principles&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/9859966/639133&#34;&gt;Referential transparency&lt;/a&gt;
+functions consistently yield the same results given the same input,
+irrespective of where and when they are invoked&lt;/p&gt;
+
+&lt;p&gt;Master the functional programming paradigm so you are able to
+judiciously apply the lessons learned to other domains.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.jmock.org/oopsla2004.pdf&#34;&gt;Mock Roles, not Objects&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;ask-what-would-the-user-do-you-are-not-the-user-http-programmer-97things-oreilly-com-wiki-index-php-ask-22what-would-the-user-do-3f-22-28you-are-not-the-user-29:50084ce763616b9fc053ceb46a3fa664&#34;&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Ask_%22What_Would_the_User_Do%3F%22_%28You_Are_not_the_User%29&#34;&gt;Ask &amp;ldquo;What Would the User Do?&amp;rdquo; (You Are not the User)&lt;/a&gt;&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ionic2</title>
+      <link>http://mozey.co/post/ionic2/</link>
+      <pubDate>Mon, 20 Feb 2017 11:00:12 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/ionic2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&#34;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ionicframework.com/docs/v2/intro/installation/&#34;&gt;ionic2 docs&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>lpic</title>
+      <link>http://mozey.co/post/lpic/</link>
+      <pubDate>Fri, 03 Feb 2017 09:26:03 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/lpic/</guid>
+      <description>&lt;p&gt;For IT professionals who want their Linux and open source skills verified in
+order to boost their career momentum&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.lpi.org/value-of-certification/linux-professionals&#34;&gt;certificates&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>certified information system security professional</title>
+      <link>http://mozey.co/post/cissp/</link>
+      <pubDate>Fri, 03 Feb 2017 09:23:08 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/cissp/</guid>
+      <description>&lt;p&gt;The vendor-neutral CISSP certification is the ideal credential for those with
+proven deep technical and managerial competence, skills, experience, and
+credibility to design, engineer, implement, and manage their overall information
+security program to protect organizations from growing sophisticated attacks.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.isc2.org/cissp/default.aspx&#34;&gt;Certified Information Systems Security Professional&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>google chrome</title>
@@ -108,6 +181,16 @@ by typing into the search bar like this&lt;/p&gt;
       <guid>http://mozey.co/post/vim/</guid>
       <description>
 
+&lt;h1 id=&#34;spf13-vim-https-github-com-spf13-spf13-vim:06a5fa759d42479fba23ece5dc900b51&#34;&gt;&lt;a href=&#34;https://github.com/spf13/spf13-vim&#34;&gt;spf13-vim&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Shougo/neocomplete.vim#vim-for-mac-os-x&#34;&gt;Install vim with lua&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew install vim --with-lua
+
+brew install macvim --with-cscope --with-lua
+brew linkapps macvim
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h1 id=&#34;vim-8:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Vim 8&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.hostingadvice.com/blog/vim-creator-champions-charityware/&#34;&gt;Reference&lt;/a&gt;&lt;/p&gt;
@@ -190,26 +273,39 @@ set spelllang=en,af
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Do you earn more than 80% of your income from this one company?&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Do you get paid the same amount every time and do you receive it at regular intervals, for example weekly or monthly?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do you get paid the same amount every time and do you receive it
+at regular intervals, for example weekly or monthly?&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Do you work mainly from the company&amp;rsquo;s offices?&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Do you have a boss at the company who checks up on you and tells you what your working hours are, and when you are allowed to take leave?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do you have a boss at the company who checks up on you and tells you what
+your working hours are, and when you are allowed to take leave?&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Do you (or will you) receive any benefits from the company that you work for - for example a company car, cellphone or training?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do you (or will you) receive any benefits from the company that you work for,
+for example a company car, cellphone or training?&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;If you answered &amp;ldquo;yes&amp;rdquo; to each of the first four questions, Sars will consider
+you an employee of the company and not an independent contractor.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.taxtim.com/za/help/am-i-an-independent-contractor?js=1&#34;&gt;Three possible scenarios&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;You ARE an Independent Contractor. You should have no PAYE (employee&amp;rsquo;s tax) deducted from your income. You need to register for Provisional Tax and you should be responsible for your own tax affairs. Make use of the Local Business Income section of your ITR12 to declare your incomes/expenses.&lt;/p&gt;
+&lt;p&gt;You ARE an Independent Contractor. You should have no PAYE (employee&amp;rsquo;s tax)
+deducted from your income. You need to register for Provisional Tax and you
+should be responsible for your own tax affairs. Make use of the Local Business
+Income section of your ITR12 to declare your incomes/expenses.&lt;/p&gt;
 
-&lt;p&gt;You are an Independent Contractor, BUT SARS will want your employer to deduct PAYE (employee&amp;rsquo;s tax) at 25%. Your income must be coded to 3616 on your IRP5. You may deduct your business related expenses.&lt;/p&gt;
+&lt;p&gt;You are an Independent Contractor, BUT SARS will want your employer to deduct
+PAYE (employee&amp;rsquo;s tax) at 25%. Your income must be coded to 3616 on your IRP5.
+You may deduct your business related expenses.&lt;/p&gt;
 
-&lt;p&gt;You are NOT an Independent Contractor. Your employer should be deducting PAYE (employee&amp;rsquo;s tax) from you every month based on the normal tax tables.&lt;/p&gt;
+&lt;p&gt;You are NOT an Independent Contractor. Your employer should be deducting PAYE
+(employee&amp;rsquo;s tax) from you every month based on the normal tax tables.&lt;/p&gt;
 
 &lt;h2 id=&#34;what-is-a-provisional-taxpayer-https-www-taxtim-com-za-help-definition-provisional-taxpayer:413d3e1234f58f657ec7242a1a25b3bb&#34;&gt;&lt;a href=&#34;https://www.taxtim.com/za/help/definition/provisional-taxpayer&#34;&gt;What is a provisional taxpayer?&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;Provisional taxpayers are people who earn income other than a salary / remuneration.&lt;/p&gt;
+&lt;p&gt;Provisional taxpayers are people who earn income
+other than a salary / remuneration.&lt;/p&gt;
 
 &lt;h2 id=&#34;sars-important-dates:413d3e1234f58f657ec7242a1a25b3bb&#34;&gt;SARS important dates&lt;/h2&gt;
 
@@ -507,9 +603,9 @@ task diagnostics
 
 &lt;h1 id=&#34;scaling:d0a66ac5be0a2f43494c1149b643e1b4&#34;&gt;Scaling&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://www.citusdata.com/blog/2016/10/03/designing-your-saas-database-for-high-scalability/&#34;&gt;Designing your SaaS Database for Scale with Postgres&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://news.ycombinator.com/item?id=12649734&#34;&gt;Designing your SaaS Database for Scale with Postgres&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://news.ycombinator.com/item?id=12649734&#34;&gt;HN Comments&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://news.ycombinator.com/item?id=13641377&#34;&gt;Is PostgreSQL good enough?&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -543,62 +639,6 @@ Possibly by counting newlines?&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/17864134/639133&#34;&gt;How to Read last lines from a big file with Go&amp;hellip;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://trac.mondorescue.org/browser/trunk/mindi-busybox/coreutils/tail.c&#34;&gt;GNU tail source code&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>button presser</title>
-      <link>http://mozey.co/post/button-presser/</link>
-      <pubDate>Fri, 12 Aug 2016 10:31:24 +0200</pubDate>
-      
-      <guid>http://mozey.co/post/button-presser/</guid>
-      <description>&lt;p&gt;Remote controlled device that mechanically presses buttons on a keypad&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/DIY/comments/335rdx/help_a_mechanical_device_that_will_press_a_button/&#34;&gt;A mechanical device that will press a button at certain time.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://electronics.stackexchange.com/questions/4094/hardware-for-pushing-buttons&#34;&gt;hardware for pushing buttons&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>scipy</title>
-      <link>http://mozey.co/post/scipy/</link>
-      <pubDate>Thu, 28 Jul 2016 14:14:15 +0200</pubDate>
-      
-      <guid>http://mozey.co/post/scipy/</guid>
-      <description>&lt;p&gt;One document to learn numerics, science, and data with Python&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.scipy-lectures.org/&#34;&gt;scipy-lectures&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>docker osx dev</title>
-      <link>http://mozey.co/post/docker-osx-dev/</link>
-      <pubDate>Thu, 21 Jul 2016 12:21:29 +0200</pubDate>
-      
-      <guid>http://mozey.co/post/docker-osx-dev/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://www.ybrikman.com/writing/2015/05/19/docker-osx-dev/&#34;&gt;docker-osx-dev&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>angularjs validation</title>
-      <link>http://mozey.co/post/angularjs-validation/</link>
-      <pubDate>Sun, 10 Jul 2016 09:13:55 +0200</pubDate>
-      
-      <guid>http://mozey.co/post/angularjs-validation/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://docs.angularjs.org/api/ngMessages/directive/ngMessages&#34;&gt;ngMessages&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/37092124/639133&#34;&gt;Using Bootstrap for Angular and Material design for Angular together&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://docs.angularjs.org/guide/forms&#34;&gt;guide forms&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.w3schools.com/angular/angular_validation.asp&#34;&gt;w3schools angular validation&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/mozey/angularjs-validation&#34;&gt;angularjs-validation&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;TODO&lt;/strong&gt; Cleanup &lt;code&gt;angularjs-validation&lt;/code&gt; code and push to github&lt;/p&gt;
 </description>
     </item>
     

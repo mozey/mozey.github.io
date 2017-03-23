@@ -54,6 +54,13 @@
     <section class="post-content">
         
 
+<h3 id="find-log-file-locations-https-www-psce-com-blog-2012-06-02-how-to-find-mysql-binary-logs-error-logs-temporary-files:ab516e0eaa8881ac16e2624a8791f168"><a href="https://www.psce.com/blog/2012/06/02/how-to-find-mysql-binary-logs-error-logs-temporary-files/">Find log file locations</a></h3>
+
+<p>List all open files and filter for interesting bits</p>
+
+<pre><code>sudo lsof -nc mysqld | grep -vE '(.so(..*)?$|.frm|.MY?|.ibd|ib_logfile|ibdata|TCP)'
+</code></pre>
+
 <h3 id="database-information:ab516e0eaa8881ac16e2624a8791f168">Database information</h3>
 
 <pre><code>select version();

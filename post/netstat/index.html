@@ -57,6 +57,10 @@
 <h3 id="list-open-network-ports-and-the-processes-that-own-them:63e356f2a0e57fa4e893033141daa965">List open network ports and the processes that own them</h3>
 
 <pre><code>netstat -lnptu
+
+netstat -atp tcp | grep -i &quot;listen&quot;
+
+sudo lsof -i -P | grep -i &quot;listen&quot;
 </code></pre>
 
 <p><a href="https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/">Rather use ss</a></p>
