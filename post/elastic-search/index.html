@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2016-10-24T12:18:27&#43;02:00" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>elastic search &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,16 +54,16 @@
     <section class="post-content">
         
 
-<h1 id="elasticsearch-https-www-digitalocean-com-community-tutorials-how-to-install-and-configure-elasticsearch-on-ubuntu-14-04:ecf0eeeca5eaede43ac5fe7aaac330d0"><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-14-04">Elasticsearch</a></h1>
+<h1 id="elasticsearch-https-www-digitalocean-com-community-tutorials-how-to-install-and-configure-elasticsearch-on-ubuntu-14-04"><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-14-04">Elasticsearch</a></h1>
 
-<h2 id="install-jdk:ecf0eeeca5eaede43ac5fe7aaac330d0">Install JDK</h2>
+<h2 id="install-jdk">Install JDK</h2>
 
 <pre><code>sudo apt-get install openjdk-7-jre
 
 java -version
 </code></pre>
 
-<h2 id="install-elasticsearch:ecf0eeeca5eaede43ac5fe7aaac330d0">Install elasticsearch</h2>
+<h2 id="install-elasticsearch">Install elasticsearch</h2>
 
 <pre><code>wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.2.deb
 
@@ -75,16 +75,16 @@ sudo dpkg -i elasticsearch-1.7.2.deb
 <pre><code>sudo update-rc.d elasticsearch defaults
 </code></pre>
 
-<h2 id="is-it-working:ecf0eeeca5eaede43ac5fe7aaac330d0">Is it working?</h2>
+<h2 id="is-it-working">Is it working?</h2>
 
 <p>This will list cluster name, version, etc</p>
 
 <pre><code>curl -XGET 'localhost:9200' 
 </code></pre>
 
-<h1 id="kibana-https-www-elastic-co-downloads-kibana:ecf0eeeca5eaede43ac5fe7aaac330d0"><a href="https://www.elastic.co/downloads/kibana">Kibana</a></h1>
+<h1 id="kibana-https-www-elastic-co-downloads-kibana"><a href="https://www.elastic.co/downloads/kibana">Kibana</a></h1>
 
-<h2 id="install:ecf0eeeca5eaede43ac5fe7aaac330d0">Install</h2>
+<h2 id="install">Install</h2>
 
 <pre><code>wget https://download.elastic.co/kibana/kibana/kibana-4.6.1-amd64.deb
 
@@ -97,7 +97,7 @@ sudo service kibana start
 curl -XGET 'localhost:5601'
 </code></pre>
 
-<h2 id="getting-started-https-www-elastic-co-guide-en-kibana-current-getting-started-html:ecf0eeeca5eaede43ac5fe7aaac330d0"><a href="https://www.elastic.co/guide/en/kibana/current/getting-started.html">Getting started</a></h2>
+<h2 id="getting-started-https-www-elastic-co-guide-en-kibana-current-getting-started-html"><a href="https://www.elastic.co/guide/en/kibana/current/getting-started.html">Getting started</a></h2>
 
 <p>Download Shakespeare data set</p>
 
@@ -122,9 +122,9 @@ curl -XPOST 'localhost:9200/bank/account/_bulk?pretty' --data-binary @accounts.j
 <pre><code>curl 'localhost:9200/_cat/indices?v'
 </code></pre>
 
-<h1 id="elk-stack-arduino-https-www-elastic-co-blog-arduino-based-home-weather-station-on-the-elastic-stack:ecf0eeeca5eaede43ac5fe7aaac330d0"><a href="https://www.elastic.co/blog/arduino-based-home-weather-station-on-the-elastic-stack">ELK Stack Arduino</a></h1>
+<h1 id="elk-stack-arduino-https-www-elastic-co-blog-arduino-based-home-weather-station-on-the-elastic-stack"><a href="https://www.elastic.co/blog/arduino-based-home-weather-station-on-the-elastic-stack">ELK Stack Arduino</a></h1>
 
-<h1 id="docker-https-hub-docker-com-elasticsearch:ecf0eeeca5eaede43ac5fe7aaac330d0"><a href="https://hub.docker.com/_/elasticsearch/">Docker</a></h1>
+<h1 id="docker-https-hub-docker-com-elasticsearch"><a href="https://hub.docker.com/_/elasticsearch/">Docker</a></h1>
 
 <pre><code>docker run -d -v &quot;$PWD/esdata&quot;:/usr/share/elasticsearch/data elasticsearch -p 9200:9200
 

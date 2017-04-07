@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2013-07-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>javascript modules &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -66,7 +66,7 @@ Either that or the one already being used by your colleagues.</p>
 jsctags supports the three module patterns listed below.
 Commercial solutions like the ones found in the Jetbrains IDEs are even smarter.</p>
 
-<h3 id="pattern-1:b16f462f3e8203f03e076f62181942c4">Pattern 1</h3>
+<h3 id="pattern-1">Pattern 1</h3>
 
 <pre><code>var module = (function() {
     var private = 1;
@@ -76,7 +76,7 @@ Commercial solutions like the ones found in the Jetbrains IDEs are even smarter.
 })
 </code></pre>
 
-<h3 id="pattern-2:b16f462f3e8203f03e076f62181942c4">Pattern 2</h3>
+<h3 id="pattern-2">Pattern 2</h3>
 
 <pre><code>var module2 = {};
 (function(context) {
@@ -85,7 +85,7 @@ Commercial solutions like the ones found in the Jetbrains IDEs are even smarter.
 })(module2);
 </code></pre>
 
-<h3 id="pattern-3:b16f462f3e8203f03e076f62181942c4">Pattern 3</h3>
+<h3 id="pattern-3">Pattern 3</h3>
 
 <pre><code>var module3 = {};
 (function() {
@@ -94,7 +94,7 @@ Commercial solutions like the ones found in the Jetbrains IDEs are even smarter.
 }).apply(module3));
 </code></pre>
 
-<h3 id="pattern-4-variation-of-3:b16f462f3e8203f03e076f62181942c4">Pattern 4 (variation of 3)</h3>
+<h3 id="pattern-4-variation-of-3">Pattern 4 (variation of 3)</h3>
 
 <pre><code>var namespace;
 (function(namespace) {

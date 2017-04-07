@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2015-07-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>ubuntu fresh install &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -59,14 +59,14 @@
 <pre><code>sudo apt-get update
 </code></pre>
 
-<h1 id="misc:ff9e73dde60d640d32f6d0504fc8d24f">Misc</h1>
+<h1 id="misc">Misc</h1>
 
-<h3 id="get-rid-of-messages-like-lc-all-cannot-change-locale-en-gb-utf-8:ff9e73dde60d640d32f6d0504fc8d24f">Get rid of messages like: &ldquo;LC_ALL: cannot change locale (en_GB.UTF-8)&rdquo;</h3>
+<h3 id="get-rid-of-messages-like-lc-all-cannot-change-locale-en-gb-utf-8">Get rid of messages like: &ldquo;LC_ALL: cannot change locale (en_GB.UTF-8)&rdquo;</h3>
 
 <pre><code>sudo locale-gen en_GB.UTF-8
 </code></pre>
 
-<h3 id="install-network-time-protocol-client-to-keep-clock-in-sync:ff9e73dde60d640d32f6d0504fc8d24f">Install network time protocol client to keep clock in sync</h3>
+<h3 id="install-network-time-protocol-client-to-keep-clock-in-sync">Install network time protocol client to keep clock in sync</h3>
 
 <pre><code>sudo apt-get install ntp
 </code></pre>
@@ -78,14 +78,14 @@
 Servers should use Etc &gt; UTC
 </code></pre>
 
-<h3 id="customize-prompt-so-you-don-t-get-confused-about-which-server-you-ve-sshd-into:ff9e73dde60d640d32f6d0504fc8d24f">Customize prompt so you don&rsquo;t get confused about which server you&rsquo;ve SSHd into:</h3>
+<h3 id="customize-prompt-so-you-don-t-get-confused-about-which-server-you-ve-sshd-into">Customize prompt so you don&rsquo;t get confused about which server you&rsquo;ve SSHd into:</h3>
 
 <pre><code>vi ~/.profile
 
 PS1=&quot;\n&lt;\[\033[0;32m\]SERVER_NAME\[\033[0m\]:\[\033[0;37m\]\u\[\033[0m\]&gt; \j [\$(date +%d-%m\&quot; \&quot;%H:%M)] \w \n! &quot;
 </code></pre>
 
-<h3 id="install-software-using-tasksel:ff9e73dde60d640d32f6d0504fc8d24f">Install software using tasksel</h3>
+<h3 id="install-software-using-tasksel">Install software using tasksel</h3>
 
 <pre><code>sudo apt-get install tasksel
 
@@ -99,38 +99,38 @@ sudo tasksel
 PostgresSQL Database
 </code></pre>
 
-<h1 id="making-an-amazon-ebs-volume-available-for-use-http-docs-aws-amazon-com-awsec2-latest-userguide-ebs-using-volumes-html:ff9e73dde60d640d32f6d0504fc8d24f"><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Making an Amazon EBS Volume Available for Use</a></h1>
+<h1 id="making-an-amazon-ebs-volume-available-for-use-http-docs-aws-amazon-com-awsec2-latest-userguide-ebs-using-volumes-html"><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Making an Amazon EBS Volume Available for Use</a></h1>
 
 <p>View available disk devices</p>
 
 <pre><code>lsblk
 </code></pre>
 
-<h3 id="determine-whether-you-need-to-create-a-file-system-on-the-volume:ff9e73dde60d640d32f6d0504fc8d24f">Determine whether you need to create a file system on the volume,</h3>
+<h3 id="determine-whether-you-need-to-create-a-file-system-on-the-volume">Determine whether you need to create a file system on the volume,</h3>
 
 <p>an example of DEVICE_NAME is <code>/dev/xvdb</code></p>
 
 <pre><code>sudo file -s DEVICE_NAME
 </code></pre>
 
-<h3 id="create-a-filesystem-if-previous-command-just-displays-data:ff9e73dde60d640d32f6d0504fc8d24f">Create a filesystem if previous command just displays &ldquo;data&rdquo;</h3>
+<h3 id="create-a-filesystem-if-previous-command-just-displays-data">Create a filesystem if previous command just displays &ldquo;data&rdquo;</h3>
 
 <pre><code>sudo mkfs -t ext4 DEVICE_NAME
 </code></pre>
 
-<h3 id="create-a-mount-point-directory-for-the-volume:ff9e73dde60d640d32f6d0504fc8d24f">Create a mount point directory for the volume,</h3>
+<h3 id="create-a-mount-point-directory-for-the-volume">Create a mount point directory for the volume,</h3>
 
 <p>for example <code>/home/ubuntu/data</code></p>
 
 <pre><code>sudo mkdir MOUNT_POINT
 </code></pre>
 
-<h3 id="mount-the-volume:ff9e73dde60d640d32f6d0504fc8d24f">Mount the volume</h3>
+<h3 id="mount-the-volume">Mount the volume</h3>
 
 <pre><code>sudo mount DEVICE_NAME MOUNT_POINT
 </code></pre>
 
-<h3 id="add-volume-to-fstab-to-enable-mount-on-reboot:ff9e73dde60d640d32f6d0504fc8d24f">Add volume to fstab to enable mount on reboot</h3>
+<h3 id="add-volume-to-fstab-to-enable-mount-on-reboot">Add volume to fstab to enable mount on reboot</h3>
 
 <p>Create backup of fstab</p>
 

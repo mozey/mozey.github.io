@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2016-11-10T10:08:13&#43;02:00" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>kubernetes &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,23 +54,23 @@
     <section class="post-content">
         
 
-<h1 id="minikube-http-kubernetes-io-docs-getting-started-guides-minikube:9fab9770b5d5cab6474d45bd9cd5273a"><a href="http://kubernetes.io/docs/getting-started-guides/minikube/">Minikube</a></h1>
+<h1 id="minikube-http-kubernetes-io-docs-getting-started-guides-minikube"><a href="http://kubernetes.io/docs/getting-started-guides/minikube/">Minikube</a></h1>
 
 <p>Minikube starts a single node kubernetes cluster locally for purposes of development and testing</p>
 
-<h2 id="install-virtual-box-https-www-virtualbox-org-wiki-downloads:9fab9770b5d5cab6474d45bd9cd5273a">Install <a href="https://www.virtualbox.org/wiki/Downloads">virtual box</a></h2>
+<h2 id="install-virtual-box-https-www-virtualbox-org-wiki-downloads">Install <a href="https://www.virtualbox.org/wiki/Downloads">virtual box</a></h2>
 
-<h2 id="install-minikube-https-github-com-kubernetes-minikube-releases:9fab9770b5d5cab6474d45bd9cd5273a">Install <a href="https://github.com/kubernetes/minikube/releases">minikube</a></h2>
+<h2 id="install-minikube-https-github-com-kubernetes-minikube-releases">Install <a href="https://github.com/kubernetes/minikube/releases">minikube</a></h2>
 
 <pre><code>curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.12.2/minikube-darwin-amd64 &amp;&amp; chmod +x minikube &amp;&amp; sudo mv minikube /usr/local/bin/
 </code></pre>
 
-<h2 id="install-kubectl-http-kubernetes-io-docs-getting-started-guides-minikube:9fab9770b5d5cab6474d45bd9cd5273a">Install <a href="http://kubernetes.io/docs/getting-started-guides/minikube/">kubectl</a></h2>
+<h2 id="install-kubectl-http-kubernetes-io-docs-getting-started-guides-minikube">Install <a href="http://kubernetes.io/docs/getting-started-guides/minikube/">kubectl</a></h2>
 
 <pre><code>curl -Lo kubectl http://storage.googleapis.com/kubernetes-release/release/v1.3.0/bin/darwin/amd64/kubectl &amp;&amp; chmod +x kubectl &amp;&amp; sudo mv kubectl /usr/local/bin/fire
 </code></pre>
 
-<h2 id="dashboard:9fab9770b5d5cab6474d45bd9cd5273a">Dashboard</h2>
+<h2 id="dashboard">Dashboard</h2>
 
 <p>Install and open the latest stable release</p>
 
@@ -79,7 +79,7 @@
 minikube dashboard
 </code></pre>
 
-<h2 id="pod-runs-boot2docker:9fab9770b5d5cab6474d45bd9cd5273a">Pod runs boot2docker</h2>
+<h2 id="pod-runs-boot2docker">Pod runs boot2docker</h2>
 
 <pre><code>minikube docker-env
 
@@ -88,7 +88,7 @@ minikube ssh
 ls /Users
 </code></pre>
 
-<h1 id="getting-started-https-medium-com-claudiopro-getting-started-with-kubernetes-via-minikube-ada8c7a29620:9fab9770b5d5cab6474d45bd9cd5273a"><a href="https://medium.com/@claudiopro/getting-started-with-kubernetes-via-minikube-ada8c7a29620">Getting Started</a></h1>
+<h1 id="getting-started-https-medium-com-claudiopro-getting-started-with-kubernetes-via-minikube-ada8c7a29620"><a href="https://medium.com/@claudiopro/getting-started-with-kubernetes-via-minikube-ada8c7a29620">Getting Started</a></h1>
 
 <p>Inspect the cluster</p>
 
@@ -97,7 +97,7 @@ ls /Users
 kubectl get nodes
 </code></pre>
 
-<h2 id="run-the-built-in-hello-minikube:9fab9770b5d5cab6474d45bd9cd5273a">Run the built-in hello-minikube</h2>
+<h2 id="run-the-built-in-hello-minikube">Run the built-in hello-minikube</h2>
 
 <pre><code>kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
 
@@ -120,7 +120,7 @@ curl $(minikube service hello-minikube --url)
 <pre><code>kubectl delete service,deployment hello-minikube
 </code></pre>
 
-<h2 id="build-and-install-a-node-service-with-docker:9fab9770b5d5cab6474d45bd9cd5273a">Build and install a node service with Docker</h2>
+<h2 id="build-and-install-a-node-service-with-docker">Build and install a node service with Docker</h2>
 
 <p>Install <a href="https://docs.docker.com/docker-for-mac/docker-toolbox">Docker for Mac</a></p>
 
@@ -171,7 +171,7 @@ docker push localhost:5000/hello-node:v1
 kubectl run hello-node --image=192.168.1.101:5000/hello-node:v1 --port=8080
 </code></pre>
 
-<h1 id="todo-kubectl-run-error:9fab9770b5d5cab6474d45bd9cd5273a">TODO <code>kubectl run</code> error</h1>
+<h1 id="todo-kubectl-run-error">TODO <code>kubectl run</code> error</h1>
 
 <p><code>Get https://192.168.1.101:5000/v1/_ping: tls: oversized record received with length 20527</code>
 from <a href="http://192.168.99.100:32657/#/deployment?namespace=default">kubernetes dashboard</a>
@@ -189,9 +189,9 @@ curl $(minikube service hello-node --url)
 docker rmi hello-node
 </code></pre>
 
-<h1 id="kubectl-for-docker-users-http-kubernetes-io-docs-user-guide-docker-cli-to-kubectl:9fab9770b5d5cab6474d45bd9cd5273a"><a href="http://kubernetes.io/docs/user-guide/docker-cli-to-kubectl">kubectl for Docker Users</a></h1>
+<h1 id="kubectl-for-docker-users-http-kubernetes-io-docs-user-guide-docker-cli-to-kubectl"><a href="http://kubernetes.io/docs/user-guide/docker-cli-to-kubectl">kubectl for Docker Users</a></h1>
 
-<h1 id="elasticsearch-https-hub-docker-com-elasticsearch:9fab9770b5d5cab6474d45bd9cd5273a"><a href="https://hub.docker.com/_/elasticsearch/">elasticsearch</a></h1>
+<h1 id="elasticsearch-https-hub-docker-com-elasticsearch"><a href="https://hub.docker.com/_/elasticsearch/">elasticsearch</a></h1>
 
     </section>
 

@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2013-07-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>svn &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,9 +54,9 @@
     <section class="post-content">
         
 
-<h2 id="general-notes-about-working-with-svn:f42a7e92f787126453e0bde6ccf1bb91">General notes about working with SVN.</h2>
+<h2 id="general-notes-about-working-with-svn">General notes about working with SVN.</h2>
 
-<h3 id="the-svn-folder:f42a7e92f787126453e0bde6ccf1bb91">The .svn folder</h3>
+<h3 id="the-svn-folder">The .svn folder</h3>
 
 <p>Typically every folder under the working copy root will contain a <em>.svn</em> hidden
 folder.</p>
@@ -70,7 +70,7 @@ from repos.</p>
 <p>When we copy folders from other projects versioned using svn into our own svn
 working copy it might be necessary to remove the old <em>.svn</em> folders.</p>
 
-<h4 id="remove-all-svn-folders:f42a7e92f787126453e0bde6ccf1bb91">remove all .svn folders</h4>
+<h4 id="remove-all-svn-folders">remove all .svn folders</h4>
 
 <pre><code>cd /path/to/copied/folder
 
@@ -79,7 +79,7 @@ find . -name '.svn' -print # Dry run, print paths to be deleted
 find . -name '.svn' -exec rm -rf {} \;
 </code></pre>
 
-<h3 id="create-a-repos-and-import-files:f42a7e92f787126453e0bde6ccf1bb91">Create a repos and import files</h3>
+<h3 id="create-a-repos-and-import-files">Create a repos and import files</h3>
 
 <p>To create a new repository</p>
 
@@ -93,19 +93,19 @@ find . -name '.svn' -exec rm -rf {} \;
 
 <p>Or checkout a working copy, add some files and commit.</p>
 
-<h3 id="typical-work-flow:f42a7e92f787126453e0bde6ccf1bb91">Typical work flow</h3>
+<h3 id="typical-work-flow">Typical work flow</h3>
 
-<h4 id="checkout-a-working-copy:f42a7e92f787126453e0bde6ccf1bb91">Checkout a working copy</h4>
+<h4 id="checkout-a-working-copy">Checkout a working copy</h4>
 
 <pre><code>svn checkout https://exmample.com/path/to/repos /working/copy
 </code></pre>
 
-<h4 id="update-the-working-working-copy:f42a7e92f787126453e0bde6ccf1bb91">Update the working working copy</h4>
+<h4 id="update-the-working-working-copy">Update the working working copy</h4>
 
 <pre><code>svn update
 </code></pre>
 
-<h4 id="make-changes:f42a7e92f787126453e0bde6ccf1bb91">Make changes</h4>
+<h4 id="make-changes">Make changes</h4>
 
 <pre><code>svn add
 
@@ -116,7 +116,7 @@ svn copy
 svn move
 </code></pre>
 
-<h4 id="examine-changes:f42a7e92f787126453e0bde6ccf1bb91">Examine changes</h4>
+<h4 id="examine-changes">Examine changes</h4>
 
 <p>Show local changes only</p>
 
@@ -139,24 +139,24 @@ svn move
 <pre><code>svn log http://example.com/path/to/repos --username myUserName | less
 </code></pre>
 
-<h4 id="undo-changes:f42a7e92f787126453e0bde6ccf1bb91">Undo changes</h4>
+<h4 id="undo-changes">Undo changes</h4>
 
 <pre><code>svn revert
 </code></pre>
 
-<h4 id="resolve-conflicts-and-merge-changes:f42a7e92f787126453e0bde6ccf1bb91">Resolve conflicts and merge changes</h4>
+<h4 id="resolve-conflicts-and-merge-changes">Resolve conflicts and merge changes</h4>
 
 <pre><code>svn update
 
 svn resolve
 </code></pre>
 
-<h4 id="commit-your-changes:f42a7e92f787126453e0bde6ccf1bb91">Commit your changes</h4>
+<h4 id="commit-your-changes">Commit your changes</h4>
 
 <pre><code>svn commit -m &quot;This is the commit message&quot;
 </code></pre>
 
-<h4 id="export-files-without-creating-a-working-copy:f42a7e92f787126453e0bde6ccf1bb91">Export files without creating a working copy</h4>
+<h4 id="export-files-without-creating-a-working-copy">Export files without creating a working copy</h4>
 
 <p>We might want to export all files from a repos, for example on a server,
 without creating a working copy, i.e. all the <code>.svn</code> folders.</p>
@@ -171,12 +171,12 @@ without creating a working copy, i.e. all the <code>.svn</code> folders.</p>
 <pre><code>svn export http://example.com/path/to/repos@version ~/path/on/server
 </code></pre>
 
-<h3 id="add-all-un-tracked-files-in-current-folder:f42a7e92f787126453e0bde6ccf1bb91">Add all un-tracked files in current folder</h3>
+<h3 id="add-all-un-tracked-files-in-current-folder">Add all un-tracked files in current folder</h3>
 
 <pre><code>svn add `svn status | grep ?`
 </code></pre>
 
-<h3 id="delete-a-file-directly-from-the-repository:f42a7e92f787126453e0bde6ccf1bb91">Delete a file directly from the repository</h3>
+<h3 id="delete-a-file-directly-from-the-repository">Delete a file directly from the repository</h3>
 
 <pre><code>svn delete https://exmample.com/path/to/repos/the/file
 
@@ -185,7 +185,7 @@ cd /working/copy
 svn update
 </code></pre>
 
-<h3 id="ignore-files:f42a7e92f787126453e0bde6ccf1bb91">Ignore files</h3>
+<h3 id="ignore-files">Ignore files</h3>
 
 <p>Sometimes we need to ignore some files we don&rsquo;t want to store in the repository.
 These could be logs, configuration files or sensitive data.</p>
@@ -219,7 +219,7 @@ ignore will take effect.</p>
 <pre><code>svn commit -m &quot;Ignoring some files&quot;
 </code></pre>
 
-<h3 id="relocate-a-working-copy:f42a7e92f787126453e0bde6ccf1bb91">Relocate a working copy</h3>
+<h3 id="relocate-a-working-copy">Relocate a working copy</h3>
 
 <p>The URL or path to the server hosting the repos might change.
 If this happens we can relocate the working copy</p>
@@ -228,7 +228,7 @@ If this happens we can relocate the working copy</p>
 https://exmample.com/path/to/repos
 </code></pre>
 
-<h3 id="restore-a-deleted-file:f42a7e92f787126453e0bde6ccf1bb91">Restore a deleted file</h3>
+<h3 id="restore-a-deleted-file">Restore a deleted file</h3>
 
 <p>We first have to find the last revision in which the file existed.
 Create a log file</p>
@@ -256,12 +256,12 @@ revision number of the delete minus one.</p>
 -r lastRevisionNumber &gt; the.file
 </code></pre>
 
-<h3 id="list-files-changed-between-revisions:f42a7e92f787126453e0bde6ccf1bb91">List files changed between revisions</h3>
+<h3 id="list-files-changed-between-revisions">List files changed between revisions</h3>
 
 <pre><code>svn diff --summarize -rXXX:YYY https://example.com/path/to/repos
 </code></pre>
 
-<h3 id="work-on-a-branch:f42a7e92f787126453e0bde6ccf1bb91">Work on a branch</h3>
+<h3 id="work-on-a-branch">Work on a branch</h3>
 
 <p>First create a branch from an existing repos location</p>
 
@@ -284,7 +284,7 @@ svn info
 svn commit -m &quot;Committing changes into branch&quot; 
 </code></pre>
 
-<h4 id="be-careful-not-to-switch-the-wrong-folder-might-mess-up-the-working-copy:f42a7e92f787126453e0bde6ccf1bb91">Be careful not to switch the wrong folder, might mess up the working copy!</h4>
+<h4 id="be-careful-not-to-switch-the-wrong-folder-might-mess-up-the-working-copy">Be careful not to switch the wrong folder, might mess up the working copy!</h4>
 
 <p>Changes to the branch can be be committed as usual.</p>
 
@@ -314,7 +314,7 @@ svn commit -m &quot;Merging branch into trunk&quot;
 <pre><code>svn rm https://example.com/path/to/repos/branches/some/folder
 </code></pre>
 
-<h3 id="tag-a-revision:f42a7e92f787126453e0bde6ccf1bb91">Tag a revision</h3>
+<h3 id="tag-a-revision">Tag a revision</h3>
 
 <pre><code>svn copy \
 https://example.com/path/to/repos/trunk \

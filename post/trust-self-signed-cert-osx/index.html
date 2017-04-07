@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2015-07-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>trust self signed cert osx &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,7 +54,7 @@
     <section class="post-content">
         
 
-<h3 id="trust-self-signed-cert-on-mac-osx:8a7c69c01d4dd40d29b512a54b1a9909">Trust self signed cert on Mac Osx</h3>
+<h3 id="trust-self-signed-cert-on-mac-osx">Trust self signed cert on Mac Osx</h3>
 
 <p>Open site, click lock with cross, certificate information</p>
 
@@ -69,6 +69,11 @@
 <p>Select &ldquo;Always Trust&rdquo;</p>
 
 <p>Close and tab and re-open site, padlock should be green</p>
+
+<h3 id="using-cli-http-stackoverflow-com-a-36462231-639133"><a href="http://stackoverflow.com/a/36462231/639133">Using cli</a></h3>
+
+<pre><code>sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain site.crt
+</code></pre>
 
     </section>
 

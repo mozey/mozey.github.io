@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2016-04-18T10:42:20&#43;02:00" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>bash &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,7 +54,7 @@
     <section class="post-content">
         
 
-<h1 id="list-running-processes:e0ae544864458d94d3dd5e542da523d5">List running processes</h1>
+<h1 id="list-running-processes">List running processes</h1>
 
 <p>Include PID $2 and COMMAND $11 columns</p>
 
@@ -66,7 +66,7 @@
 <pre><code>ps aux | awk {'print ($2&quot;\t\t&quot;, $3&quot;\t\t&quot;, $4&quot;\t\t&quot;, $9&quot;\t\t&quot;, $10&quot;\t\t&quot;, $11)'} | sort -k2rn
 </code></pre>
 
-<h1 id="list-all-cronjobs-for-all-users-http-stackoverflow-com-a-134944-639133:e0ae544864458d94d3dd5e542da523d5"><a href="http://stackoverflow.com/a/134944/639133">List all cronjobs for all users</a></h1>
+<h1 id="list-all-cronjobs-for-all-users-http-stackoverflow-com-a-134944-639133"><a href="http://stackoverflow.com/a/134944/639133">List all cronjobs for all users</a></h1>
 
 <pre><code>sudo su
 

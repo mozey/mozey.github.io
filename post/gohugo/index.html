@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2016-04-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>gohugo &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,12 +54,32 @@
     <section class="post-content">
         
 
-<h2 id="install:da0f48dab9453658f6115351016ea84c">Install</h2>
+<h2 id="install-https-gohugo-io-overview-installing"><a href="https://gohugo.io/overview/installing">Install</a></h2>
+
+<p>Don&rsquo;t use brew, might be outdated</p>
 
 <pre><code>brew update &amp;&amp; brew install hugo
+brew unlink hugo
 </code></pre>
 
-<h2 id="what-is-hugo:da0f48dab9453658f6115351016ea84c">What is Hugo?</h2>
+<p>Install from source</p>
+
+<pre><code>go get github.com/kardianos/govendor
+govendor get github.com/spf13/hugo
+# Lots of stuff breaking...
+</code></pre>
+
+<p>Just <a href="https://github.com/spf13/hugo/releases">download the binary</a>
+and install manually</p>
+
+<pre><code>cd www
+wget https://github.com/spf13/hugo/releases/download/v0.19/hugo_0.19_macOS-64bit.zip
+unzip hugo_0.19_macOS-64bit.zip
+ln -s hugo_0.19_darwin_amd64/hugo_0.19_darwin_amd64 hugo
+./hugo version
+</code></pre>
+
+<h2 id="what-is-hugo">What is Hugo?</h2>
 
 <p>Hugo is a static site generator.
 Unlike other systems which dynamically build a page every time a visitor
@@ -67,7 +87,7 @@ requests one, Hugo does the building when you create your content.</p>
 
 <p>Hugo is optimized for website viewing</p>
 
-<h2 id="quickstart-https-gohugo-io-overview-quickstart:da0f48dab9453658f6115351016ea84c"><a href="https://gohugo.io/overview/quickstart/">Quickstart</a></h2>
+<h2 id="quickstart-https-gohugo-io-overview-quickstart"><a href="https://gohugo.io/overview/quickstart/">Quickstart</a></h2>
 
 <pre><code>hugo new site NAME
 
@@ -79,31 +99,31 @@ git clone https://github.com/mozey/hugo-theme-mozey.git
 hugo server --theme=hugo-theme-mozey --buildDrafts
 </code></pre>
 
-<h4 id="make-post-public:da0f48dab9453658f6115351016ea84c">Make post public</h4>
+<h4 id="make-post-public">Make post public</h4>
 
 <pre><code>hugo undraft content/post/good-to-great.md
 </code></pre>
 
-<h4 id="integrate-disqus-edit-config-toml:da0f48dab9453658f6115351016ea84c">Integrate Disqus, edit <code>config.toml</code></h4>
+<h4 id="integrate-disqus-edit-config-toml">Integrate Disqus, edit <code>config.toml</code></h4>
 
 <pre><code>[Params]
     Author = &quot;NAME SURNAME&quot;
     disqusShortname = &lt;DISQUS_SHORTNAME&gt;
 </code></pre>
 
-<h4 id="generate-website:da0f48dab9453658f6115351016ea84c">Generate website</h4>
+<h4 id="generate-website">Generate website</h4>
 
-<pre><code>hugo --theme=hugo-theme-mozey
+<pre><code>./hugo --theme=hugo-theme-mozey
 </code></pre>
 
 <p><code>public</code> folder can be deployed to a server</p>
 
-<p>To preview change <code>baseurl</code> in config then</p>
+<p>To preview</p>
 
-<pre><code> cd ./public &amp;&amp; python -m http.server 1234
+<pre><code> ./hugo server --theme=hugo-theme-mozey --watch
 </code></pre>
 
-<h2 id="list-directory-layout-tree-name:da0f48dab9453658f6115351016ea84c">List directory layout <code>tree ./NAME</code></h2>
+<h2 id="list-directory-layout-tree-name">List directory layout <code>tree ./NAME</code></h2>
 
 <pre><code>website/
 ├── archetypes
@@ -118,35 +138,42 @@ hugo server --theme=hugo-theme-mozey --buildDrafts
 └── themes...
 </code></pre>
 
-<h4 id="archetypes:da0f48dab9453658f6115351016ea84c">archetypes</h4>
+<h4 id="archetypes">archetypes</h4>
 
 <p><code>hugo new</code> adds a few configuration properties to the post like date and title,
  define your own configuration properties with archetypes</p>
 
-<h4 id="config-toml:da0f48dab9453658f6115351016ea84c">config.toml</h4>
+<h4 id="config-toml">config.toml</h4>
 
 <p>Can also use YAML and JSON</p>
 
-<h4 id="content:da0f48dab9453658f6115351016ea84c">content</h4>
+<h4 id="content">content</h4>
 
 <p>Website sections, i.e. blog, article, or tutorial</p>
 
-<h4 id="data:da0f48dab9453658f6115351016ea84c">data</h4>
+<h4 id="data">data</h4>
 
 <p>Configuration files, can be YAML, JSON or TOML</p>
 
-<h4 id="layouts:da0f48dab9453658f6115351016ea84c">layouts</h4>
+<h4 id="layouts">layouts</h4>
 
 <p>Specify how your content will be converted into the static website</p>
 
-<h4 id="static:da0f48dab9453658f6115351016ea84c">static</h4>
+<h4 id="static">static</h4>
 
 <p>Images, CSS, JavaScript or other static content</p>
 
-<h2 id="creating-a-theme:da0f48dab9453658f6115351016ea84c">Creating a theme</h2>
+<h2 id="creating-a-theme">Creating a theme</h2>
 
 <pre><code>hugo new theme hugo-theme-mozey
 </code></pre>
+
+<h2 id="some-content-not-showing-up-in-google-search-results">Some content not showing up in google search results?</h2>
+
+<p>Possibly because &ldquo;It is thin. It needs more than a couple lines of original text&rdquo;
+ or &ldquo;It doesn&rsquo;t have enough reputation or links. A page may be buried too deep in your site to rank. Any page without external links and more than a few clicks from the home page is unlikely to get indexed.&rdquo;</p>
+
+<p><a href="http://webmasters.stackexchange.com/a/43351">See this</a></p>
 
     </section>
 

@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2013-07-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>mysql &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,14 +54,14 @@
     <section class="post-content">
         
 
-<h3 id="find-log-file-locations-https-www-psce-com-blog-2012-06-02-how-to-find-mysql-binary-logs-error-logs-temporary-files:ab516e0eaa8881ac16e2624a8791f168"><a href="https://www.psce.com/blog/2012/06/02/how-to-find-mysql-binary-logs-error-logs-temporary-files/">Find log file locations</a></h3>
+<h3 id="find-log-file-locations-https-www-psce-com-blog-2012-06-02-how-to-find-mysql-binary-logs-error-logs-temporary-files"><a href="https://www.psce.com/blog/2012/06/02/how-to-find-mysql-binary-logs-error-logs-temporary-files/">Find log file locations</a></h3>
 
 <p>List all open files and filter for interesting bits</p>
 
 <pre><code>sudo lsof -nc mysqld | grep -vE '(.so(..*)?$|.frm|.MY?|.ibd|ib_logfile|ibdata|TCP)'
 </code></pre>
 
-<h3 id="database-information:ab516e0eaa8881ac16e2624a8791f168">Database information</h3>
+<h3 id="database-information">Database information</h3>
 
 <pre><code>select version();
 
@@ -78,7 +78,7 @@ show procedure status like '%xxx%'\G;
 show procedure status where DB = &quot;xxx&quot;;
 </code></pre>
 
-<h3 id="view-all-foreign-keys-in-table-http-stackoverflow-com-questions-201621-how-do-i-see-all-foreign-keys-to-a-table-or-column:ab516e0eaa8881ac16e2624a8791f168"><a href="http://stackoverflow.com/questions/201621/how-do-i-see-all-foreign-keys-to-a-table-or-column">View all foreign keys in table</a></h3>
+<h3 id="view-all-foreign-keys-in-table-http-stackoverflow-com-questions-201621-how-do-i-see-all-foreign-keys-to-a-table-or-column"><a href="http://stackoverflow.com/questions/201621/how-do-i-see-all-foreign-keys-to-a-table-or-column">View all foreign keys in table</a></h3>
 
 <pre><code>use information_schema;
 
@@ -88,7 +88,7 @@ from key_column_usage
 where referenced_table_name = 'table';
 </code></pre>
 
-<h3 id="view-indexes-http-stackoverflow-com-questions-5213339-how-to-see-indexes-for-a-database-or-table:ab516e0eaa8881ac16e2624a8791f168"><a href="http://stackoverflow.com/questions/5213339/how-to-see-indexes-for-a-database-or-table">View indexes</a></h3>
+<h3 id="view-indexes-http-stackoverflow-com-questions-5213339-how-to-see-indexes-for-a-database-or-table"><a href="http://stackoverflow.com/questions/5213339/how-to-see-indexes-for-a-database-or-table">View indexes</a></h3>
 
 <p>Specific table</p>
 
@@ -103,7 +103,7 @@ where table_schema = 'DATABASE_NAME'
 order by table_name, index_name, seq_in_index;
 </code></pre>
 
-<h3 id="export-table-to-csv:ab516e0eaa8881ac16e2624a8791f168">Export table to CSV</h3>
+<h3 id="export-table-to-csv">Export table to CSV</h3>
 
 <pre><code>use DATABASE;
 select 'HEADER1'
@@ -119,13 +119,13 @@ lines terminated by '\n';
 <p>For dealing with lots of columns see
 <a href="http://stackoverflow.com/questions/22783202/exporting-mysql-table-into-a-csv-file">Exporting MySQL table into a csv file</a></p>
 
-<h3 id="create-table-from-csv:ab516e0eaa8881ac16e2624a8791f168">Create table from CSV</h3>
+<h3 id="create-table-from-csv">Create table from CSV</h3>
 
 <p>Use online converter to create SQL statements from CSV</p>
 
 <p><a href="http://codebeautify.org/csv-to-sql-converter">CSV TO SQL Converter</a></p>
 
-<h3 id="run-a-script:ab516e0eaa8881ac16e2624a8791f168">Run a script</h3>
+<h3 id="run-a-script">Run a script</h3>
 
 <pre><code>mysql -u USER -p &lt; script.sql
 </code></pre>
@@ -135,12 +135,12 @@ lines terminated by '\n';
 <pre><code>source script.sql
 </code></pre>
 
-<h3 id="run-sql-statement-from-cli:ab516e0eaa8881ac16e2624a8791f168">Run SQL statement from CLI</h3>
+<h3 id="run-sql-statement-from-cli">Run SQL statement from CLI</h3>
 
 <pre><code>mysql -u USER --password=PASSWORD --database=DATABASE -e &quot;show tables;&quot;
 </code></pre>
 
-<h3 id="show-last-queries-executed:ab516e0eaa8881ac16e2624a8791f168">Show last queries executed</h3>
+<h3 id="show-last-queries-executed">Show last queries executed</h3>
 
 <p><a href="http://stackoverflow.com/a/678310/639133">How to show the last queries executed on MySQL?</a></p>
 
@@ -174,7 +174,7 @@ show global variables like 'general_log';
 <pre><code>cat /tmp/mysql
 </code></pre>
 
-<h3 id="slow-queries:ab516e0eaa8881ac16e2624a8791f168">Slow Queries</h3>
+<h3 id="slow-queries">Slow Queries</h3>
 
 <p><a href="https://www.digitalocean.com/community/tutorials/how-to-use-mysql-query-profiling">how to use mysql query profiling</a></p>
 
@@ -215,7 +215,7 @@ show session variables like 'long_query_time';
 pt-query-digest /var/log/mysql/localhost-slow.log
 </code></pre>
 
-<h3 id="query-breakdown:ab516e0eaa8881ac16e2624a8791f168">Query breakdown</h3>
+<h3 id="query-breakdown">Query breakdown</h3>
 
 <p>Use this to see time per query state</p>
 
@@ -227,13 +227,13 @@ show profiles;
 select * from information_schema.profiling where query_id=123;
 </code></pre>
 
-<h3 id="create-a-gzipped-mysql-dump:ab516e0eaa8881ac16e2624a8791f168">Create a gzipped mysql dump</h3>
+<h3 id="create-a-gzipped-mysql-dump">Create a gzipped mysql dump</h3>
 
 <pre><code>mysqldump  -u USER --password='PASSWORD' DATABASE \
 | gzip -c | cat &gt; DATABASE.sql.gz
 </code></pre>
 
-<h3 id="mysqldump-errcode-24:ab516e0eaa8881ac16e2624a8791f168">mysqldump errcode 24</h3>
+<h3 id="mysqldump-errcode-24">mysqldump errcode 24</h3>
 
 <pre><code>perror 24
 
@@ -246,14 +246,14 @@ is to make mysqldump keep only one table open at a time</p>
 <pre><code>mysqlddump --single-transaction ...
 </code></pre>
 
-<h3 id="create-index-http-stackoverflow-com-a-32070867-639133:ab516e0eaa8881ac16e2624a8791f168"><a href="http://stackoverflow.com/a/32070867/639133">Create index</a></h3>
+<h3 id="create-index-http-stackoverflow-com-a-32070867-639133"><a href="http://stackoverflow.com/a/32070867/639133">Create index</a></h3>
 
 <pre><code>alter table `table` add index `index_name` (`col1`,`col2`)
 </code></pre>
 
-<h3 id="alter-table-http-www-w3schools-com-sql-sql-alter-asp:ab516e0eaa8881ac16e2624a8791f168"><a href="http://www.w3schools.com/sql/sql_alter.asp">Alter table</a></h3>
+<h3 id="alter-table-http-www-w3schools-com-sql-sql-alter-asp"><a href="http://www.w3schools.com/sql/sql_alter.asp">Alter table</a></h3>
 
-<h4 id="add-column:ab516e0eaa8881ac16e2624a8791f168">Add column</h4>
+<h4 id="add-column">Add column</h4>
 
 <pre><code>alter table table_name add column_name datatype
 </code></pre>

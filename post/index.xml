@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on mozey.co</title>
-    <link>http://mozey.co/post/</link>
+    <link>http://mozey.co/post/index.xml</link>
     <description>Recent content in Posts on mozey.co</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -21,13 +21,13 @@
 
 &lt;p&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Contributions_Appearing_in_the_Book&#34;&gt;index&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;act-with-prudence-http-programmer-97things-oreilly-com-wiki-index-php-act-with-prudence:50084ce763616b9fc053ceb46a3fa664&#34;&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Act_with_Prudence&#34;&gt;Act with Prudence&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;act-with-prudence-http-programmer-97things-oreilly-com-wiki-index-php-act-with-prudence&#34;&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Act_with_Prudence&#34;&gt;Act with Prudence&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;If you find yourself having to choose between &amp;ldquo;doing it right&amp;rdquo; and &amp;ldquo;doing it quick&amp;rdquo;&amp;hellip;
 As soon as you make the decision to compromise, log an issue.
 Pay off technical debt as soon as possible.&lt;/p&gt;
 
-&lt;h2 id=&#34;apply-functional-programming-principles-http-programmer-97things-oreilly-com-wiki-index-php-apply-functional-programming-principles:50084ce763616b9fc053ceb46a3fa664&#34;&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Apply_Functional_Programming_Principles&#34;&gt;Apply Functional Programming Principles&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;apply-functional-programming-principles-http-programmer-97things-oreilly-com-wiki-index-php-apply-functional-programming-principles&#34;&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Apply_Functional_Programming_Principles&#34;&gt;Apply Functional Programming Principles&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/9859966/639133&#34;&gt;Referential transparency&lt;/a&gt;
 functions consistently yield the same results given the same input,
@@ -38,7 +38,15 @@ judiciously apply the lessons learned to other domains.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.jmock.org/oopsla2004.pdf&#34;&gt;Mock Roles, not Objects&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;ask-what-would-the-user-do-you-are-not-the-user-http-programmer-97things-oreilly-com-wiki-index-php-ask-22what-would-the-user-do-3f-22-28you-are-not-the-user-29:50084ce763616b9fc053ceb46a3fa664&#34;&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Ask_%22What_Would_the_User_Do%3F%22_%28You_Are_not_the_User%29&#34;&gt;Ask &amp;ldquo;What Would the User Do?&amp;rdquo; (You Are not the User)&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;ask-what-would-the-user-do-you-are-not-the-user-http-programmer-97things-oreilly-com-wiki-index-php-ask-22what-would-the-user-do-3f-22-28you-are-not-the-user-29&#34;&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Ask_%22What_Would_the_User_Do%3F%22_%28You_Are_not_the_User%29&#34;&gt;Ask &amp;ldquo;What Would the User Do?&amp;rdquo; (You Are not the User)&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;If you must have instructions or help text, make sure to locate it right next
+to your problem areas. A user&amp;rsquo;s narrow focus of attention is why tool tips are
+more useful than help menus.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s better to provide one really obvious way of doing things.&lt;/p&gt;
+
+&lt;h2 id=&#34;automate-your-coding-standard-http-programmer-97things-oreilly-com-wiki-index-php-automate-your-coding-standard&#34;&gt;&lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/Automate_Your_Coding_Standard&#34;&gt;Automate Your Coding Standard&lt;/a&gt;&lt;/h2&gt;
 </description>
     </item>
     
@@ -118,7 +126,7 @@ by typing into the search bar like this&lt;/p&gt;
       <guid>http://mozey.co/post/ledger/</guid>
       <description>
 
-&lt;h1 id=&#34;hledger-http-hledger-org:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;http://hledger.org/&#34;&gt;hledger&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;hledger-http-hledger-org&#34;&gt;&lt;a href=&#34;http://hledger.org/&#34;&gt;hledger&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;Simple, precise, &lt;a href=&#34;http://plaintextaccounting.org/&#34;&gt;plain text accounting&lt;/a&gt;&lt;/p&gt;
 
@@ -134,13 +142,13 @@ by typing into the search bar like this&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://hledger.org/how-to-read-csv-files.html&#34;&gt;How to read CSV files&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;choosing-accounts-http-plaintextaccounting-org-choosing-accounts:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;http://plaintextaccounting.org/#choosing-accounts&#34;&gt;Choosing accounts&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;choosing-accounts-http-plaintextaccounting-org-choosing-accounts&#34;&gt;&lt;a href=&#34;http://plaintextaccounting.org/#choosing-accounts&#34;&gt;Choosing accounts&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Also see &lt;a href=&#34;http://www.ledger-cli.org/3.0/doc/ledger3.html#Structuring-your-Accounts&#34;&gt;structuring accounts&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;account-aliases-http-hledger-org-how-to-use-account-aliases-html:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;http://hledger.org/how-to-use-account-aliases.html&#34;&gt;Account aliases&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;account-aliases-http-hledger-org-how-to-use-account-aliases-html&#34;&gt;&lt;a href=&#34;http://hledger.org/how-to-use-account-aliases.html&#34;&gt;Account aliases&lt;/a&gt;&lt;/h2&gt;
 
-&lt;h1 id=&#34;tabula-http-tabula-technology:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;http://tabula.technology/&#34;&gt;tabula&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;tabula-http-tabula-technology&#34;&gt;&lt;a href=&#34;http://tabula.technology/&#34;&gt;tabula&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;Tabula is a tool for liberating data tables locked inside PDF files.&lt;/p&gt;
 
@@ -151,23 +159,23 @@ by typing into the search bar like this&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;java -jar ./tabula-0.9.1-jar-with-dependencies.jar --help
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;ledger-http-www-ledger-cli-org:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;http://www.ledger-cli.org/&#34;&gt;ledger&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;ledger-http-www-ledger-cli-org&#34;&gt;&lt;a href=&#34;http://www.ledger-cli.org/&#34;&gt;ledger&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;Double-entry accounting system that is accessed from the UNIX command-line&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.ledger-cli.org/3.0/doc/ledger3.html&#34;&gt;docs&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;pete-keen-on-ledger-https-www-petekeen-net-finance:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;https://www.petekeen.net/finance&#34;&gt;Pete Keen on Ledger&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;pete-keen-on-ledger-https-www-petekeen-net-finance&#34;&gt;&lt;a href=&#34;https://www.petekeen.net/finance&#34;&gt;Pete Keen on Ledger&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Over the past few years I&amp;rsquo;ve written a number of posts about Ledger&lt;/p&gt;
 
-&lt;h2 id=&#34;vim-ledger-https-github-com-ledger-vim-ledger:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;https://github.com/ledger/vim-ledger&#34;&gt;vim-ledger&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;vim-ledger-https-github-com-ledger-vim-ledger&#34;&gt;&lt;a href=&#34;https://github.com/ledger/vim-ledger&#34;&gt;vim-ledger&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Vim plugin for Ledger&lt;/p&gt;
 
-&lt;h2 id=&#34;entering-data-https-github-com-ledger-ledger-wiki-entering-data:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;https://github.com/ledger/ledger/wiki/Entering-data&#34;&gt;Entering data&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;entering-data-https-github-com-ledger-ledger-wiki-entering-data&#34;&gt;&lt;a href=&#34;https://github.com/ledger/ledger/wiki/Entering-data&#34;&gt;Entering data&lt;/a&gt;&lt;/h2&gt;
 
-&lt;h3 id=&#34;ledgerhelpers-https-github-com-rudd-o-ledgerhelpers:70859c27c2c783f63b076ab2255ead69&#34;&gt;&lt;a href=&#34;https://github.com/Rudd-O/ledgerhelpers&#34;&gt;ledgerhelpers&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;ledgerhelpers-https-github-com-rudd-o-ledgerhelpers&#34;&gt;&lt;a href=&#34;https://github.com/Rudd-O/ledgerhelpers&#34;&gt;ledgerhelpers&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;A collection of helper programs and a helper library for Ledger (ledger-cli)&lt;/p&gt;
 </description>
@@ -181,7 +189,7 @@ by typing into the search bar like this&lt;/p&gt;
       <guid>http://mozey.co/post/vim/</guid>
       <description>
 
-&lt;h1 id=&#34;spf13-vim-https-github-com-spf13-spf13-vim:06a5fa759d42479fba23ece5dc900b51&#34;&gt;&lt;a href=&#34;https://github.com/spf13/spf13-vim&#34;&gt;spf13-vim&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;spf13-vim-https-github-com-spf13-spf13-vim&#34;&gt;&lt;a href=&#34;https://github.com/spf13/spf13-vim&#34;&gt;spf13-vim&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/Shougo/neocomplete.vim#vim-for-mac-os-x&#34;&gt;Install vim with lua&lt;/a&gt;&lt;/p&gt;
 
@@ -191,17 +199,17 @@ brew install macvim --with-cscope --with-lua
 brew linkapps macvim
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;vim-8:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Vim 8&lt;/h1&gt;
+&lt;h1 id=&#34;vim-8&#34;&gt;Vim 8&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.hostingadvice.com/blog/vim-creator-champions-charityware/&#34;&gt;Reference&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;install-from-source-http-www-vim-org-git-php:06a5fa759d42479fba23ece5dc900b51&#34;&gt;&lt;a href=&#34;http://www.vim.org/git.php&#34;&gt;Install from source&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;install-from-source-http-www-vim-org-git-php&#34;&gt;&lt;a href=&#34;http://www.vim.org/git.php&#34;&gt;Install from source&lt;/a&gt;&lt;/h2&gt;
 
-&lt;h2 id=&#34;config:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Config&lt;/h2&gt;
+&lt;h2 id=&#34;config&#34;&gt;Config&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/db-pj/dotfiles/blob/master/.vimrc&#34;&gt;.vimrc&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;plugins:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Plugins&lt;/h2&gt;
+&lt;h2 id=&#34;plugins&#34;&gt;Plugins&lt;/h2&gt;
 
 &lt;p&gt;NerdTree&lt;/p&gt;
 
@@ -228,7 +236,7 @@ brew linkapps macvim
 &lt;pre&gt;&lt;code&gt;Check your syntax and be notified about errors before compiling your code or executing your script.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;spell-checking:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Spell checking&lt;/h1&gt;
+&lt;h1 id=&#34;spell-checking&#34;&gt;Spell checking&lt;/h1&gt;
 
 &lt;p&gt;Enable spell checking&lt;/p&gt;
 
@@ -266,7 +274,7 @@ set spelllang=en,af
 
 &lt;p&gt;Notes about South African Revenue Service and how Independent Contractors are taxed&lt;/p&gt;
 
-&lt;h2 id=&#34;when-are-you-an-independent-contractor-according-to-sars:413d3e1234f58f657ec7242a1a25b3bb&#34;&gt;When are you an independent contractor according to SARS?&lt;/h2&gt;
+&lt;h2 id=&#34;when-are-you-an-independent-contractor-according-to-sars&#34;&gt;When are you an independent contractor according to SARS?&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.fin24.com/Money/Money-Clinic/Tax/Sars-not-fooled-by-independent-consultants-20140423&#34;&gt;Criteria&lt;/a&gt;&lt;/p&gt;
 
@@ -302,12 +310,12 @@ You may deduct your business related expenses.&lt;/p&gt;
 &lt;p&gt;You are NOT an Independent Contractor. Your employer should be deducting PAYE
 (employee&amp;rsquo;s tax) from you every month based on the normal tax tables.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-is-a-provisional-taxpayer-https-www-taxtim-com-za-help-definition-provisional-taxpayer:413d3e1234f58f657ec7242a1a25b3bb&#34;&gt;&lt;a href=&#34;https://www.taxtim.com/za/help/definition/provisional-taxpayer&#34;&gt;What is a provisional taxpayer?&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;what-is-a-provisional-taxpayer-https-www-taxtim-com-za-help-definition-provisional-taxpayer&#34;&gt;&lt;a href=&#34;https://www.taxtim.com/za/help/definition/provisional-taxpayer&#34;&gt;What is a provisional taxpayer?&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Provisional taxpayers are people who earn income
 other than a salary / remuneration.&lt;/p&gt;
 
-&lt;h2 id=&#34;sars-important-dates:413d3e1234f58f657ec7242a1a25b3bb&#34;&gt;SARS important dates&lt;/h2&gt;
+&lt;h2 id=&#34;sars-important-dates&#34;&gt;SARS important dates&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.sars.gov.za/TaxTypes/PIT/Tax-Season/Pages/default.aspx&#34;&gt;Individuals&lt;/a&gt;&lt;/p&gt;
 
@@ -323,23 +331,23 @@ other than a salary / remuneration.&lt;/p&gt;
       <guid>http://mozey.co/post/kubernetes/</guid>
       <description>
 
-&lt;h1 id=&#34;minikube-http-kubernetes-io-docs-getting-started-guides-minikube:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;&lt;a href=&#34;http://kubernetes.io/docs/getting-started-guides/minikube/&#34;&gt;Minikube&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;minikube-http-kubernetes-io-docs-getting-started-guides-minikube&#34;&gt;&lt;a href=&#34;http://kubernetes.io/docs/getting-started-guides/minikube/&#34;&gt;Minikube&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;Minikube starts a single node kubernetes cluster locally for purposes of development and testing&lt;/p&gt;
 
-&lt;h2 id=&#34;install-virtual-box-https-www-virtualbox-org-wiki-downloads:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Install &lt;a href=&#34;https://www.virtualbox.org/wiki/Downloads&#34;&gt;virtual box&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;install-virtual-box-https-www-virtualbox-org-wiki-downloads&#34;&gt;Install &lt;a href=&#34;https://www.virtualbox.org/wiki/Downloads&#34;&gt;virtual box&lt;/a&gt;&lt;/h2&gt;
 
-&lt;h2 id=&#34;install-minikube-https-github-com-kubernetes-minikube-releases:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Install &lt;a href=&#34;https://github.com/kubernetes/minikube/releases&#34;&gt;minikube&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;install-minikube-https-github-com-kubernetes-minikube-releases&#34;&gt;Install &lt;a href=&#34;https://github.com/kubernetes/minikube/releases&#34;&gt;minikube&lt;/a&gt;&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.12.2/minikube-darwin-amd64 &amp;amp;&amp;amp; chmod +x minikube &amp;amp;&amp;amp; sudo mv minikube /usr/local/bin/
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;install-kubectl-http-kubernetes-io-docs-getting-started-guides-minikube:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Install &lt;a href=&#34;http://kubernetes.io/docs/getting-started-guides/minikube/&#34;&gt;kubectl&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;install-kubectl-http-kubernetes-io-docs-getting-started-guides-minikube&#34;&gt;Install &lt;a href=&#34;http://kubernetes.io/docs/getting-started-guides/minikube/&#34;&gt;kubectl&lt;/a&gt;&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;curl -Lo kubectl http://storage.googleapis.com/kubernetes-release/release/v1.3.0/bin/darwin/amd64/kubectl &amp;amp;&amp;amp; chmod +x kubectl &amp;amp;&amp;amp; sudo mv kubectl /usr/local/bin/fire
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;dashboard:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Dashboard&lt;/h2&gt;
+&lt;h2 id=&#34;dashboard&#34;&gt;Dashboard&lt;/h2&gt;
 
 &lt;p&gt;Install and open the latest stable release&lt;/p&gt;
 
@@ -348,7 +356,7 @@ other than a salary / remuneration.&lt;/p&gt;
 minikube dashboard
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;pod-runs-boot2docker:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Pod runs boot2docker&lt;/h2&gt;
+&lt;h2 id=&#34;pod-runs-boot2docker&#34;&gt;Pod runs boot2docker&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;minikube docker-env
 
@@ -357,7 +365,7 @@ minikube ssh
 ls /Users
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;getting-started-https-medium-com-claudiopro-getting-started-with-kubernetes-via-minikube-ada8c7a29620:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;&lt;a href=&#34;https://medium.com/@claudiopro/getting-started-with-kubernetes-via-minikube-ada8c7a29620&#34;&gt;Getting Started&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;getting-started-https-medium-com-claudiopro-getting-started-with-kubernetes-via-minikube-ada8c7a29620&#34;&gt;&lt;a href=&#34;https://medium.com/@claudiopro/getting-started-with-kubernetes-via-minikube-ada8c7a29620&#34;&gt;Getting Started&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;Inspect the cluster&lt;/p&gt;
 
@@ -366,7 +374,7 @@ ls /Users
 kubectl get nodes
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;run-the-built-in-hello-minikube:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Run the built-in hello-minikube&lt;/h2&gt;
+&lt;h2 id=&#34;run-the-built-in-hello-minikube&#34;&gt;Run the built-in hello-minikube&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
 
@@ -389,7 +397,7 @@ curl $(minikube service hello-minikube --url)
 &lt;pre&gt;&lt;code&gt;kubectl delete service,deployment hello-minikube
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;build-and-install-a-node-service-with-docker:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;Build and install a node service with Docker&lt;/h2&gt;
+&lt;h2 id=&#34;build-and-install-a-node-service-with-docker&#34;&gt;Build and install a node service with Docker&lt;/h2&gt;
 
 &lt;p&gt;Install &lt;a href=&#34;https://docs.docker.com/docker-for-mac/docker-toolbox&#34;&gt;Docker for Mac&lt;/a&gt;&lt;/p&gt;
 
@@ -440,7 +448,7 @@ docker push localhost:5000/hello-node:v1
 kubectl run hello-node --image=192.168.1.101:5000/hello-node:v1 --port=8080
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;todo-kubectl-run-error:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;TODO &lt;code&gt;kubectl run&lt;/code&gt; error&lt;/h1&gt;
+&lt;h1 id=&#34;todo-kubectl-run-error&#34;&gt;TODO &lt;code&gt;kubectl run&lt;/code&gt; error&lt;/h1&gt;
 
 &lt;p&gt;&lt;code&gt;Get https://192.168.1.101:5000/v1/_ping: tls: oversized record received with length 20527&lt;/code&gt;
 from &lt;a href=&#34;http://192.168.99.100:32657/#/deployment?namespace=default&#34;&gt;kubernetes dashboard&lt;/a&gt;
@@ -458,9 +466,9 @@ curl $(minikube service hello-node --url)
 docker rmi hello-node
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;kubectl-for-docker-users-http-kubernetes-io-docs-user-guide-docker-cli-to-kubectl:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;&lt;a href=&#34;http://kubernetes.io/docs/user-guide/docker-cli-to-kubectl&#34;&gt;kubectl for Docker Users&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;kubectl-for-docker-users-http-kubernetes-io-docs-user-guide-docker-cli-to-kubectl&#34;&gt;&lt;a href=&#34;http://kubernetes.io/docs/user-guide/docker-cli-to-kubectl&#34;&gt;kubectl for Docker Users&lt;/a&gt;&lt;/h1&gt;
 
-&lt;h1 id=&#34;elasticsearch-https-hub-docker-com-elasticsearch:9fab9770b5d5cab6474d45bd9cd5273a&#34;&gt;&lt;a href=&#34;https://hub.docker.com/_/elasticsearch/&#34;&gt;elasticsearch&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;elasticsearch-https-hub-docker-com-elasticsearch&#34;&gt;&lt;a href=&#34;https://hub.docker.com/_/elasticsearch/&#34;&gt;elasticsearch&lt;/a&gt;&lt;/h1&gt;
 </description>
     </item>
     
@@ -472,16 +480,16 @@ docker rmi hello-node
       <guid>http://mozey.co/post/elastic-search/</guid>
       <description>
 
-&lt;h1 id=&#34;elasticsearch-https-www-digitalocean-com-community-tutorials-how-to-install-and-configure-elasticsearch-on-ubuntu-14-04:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-14-04&#34;&gt;Elasticsearch&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;elasticsearch-https-www-digitalocean-com-community-tutorials-how-to-install-and-configure-elasticsearch-on-ubuntu-14-04&#34;&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-14-04&#34;&gt;Elasticsearch&lt;/a&gt;&lt;/h1&gt;
 
-&lt;h2 id=&#34;install-jdk:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;Install JDK&lt;/h2&gt;
+&lt;h2 id=&#34;install-jdk&#34;&gt;Install JDK&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo apt-get install openjdk-7-jre
 
 java -version
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;install-elasticsearch:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;Install elasticsearch&lt;/h2&gt;
+&lt;h2 id=&#34;install-elasticsearch&#34;&gt;Install elasticsearch&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.2.deb
 
@@ -493,16 +501,16 @@ sudo dpkg -i elasticsearch-1.7.2.deb
 &lt;pre&gt;&lt;code&gt;sudo update-rc.d elasticsearch defaults
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;is-it-working:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;Is it working?&lt;/h2&gt;
+&lt;h2 id=&#34;is-it-working&#34;&gt;Is it working?&lt;/h2&gt;
 
 &lt;p&gt;This will list cluster name, version, etc&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;curl -XGET &#39;localhost:9200&#39; 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;kibana-https-www-elastic-co-downloads-kibana:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;&lt;a href=&#34;https://www.elastic.co/downloads/kibana&#34;&gt;Kibana&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;kibana-https-www-elastic-co-downloads-kibana&#34;&gt;&lt;a href=&#34;https://www.elastic.co/downloads/kibana&#34;&gt;Kibana&lt;/a&gt;&lt;/h1&gt;
 
-&lt;h2 id=&#34;install:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;Install&lt;/h2&gt;
+&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;wget https://download.elastic.co/kibana/kibana/kibana-4.6.1-amd64.deb
 
@@ -515,7 +523,7 @@ sudo service kibana start
 curl -XGET &#39;localhost:5601&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;getting-started-https-www-elastic-co-guide-en-kibana-current-getting-started-html:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/kibana/current/getting-started.html&#34;&gt;Getting started&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;getting-started-https-www-elastic-co-guide-en-kibana-current-getting-started-html&#34;&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/kibana/current/getting-started.html&#34;&gt;Getting started&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Download Shakespeare data set&lt;/p&gt;
 
@@ -540,9 +548,9 @@ curl -XPOST &#39;localhost:9200/bank/account/_bulk?pretty&#39; --data-binary @ac
 &lt;pre&gt;&lt;code&gt;curl &#39;localhost:9200/_cat/indices?v&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;elk-stack-arduino-https-www-elastic-co-blog-arduino-based-home-weather-station-on-the-elastic-stack:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;&lt;a href=&#34;https://www.elastic.co/blog/arduino-based-home-weather-station-on-the-elastic-stack&#34;&gt;ELK Stack Arduino&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;elk-stack-arduino-https-www-elastic-co-blog-arduino-based-home-weather-station-on-the-elastic-stack&#34;&gt;&lt;a href=&#34;https://www.elastic.co/blog/arduino-based-home-weather-station-on-the-elastic-stack&#34;&gt;ELK Stack Arduino&lt;/a&gt;&lt;/h1&gt;
 
-&lt;h1 id=&#34;docker-https-hub-docker-com-elasticsearch:ecf0eeeca5eaede43ac5fe7aaac330d0&#34;&gt;&lt;a href=&#34;https://hub.docker.com/_/elasticsearch/&#34;&gt;Docker&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;docker-https-hub-docker-com-elasticsearch&#34;&gt;&lt;a href=&#34;https://hub.docker.com/_/elasticsearch/&#34;&gt;Docker&lt;/a&gt;&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;docker run -d -v &amp;quot;$PWD/esdata&amp;quot;:/usr/share/elasticsearch/data elasticsearch -p 9200:9200
 
@@ -563,7 +571,7 @@ curl -XGET &#39;localhost:9200&#39;
       <guid>http://mozey.co/post/taskwarrior/</guid>
       <description>
 
-&lt;h1 id=&#34;taskserver-backups-https-taskwarrior-org-docs-taskserver-prep-html:e587b81f0529e47751cf387ee8a1fa0e&#34;&gt;&lt;a href=&#34;https://taskwarrior.org/docs/taskserver/prep.html&#34;&gt;Taskserver Backups&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;taskserver-backups-https-taskwarrior-org-docs-taskserver-prep-html&#34;&gt;&lt;a href=&#34;https://taskwarrior.org/docs/taskserver/prep.html&#34;&gt;Taskserver Backups&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;Alternative&lt;/p&gt;
 
@@ -573,9 +581,9 @@ curl -XGET &#39;localhost:9200&#39;
 &lt;li&gt;&lt;p&gt;Use git to version dot and data files in home dir&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;time-tracking-https-taskwarrior-org-docs-timewarrior:e587b81f0529e47751cf387ee8a1fa0e&#34;&gt;&lt;a href=&#34;https://taskwarrior.org/docs/timewarrior&#34;&gt;Time tracking&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;time-tracking-https-taskwarrior-org-docs-timewarrior&#34;&gt;&lt;a href=&#34;https://taskwarrior.org/docs/timewarrior&#34;&gt;Time tracking&lt;/a&gt;&lt;/h1&gt;
 
-&lt;h2 id=&#34;install-timewarrior:e587b81f0529e47751cf387ee8a1fa0e&#34;&gt;Install timewarrior&lt;/h2&gt;
+&lt;h2 id=&#34;install-timewarrior&#34;&gt;Install timewarrior&lt;/h2&gt;
 
 &lt;p&gt;Use &lt;a href=&#34;https://taskwarrior.org/docs/timewarrior/taskwarrior.html&#34;&gt;on-modify hook&lt;/a&gt;
 to integrate with taskwarrior&lt;/p&gt;
@@ -589,7 +597,7 @@ chmod +x ~/.task/hooks/on-modify.timewarrior
 task diagnostics
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;commands:e587b81f0529e47751cf387ee8a1fa0e&#34;&gt;Commands&lt;/h2&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
 </description>
     </item>
     
@@ -601,11 +609,13 @@ task diagnostics
       <guid>http://mozey.co/post/postgres/</guid>
       <description>
 
-&lt;h1 id=&#34;scaling:d0a66ac5be0a2f43494c1149b643e1b4&#34;&gt;Scaling&lt;/h1&gt;
+&lt;h1 id=&#34;scaling&#34;&gt;Scaling&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://news.ycombinator.com/item?id=12649734&#34;&gt;Designing your SaaS Database for Scale with Postgres&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://news.ycombinator.com/item?id=13641377&#34;&gt;Is PostgreSQL good enough?&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;install-osx-https-launchschool-com-blog-how-to-install-postgresql-on-a-mac&#34;&gt;&lt;a href=&#34;https://launchschool.com/blog/how-to-install-postgresql-on-a-mac&#34;&gt;Install OSX&lt;/a&gt;&lt;/h1&gt;
 </description>
     </item>
     

@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2015-08-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>grep &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,9 +54,16 @@
     <section class="post-content">
         
 
-<h3 id="finding-all-files-containing-a-text-string-http-stackoverflow-com-a-16957078-639133:ab7370a3908291416bd941548af0a8a7"><a href="http://stackoverflow.com/a/16957078/639133">Finding all files containing a text string</a></h3>
+<h3 id="finding-all-files-containing-a-text-string-http-stackoverflow-com-a-16957078-639133"><a href="http://stackoverflow.com/a/16957078/639133">Finding all files containing a text string</a></h3>
 
 <pre><code>grep -rnw '/path/to/somewhere/' -e &quot;pattern&quot;
+</code></pre>
+
+<p>Create alias to grep search for partial words in current dir</p>
+
+<pre><code>vi ~/.profile
+# Grep partial words in current dir
+alias g='grep --color=auto -rn . -e'
 </code></pre>
 
     </section>

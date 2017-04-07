@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2015-07-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>ec2 multiple ssl virtualhosts &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -56,16 +56,16 @@
 
 <p>EC2 allow you to setup <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/MultipleIP.html">Multiple Private IP Addresses</a></p>
 
-<h3 id="each-virtual-https-virtual-host-must-listen-on-its-own-private-ip-address:206213c76a0fc502cc8535c752e729d4">Each virtual HTTPS virtual host must listen on its own private IP address</h3>
+<h3 id="each-virtual-https-virtual-host-must-listen-on-its-own-private-ip-address">Each virtual HTTPS virtual host must listen on its own private IP address</h3>
 
 <pre><code>&lt;VirtualHost 172.30.2.135:443&gt;
 
 &lt;VirtualHost 172.30.2.159:443&gt;
 </code></pre>
 
-<h3 id="associate-a-public-elastic-ips-with-each-private-ip-used-by-the-instance:206213c76a0fc502cc8535c752e729d4">Associate a public Elastic IPs with each private IP used by the instance</h3>
+<h3 id="associate-a-public-elastic-ips-with-each-private-ip-used-by-the-instance">Associate a public Elastic IPs with each private IP used by the instance</h3>
 
-<h3 id="setup-networking-on-the-instance-to-recognize-all-required-interfaces:206213c76a0fc502cc8535c752e729d4">Setup networking on the instance to recognize all required interfaces</h3>
+<h3 id="setup-networking-on-the-instance-to-recognize-all-required-interfaces">Setup networking on the instance to recognize all required interfaces</h3>
 
 <p>For Ubuntu 14.04</p>
 
@@ -82,7 +82,7 @@ sudo ifup eth1
 ifconfig -a
 </code></pre>
 
-<h3 id="setup-routing-for-the-second-interface:206213c76a0fc502cc8535c752e729d4">Setup routing for the second interface</h3>
+<h3 id="setup-routing-for-the-second-interface">Setup routing for the second interface</h3>
 
 <p><a href="http://engineering.silk.co/post/31923247961/multiple-ip-addresses-on-amazon-ec2">Multiple IP addresses on Amazon EC2</a></p>
 

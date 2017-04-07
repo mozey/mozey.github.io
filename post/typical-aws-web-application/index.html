@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2015-12-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>typical aws web application &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,7 +54,7 @@
     <section class="post-content">
         
 
-<h1 id="typical-web-application:ac52f4a3ca6362b3a4f720980a7d1ed0">Typical web application</h1>
+<h1 id="typical-web-application">Typical web application</h1>
 
 <ul>
 <li><p>load balancer</p></li>
@@ -64,9 +64,9 @@
 <li><p>database</p></li>
 </ul>
 
-<h1 id="5-aws-mistakes-you-should-avoid-https-cloudonaut-io-5-aws-mistakes-you-should-avoid:ac52f4a3ca6362b3a4f720980a7d1ed0"><a href="https://cloudonaut.io/5-aws-mistakes-you-should-avoid/">5 AWS mistakes you should avoid</a></h1>
+<h1 id="5-aws-mistakes-you-should-avoid-https-cloudonaut-io-5-aws-mistakes-you-should-avoid"><a href="https://cloudonaut.io/5-aws-mistakes-you-should-avoid/">5 AWS mistakes you should avoid</a></h1>
 
-<h3 id="managing-infrastructure-manually:ac52f4a3ca6362b3a4f720980a7d1ed0">managing infrastructure manually</h3>
+<h3 id="managing-infrastructure-manually">managing infrastructure manually</h3>
 
 <p>Use <a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a> to describe
 resources (EC2 instance, security groups, subnets, etc) in a template.</p>
@@ -74,18 +74,18 @@ resources (EC2 instance, security groups, subnets, etc) in a template.</p>
 <p>Typical web app
 <a href="https://github.com/AWSinAction/code/blob/master/chapter2/template.json">CloudFormation template</a></p>
 
-<h3 id="not-using-auto-scaling-groups:ac52f4a3ca6362b3a4f720980a7d1ed0">not using Auto Scaling Groups</h3>
+<h3 id="not-using-auto-scaling-groups">not using Auto Scaling Groups</h3>
 
 <p>Auto scaling is achieved by setting alarms on metrics, like CPU usage or number
 of requests the load balancer received, if the alarm threshold is reached you
 can define an action like increase the number of machines in the group.</p>
 
-<h3 id="not-analyzing-metrics-in-cloudwatch:ac52f4a3ca6362b3a4f720980a7d1ed0">not analyzing metrics in CloudWatch</h3>
+<h3 id="not-analyzing-metrics-in-cloudwatch">not analyzing metrics in CloudWatch</h3>
 
 <p>The second step, once you analyzed your metrics is to define alarms on them.
 Not the other way around!</p>
 
-<h3 id="ignoring-trusted-adviser:ac52f4a3ca6362b3a4f720980a7d1ed0">ignoring Trusted Adviser</h3>
+<h3 id="ignoring-trusted-adviser">ignoring Trusted Adviser</h3>
 
 <p>Check AWS account for best practices
 - cost optimization
@@ -93,11 +93,11 @@ Not the other way around!</p>
 - security
 - fault tolerance</p>
 
-<h3 id="underutilizing-virtual-machines:ac52f4a3ca6362b3a4f720980a7d1ed0">underutilizing virtual machines</h3>
+<h3 id="underutilizing-virtual-machines">underutilizing virtual machines</h3>
 
 <p>Use auto scaling groups to scale up or down.</p>
 
-<h1 id="sync-your-aws-securitygroups-with-dyndns-for-ssh-security-http-www-lincade-org-sync-your-aws-securitygroups-with-dyndns-for-ssh-security:ac52f4a3ca6362b3a4f720980a7d1ed0"><a href="http://www.lincade.org/sync-your-aws-securitygroups-with-dyndns-for-ssh-security/">Sync your AWS SecurityGroups with DynDNS for SSH security</a></h1>
+<h1 id="sync-your-aws-securitygroups-with-dyndns-for-ssh-security-http-www-lincade-org-sync-your-aws-securitygroups-with-dyndns-for-ssh-security"><a href="http://www.lincade.org/sync-your-aws-securitygroups-with-dyndns-for-ssh-security/">Sync your AWS SecurityGroups with DynDNS for SSH security</a></h1>
 
 <pre><code>#!/bin/bash
 if [ &quot;$(dig +short myhome.domain.org)&quot; != &quot;$(cat /tmp/dynip.txt)&quot; ];

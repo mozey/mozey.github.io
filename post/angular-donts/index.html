@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2016-03-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>angular donts &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,23 +54,23 @@
     <section class="post-content">
         
 
-<h1 id="list-of-practises-that-make-angular-code-fragile-and-unmaintainable:7dc0e1db08f0f0cb8032450057252836">List of practises that make angular code fragile and unmaintainable</h1>
+<h1 id="list-of-practises-that-make-angular-code-fragile-and-unmaintainable">List of practises that make angular code fragile and unmaintainable</h1>
 
 <p>Some of the points listed also apply to javascript programming in general.</p>
 
-<h2 id="adding-unused-variables-onto-the-scope:7dc0e1db08f0f0cb8032450057252836">Adding unused variables onto the scope</h2>
+<h2 id="adding-unused-variables-onto-the-scope">Adding unused variables onto the scope</h2>
 
 <p>Variables should only be added to the scope when
 it is used for template rendering or data binding.</p>
 
-<h2 id="using-scope-or-shared-objects-to-communicate-between-controllers:7dc0e1db08f0f0cb8032450057252836">Using scope or shared objects to communicate between controllers</h2>
+<h2 id="using-scope-or-shared-objects-to-communicate-between-controllers">Using scope or shared objects to communicate between controllers</h2>
 
 <p>Rather use event or services.</p>
 
 <p>When services are used they should they should not expose shared objects,
 always return a copy of underlying data if simple variables are not used.</p>
 
-<h2 id="using-one-data-structure-for-multiple-purposes:7dc0e1db08f0f0cb8032450057252836">Using one data structure for multiple purposes</h2>
+<h2 id="using-one-data-structure-for-multiple-purposes">Using one data structure for multiple purposes</h2>
 
 <p>For example, don&rsquo;t use $scope.data to render a form and then also post it to a
 web service. Rather create a function that extracts only the data required.

@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2015-09-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>git &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,14 +54,14 @@
     <section class="post-content">
         
 
-<h1 id="list-log-for-a-specific-path:1c1ef82aae62aeea8eedcb5f455b129b">List log for a specific path</h1>
+<h1 id="list-log-for-a-specific-path">List log for a specific path</h1>
 
 <pre><code>git log -- path/to/list
 
 git log --oneline -- path/to/list
 </code></pre>
 
-<h1 id="roll-back-to-a-specific-commit-http-stackoverflow-com-a-1625275-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/1625275/639133">Roll back to a specific commit</a></h1>
+<h1 id="roll-back-to-a-specific-commit-http-stackoverflow-com-a-1625275-639133"><a href="http://stackoverflow.com/a/1625275/639133">Roll back to a specific commit</a></h1>
 
 <pre><code>git branch temp
 
@@ -70,14 +70,14 @@ git reset --hard 41508773bb0f816a9fbb4c6f60aa4d784b25fc0e
 git branch -D temp
 </code></pre>
 
-<h1 id="ignoring-files-https-help-github-com-articles-ignoring-files:1c1ef82aae62aeea8eedcb5f455b129b"><a href="https://help.github.com/articles/ignoring-files/">Ignoring files</a></h1>
+<h1 id="ignoring-files-https-help-github-com-articles-ignoring-files"><a href="https://help.github.com/articles/ignoring-files/">Ignoring files</a></h1>
 
-<h1 id="create-a-global-gitignore:1c1ef82aae62aeea8eedcb5f455b129b">Create a global .gitignore</h1>
+<h1 id="create-a-global-gitignore">Create a global .gitignore</h1>
 
 <pre><code>git config --global core.excludesfile ~/.gitignore_global
 </code></pre>
 
-<h1 id="changing-a-remote-s-url:1c1ef82aae62aeea8eedcb5f455b129b">Changing a remote&rsquo;s URL</h1>
+<h1 id="changing-a-remote-s-url">Changing a remote&rsquo;s URL</h1>
 
 <p>List existing remotes</p>
 
@@ -96,7 +96,7 @@ git branch -D temp
 git push --set-upstream origin master
 </code></pre>
 
-<h1 id="stashing-https-git-scm-com-book-en-v1-git-tools-stashing:1c1ef82aae62aeea8eedcb5f455b129b"><a href="https://git-scm.com/book/en/v1/Git-Tools-Stashing">Stashing</a></h1>
+<h1 id="stashing-https-git-scm-com-book-en-v1-git-tools-stashing"><a href="https://git-scm.com/book/en/v1/Git-Tools-Stashing">Stashing</a></h1>
 
 <p>Stash changes</p>
 
@@ -138,7 +138,7 @@ git push --set-upstream origin master
 <pre><code>git stash show -p stash@{0} | git apply -R
 </code></pre>
 
-<h1 id="undo-the-last-commit-http-stackoverflow-com-a-2846154-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/2846154/639133">Undo the last commit</a></h1>
+<h1 id="undo-the-last-commit-http-stackoverflow-com-a-2846154-639133"><a href="http://stackoverflow.com/a/2846154/639133">Undo the last commit</a></h1>
 
 <p>Undo the commit, leaving files intact and staged</p>
 
@@ -155,14 +155,14 @@ git push --set-upstream origin master
 <pre><code>git reset --hard HEAD^
 </code></pre>
 
-<h1 id="self-signed-certificate-http-stackoverflow-com-a-32476912-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/32476912/639133">Self signed certificate</a></h1>
+<h1 id="self-signed-certificate-http-stackoverflow-com-a-32476912-639133"><a href="http://stackoverflow.com/a/32476912/639133">Self signed certificate</a></h1>
 
 <pre><code>git config --global http.sslVerify false
 </code></pre>
 
-<h1 id="signed-releases-https-wiki-debian-org-creating-20signed-20github-20releases:1c1ef82aae62aeea8eedcb5f455b129b"><a href="https://wiki.debian.org/Creating%20signed%20GitHub%20releases">Signed releases</a></h1>
+<h1 id="signed-releases-https-wiki-debian-org-creating-20signed-20github-20releases"><a href="https://wiki.debian.org/Creating%20signed%20GitHub%20releases">Signed releases</a></h1>
 
-<h1 id="workflow:1c1ef82aae62aeea8eedcb5f455b129b">Workflow</h1>
+<h1 id="workflow">Workflow</h1>
 
 <p><a href="https://help.github.com/articles/what-is-a-good-git-workflow/">help</a></p>
 
@@ -170,7 +170,7 @@ git push --set-upstream origin master
 
 <p><a href="https://codewords.recurse.com/issues/two/git-from-the-inside-out">tutorial</a></p>
 
-<h1 id="remove-unused-files-from-git-http-stackoverflow-com-a-5277575-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/5277575/639133">Remove unused files from .git</a></h1>
+<h1 id="remove-unused-files-from-git-http-stackoverflow-com-a-5277575-639133"><a href="http://stackoverflow.com/a/5277575/639133">Remove unused files from .git</a></h1>
 
 <p>If you added the files and then removed them</p>
 
@@ -179,7 +179,7 @@ git push --set-upstream origin master
 git prune
 </code></pre>
 
-<h1 id="syncing-a-github-fork-https-help-github-com-articles-syncing-a-fork:1c1ef82aae62aeea8eedcb5f455b129b"><a href="https://help.github.com/articles/syncing-a-fork/">Syncing a github fork</a></h1>
+<h1 id="syncing-a-github-fork-https-help-github-com-articles-syncing-a-fork"><a href="https://help.github.com/articles/syncing-a-fork/">Syncing a github fork</a></h1>
 
 <p>Assuming the fork has already been cloned.</p>
 
@@ -193,7 +193,7 @@ git prune
 <pre><code>git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
 </code></pre>
 
-<h2 id="information-about-local-and-remote-branches:1c1ef82aae62aeea8eedcb5f455b129b">Information about local and remote branches</h2>
+<h2 id="information-about-local-and-remote-branches">Information about local and remote branches</h2>
 
 <pre><code>git remote -v
 
@@ -206,7 +206,7 @@ git branch -a
 git branch -r
 </code></pre>
 
-<h2 id="pull-changes-from-upstream-and-push-to-origin:1c1ef82aae62aeea8eedcb5f455b129b">Pull changes from upstream and push to origin</h2>
+<h2 id="pull-changes-from-upstream-and-push-to-origin">Pull changes from upstream and push to origin</h2>
 
 <pre><code>git checkout master
 
@@ -215,7 +215,7 @@ git pull upstream master
 git push origin master
 </code></pre>
 
-<h2 id="fetch-branch-from-upstream-that-does-not-exist-in-origin:1c1ef82aae62aeea8eedcb5f455b129b">Fetch branch from upstream that does not exist in origin</h2>
+<h2 id="fetch-branch-from-upstream-that-does-not-exist-in-origin">Fetch branch from upstream that does not exist in origin</h2>
 
 <p>The <code>git pull</code> command does a fetch and merge, it changes the working copy.</p>
 
@@ -239,17 +239,17 @@ git push origin BRANCH
 
 <p>Now use github to compare with upstream</p>
 
-<h2 id="show-which-branches-are-tracking-what-http-stackoverflow-com-questions-4950725-how-do-i-get-git-to-show-me-which-branches-are-tracking-what:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/questions/4950725/how-do-i-get-git-to-show-me-which-branches-are-tracking-what">Show which branches are tracking what</a></h2>
+<h2 id="show-which-branches-are-tracking-what-http-stackoverflow-com-questions-4950725-how-do-i-get-git-to-show-me-which-branches-are-tracking-what"><a href="http://stackoverflow.com/questions/4950725/how-do-i-get-git-to-show-me-which-branches-are-tracking-what">Show which branches are tracking what</a></h2>
 
 <pre><code>git branch -vv
 </code></pre>
 
-<h2 id="change-the-remote-a-git-branch-is-tracking-http-stackoverflow-com-questions-4878249-how-do-i-change-the-remote-a-git-branch-is-tracking:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/questions/4878249/how-do-i-change-the-remote-a-git-branch-is-tracking">Change the remote a git branch is tracking</a></h2>
+<h2 id="change-the-remote-a-git-branch-is-tracking-http-stackoverflow-com-questions-4878249-how-do-i-change-the-remote-a-git-branch-is-tracking"><a href="http://stackoverflow.com/questions/4878249/how-do-i-change-the-remote-a-git-branch-is-tracking">Change the remote a git branch is tracking</a></h2>
 
 <pre><code>git branch BRANCH -u upstream/BRANCH
 </code></pre>
 
-<h1 id="find-and-restore-a-deleted-file-http-stackoverflow-com-a-953573-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/953573/639133">Find and restore a deleted file</a></h1>
+<h1 id="find-and-restore-a-deleted-file-http-stackoverflow-com-a-953573-639133"><a href="http://stackoverflow.com/a/953573/639133">Find and restore a deleted file</a></h1>
 
 <p>Find the commit where the file was deleted</p>
 
@@ -262,14 +262,14 @@ use tilde to refer to the nth grandchild of the commit.</p>
 <pre><code>git checkout COMMIT_HASH~1 filename
 </code></pre>
 
-<h1 id="list-all-the-files-in-a-commit-http-stackoverflow-com-questions-424071-how-to-list-all-the-files-in-a-commit:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/questions/424071/how-to-list-all-the-files-in-a-commit">List all the files in a commit</a></h1>
+<h1 id="list-all-the-files-in-a-commit-http-stackoverflow-com-questions-424071-how-to-list-all-the-files-in-a-commit"><a href="http://stackoverflow.com/questions/424071/how-to-list-all-the-files-in-a-commit">List all the files in a commit</a></h1>
 
-<h2 id="user-facing-porcelain-command:1c1ef82aae62aeea8eedcb5f455b129b">User facing (porcelain) command</h2>
+<h2 id="user-facing-porcelain-command">User facing (porcelain) command</h2>
 
 <pre><code>git show --pretty=&quot;&quot; --name-only 5e7b36e
 </code></pre>
 
-<h2 id="plumbing-command-for-use-in-scripts:1c1ef82aae62aeea8eedcb5f455b129b">Plumbing command for use in scripts</h2>
+<h2 id="plumbing-command-for-use-in-scripts">Plumbing command for use in scripts</h2>
 
 <p>List all files in the commit</p>
 
@@ -281,7 +281,7 @@ use tilde to refer to the nth grandchild of the commit.</p>
 <pre><code>git diff-tree --no-commit-id --name-only -r 5e7b36e
 </code></pre>
 
-<h1 id="remove-commits-from-a-remote-branch-http-stackoverflow-com-a-3293592-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/3293592/639133">Remove commits from a remote branch</a></h1>
+<h1 id="remove-commits-from-a-remote-branch-http-stackoverflow-com-a-3293592-639133"><a href="http://stackoverflow.com/a/3293592/639133">Remove commits from a remote branch</a></h1>
 
 <p>Use <code>git reset</code> to remove the commit</p>
 
@@ -290,11 +290,11 @@ use tilde to refer to the nth grandchild of the commit.</p>
 <pre><code> git push origin --force
 </code></pre>
 
-<h1 id="protected-branches-and-required-status-checks-https-github-com-blog-2051-protected-branches-and-required-status-checks:1c1ef82aae62aeea8eedcb5f455b129b"><a href="https://github.com/blog/2051-protected-branches-and-required-status-checks">Protected branches and required status checks</a></h1>
+<h1 id="protected-branches-and-required-status-checks-https-github-com-blog-2051-protected-branches-and-required-status-checks"><a href="https://github.com/blog/2051-protected-branches-and-required-status-checks">Protected branches and required status checks</a></h1>
 
 <p>&rdquo;&hellip;gives repository administrators the ability to disable force pushes to specific branches.&rdquo;</p>
 
-<h1 id="dropbox:1c1ef82aae62aeea8eedcb5f455b129b">Dropbox</h1>
+<h1 id="dropbox">Dropbox</h1>
 
 <p><a href="https://github.com/anishathalye/git-remote-dropbox">git-remote-dropbox</a></p>
 
@@ -306,7 +306,7 @@ It lets you use a Dropbox folder or a shared folder as a Git remote&rdquo;</p>
 <p>Remember to set <a href="https://www.dropbox.com/en/help/175#select">selective sync</a>
 and the dropbox folder</p>
 
-<h2 id="push-existing-repos-to-dropbox:1c1ef82aae62aeea8eedcb5f455b129b">Push existing repos to dropbox</h2>
+<h2 id="push-existing-repos-to-dropbox">Push existing repos to dropbox</h2>
 
 <pre><code>git remote -v
 
@@ -315,7 +315,7 @@ git remote add origin &quot;dropbox://nosync/REPOS&quot;
 git push --set-upstream origin master
 </code></pre>
 
-<h2 id="clone-repos:1c1ef82aae62aeea8eedcb5f455b129b">Clone repos</h2>
+<h2 id="clone-repos">Clone repos</h2>
 
 <pre><code>git clone dropbox://nosync/REPOS
 </code></pre>
@@ -325,7 +325,7 @@ git push --set-upstream origin master
 <pre><code>git branch -a
 </code></pre>
 
-<h1 id="pull-with-rebase-http-stackoverflow-com-a-4675513-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/4675513/639133">Pull with rebase</a></h1>
+<h1 id="pull-with-rebase-http-stackoverflow-com-a-4675513-639133"><a href="http://stackoverflow.com/a/4675513/639133">Pull with rebase</a></h1>
 
 <p>Use this to <code>git pull</code> and re-formulate
 &ldquo;local changes to be relative to the newer version&rdquo;
@@ -334,7 +334,7 @@ No need to merge an clutter the history.</p>
 
 <p>Behaves similar to <code>svn update</code>.</p>
 
-<h1 id="work-on-a-branch:1c1ef82aae62aeea8eedcb5f455b129b">Work on a branch</h1>
+<h1 id="work-on-a-branch">Work on a branch</h1>
 
 <p>Create a new branch of development at the current commit (HEAD)</p>
 
@@ -385,7 +385,7 @@ git fetch --prune
 git push origin --delete BRANCH_NAME
 </code></pre>
 
-<h1 id="how-to-avoid-merge-commits-from-git-pull-http-stackoverflow-com-a-30054231-639133:1c1ef82aae62aeea8eedcb5f455b129b"><a href="http://stackoverflow.com/a/30054231/639133">How to avoid merge commits from git pull</a></h1>
+<h1 id="how-to-avoid-merge-commits-from-git-pull-http-stackoverflow-com-a-30054231-639133"><a href="http://stackoverflow.com/a/30054231/639133">How to avoid merge commits from git pull</a></h1>
 
 <p>This is useful when working on the <code>master</code> branch locally ::w</p>
 
@@ -398,7 +398,7 @@ git push origin --delete BRANCH_NAME
 
 <p>Push as usual</p>
 
-<h1 id="remove-sensitive-data-from-history:1c1ef82aae62aeea8eedcb5f455b129b">Remove sensitive data from history</h1>
+<h1 id="remove-sensitive-data-from-history">Remove sensitive data from history</h1>
 
 <pre><code>export SENSITIVE_DATA=&quot;path/to/config.js&quot;
 

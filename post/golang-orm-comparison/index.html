@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2015-12-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>golang orm comparison &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,20 +54,20 @@
     <section class="post-content">
         
 
-<h1 id="gorm-https-github-com-jinzhu-gorm:5bd7e5529066065434cbab41c8d00271"><a href="https://github.com/jinzhu/gorm">gorm</a></h1>
+<h1 id="gorm-https-github-com-jinzhu-gorm"><a href="https://github.com/jinzhu/gorm">gorm</a></h1>
 
 <p>TODO&hellip;</p>
 
-<h1 id="sqlx-https-github-com-jmoiron-sqlx:5bd7e5529066065434cbab41c8d00271"><a href="https://github.com/jmoiron/sqlx">sqlx</a></h1>
+<h1 id="sqlx-https-github-com-jmoiron-sqlx"><a href="https://github.com/jmoiron/sqlx">sqlx</a></h1>
 
 <p><a href="http://jmoiron.github.io/sqlx/">Illustrated guide to SQLX</a></p>
 
-<h2 id="main-types-http-jmoiron-github-io-sqlx-handles:5bd7e5529066065434cbab41c8d00271"><a href="http://jmoiron.github.io/sqlx/#handles">Main types</a></h2>
+<h2 id="main-types-http-jmoiron-github-io-sqlx-handles"><a href="http://jmoiron.github.io/sqlx/#handles">Main types</a></h2>
 
 <p>sqlx is intended to have the same feel as database/sql,
 with 4 main handle types similar to sql.*</p>
 
-<h3 id="sqlx-db-database:5bd7e5529066065434cbab41c8d00271"><code>sqlx.DB</code> = database</h3>
+<h3 id="sqlx-db-database"><code>sqlx.DB</code> = database</h3>
 
 <p>Not a connection, but an abstraction representing a Database.</p>
 
@@ -103,31 +103,31 @@ var err error
 <pre><code>db = sqlx.MustConnect(&quot;sqlite3&quot;, &quot;:memory:&quot;)
 </code></pre>
 
-<h3 id="sqlx-tx-transaction:5bd7e5529066065434cbab41c8d00271"><code>sqlx.Tx</code> = transaction</h3>
+<h3 id="sqlx-tx-transaction"><code>sqlx.Tx</code> = transaction</h3>
 
-<h3 id="sqlx-stmt-prepared-statement:5bd7e5529066065434cbab41c8d00271"><code>sqlx.Stmt</code> = prepared statement</h3>
+<h3 id="sqlx-stmt-prepared-statement"><code>sqlx.Stmt</code> = prepared statement</h3>
 
-<h3 id="sqlx-namedstmt-prepared-statement-with-support-for-named-parameters:5bd7e5529066065434cbab41c8d00271"><code>sqlx.NamedStmt</code> = prepared statement with support for named parameters</h3>
+<h3 id="sqlx-namedstmt-prepared-statement-with-support-for-named-parameters"><code>sqlx.NamedStmt</code> = prepared statement with support for named parameters</h3>
 
-<h2 id="cursor-types:5bd7e5529066065434cbab41c8d00271">Cursor types</h2>
+<h2 id="cursor-types">Cursor types</h2>
 
-<h3 id="sqlx-rows-returned-from-queryx:5bd7e5529066065434cbab41c8d00271"><code>sqlx.Rows</code> = returned from Queryx</h3>
+<h3 id="sqlx-rows-returned-from-queryx"><code>sqlx.Rows</code> = returned from Queryx</h3>
 
-<h3 id="sqlx-row-returned-from-queryrowx:5bd7e5529066065434cbab41c8d00271"><code>sqlx.Row</code> = returned from QueryRowx</h3>
+<h3 id="sqlx-row-returned-from-queryrowx"><code>sqlx.Row</code> = returned from QueryRowx</h3>
 
-<h2 id="querying-http-jmoiron-github-io-sqlx-querying101:5bd7e5529066065434cbab41c8d00271"><a href="http://jmoiron.github.io/sqlx/#querying101">Querying</a></h2>
+<h2 id="querying-http-jmoiron-github-io-sqlx-querying101"><a href="http://jmoiron.github.io/sqlx/#querying101">Querying</a></h2>
 
-<h2 id="transactions-http-jmoiron-github-io-sqlx-transactions:5bd7e5529066065434cbab41c8d00271"><a href="http://jmoiron.github.io/sqlx/#transactions">Transactions</a></h2>
+<h2 id="transactions-http-jmoiron-github-io-sqlx-transactions"><a href="http://jmoiron.github.io/sqlx/#transactions">Transactions</a></h2>
 
-<h2 id="prepared-statements-http-jmoiron-github-io-sqlx-preparedstmts:5bd7e5529066065434cbab41c8d00271"><a href="http://jmoiron.github.io/sqlx/#preparedStmts">Prepared Statements</a></h2>
+<h2 id="prepared-statements-http-jmoiron-github-io-sqlx-preparedstmts"><a href="http://jmoiron.github.io/sqlx/#preparedStmts">Prepared Statements</a></h2>
 
-<h2 id="advanced-scanning-http-jmoiron-github-io-sqlx-advancedscanning:5bd7e5529066065434cbab41c8d00271"><a href="http://jmoiron.github.io/sqlx/#advancedScanning">Advanced Scanning</a></h2>
+<h2 id="advanced-scanning-http-jmoiron-github-io-sqlx-advancedscanning"><a href="http://jmoiron.github.io/sqlx/#advancedScanning">Advanced Scanning</a></h2>
 
-<h2 id="custom-types-http-jmoiron-github-io-sqlx-customtypes:5bd7e5529066065434cbab41c8d00271"><a href="http://jmoiron.github.io/sqlx/#customTypes">Custom Types</a></h2>
+<h2 id="custom-types-http-jmoiron-github-io-sqlx-customtypes"><a href="http://jmoiron.github.io/sqlx/#customTypes">Custom Types</a></h2>
 
-<h1 id="more-drivers-https-github-com-golang-go-wiki-sqldrivers:5bd7e5529066065434cbab41c8d00271"><a href="https://github.com/golang/go/wiki/SQLDrivers">More Drivers</a></h1>
+<h1 id="more-drivers-https-github-com-golang-go-wiki-sqldrivers"><a href="https://github.com/golang/go/wiki/SQLDrivers">More Drivers</a></h1>
 
-<h3 id="mysql-https-github-com-go-sql-driver-mysql-usage:5bd7e5529066065434cbab41c8d00271"><a href="https://github.com/go-sql-driver/mysql/#usage">MySQL</a></h3>
+<h3 id="mysql-https-github-com-go-sql-driver-mysql-usage"><a href="https://github.com/go-sql-driver/mysql/#usage">MySQL</a></h3>
 
     </section>
 

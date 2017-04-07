@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2015-10-01T00:00:00Z" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>phpstorm xdebug &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -56,14 +56,14 @@
 
 <p>Instructions tested with Ubuntu 12.04</p>
 
-<h3 id="step-into-debugger-from-postman:09d0b64363946835d056905370a77972">Step into debugger from Postman</h3>
+<h3 id="step-into-debugger-from-postman">Step into debugger from Postman</h3>
 
 <p><a href="http://stackoverflow.com/a/19147935/639133">Set XDEBUG_SESSION_START query param</a></p>
 
 <pre><code>XDEBUG_SESSION_START=name
 </code></pre>
 
-<h3 id="remote-debug-script-from-inside-the-ide:09d0b64363946835d056905370a77972">Remote debug script from inside the IDE</h3>
+<h3 id="remote-debug-script-from-inside-the-ide">Remote debug script from inside the IDE</h3>
 
 <p>Install xdebug on remote server</p>
 
@@ -89,7 +89,7 @@ Local path must match mounted share path on remote
 New configuration will be added for current script
 </code></pre>
 
-<h3 id="step-into-debugger-from-page-load:09d0b64363946835d056905370a77972">Step into debugger from page load</h3>
+<h3 id="step-into-debugger-from-page-load">Step into debugger from page load</h3>
 
 <p>Install xdebug on remote server</p>
 
@@ -112,7 +112,7 @@ xdebug.remote_host=192.168.2.1
 xdebug.remote_port=9000        
 </code></pre>
 
-<h3 id="analyzing-profiler-snapshots:09d0b64363946835d056905370a77972">Analyzing profiler snapshots</h3>
+<h3 id="analyzing-profiler-snapshots">Analyzing profiler snapshots</h3>
 
 <pre><code>mkdir /tmp/phpstorm_profiles
 
@@ -129,7 +129,7 @@ Run php script
 PHP Storm &gt; Tools &gt; Analyze Xdebug Profiler Snapshots...
 </code></pre>
 
-<h3 id="install-qcachegrind-on-osx:09d0b64363946835d056905370a77972">Install qcachegrind on OSX</h3>
+<h3 id="install-qcachegrind-on-osx">Install qcachegrind on OSX</h3>
 
 <pre><code>brew install qcachegrind
 

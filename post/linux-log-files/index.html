@@ -24,7 +24,7 @@
         <meta property="og:article:author" content="Christiaan van Zyl" />
         <meta property="og:article:published_time" content="2016-04-18T15:51:29&#43;02:00" />
     
-        <meta name="generator" content="Hugo 0.15" />
+        <meta name="generator" content="Hugo 0.19" />
         <title>linux log files &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
@@ -54,11 +54,11 @@
     <section class="post-content">
         
 
-<h1 id="linux-log-files-https-help-ubuntu-com-community-linuxlogfiles:4c454463c0650fb7abbcecdc97e3f4e2"><a href="https://help.ubuntu.com/community/LinuxLogFiles">Linux Log Files</a></h1>
+<h1 id="linux-log-files-https-help-ubuntu-com-community-linuxlogfiles"><a href="https://help.ubuntu.com/community/LinuxLogFiles">Linux Log Files</a></h1>
 
-<h2 id="system-logs:4c454463c0650fb7abbcecdc97e3f4e2">System Logs</h2>
+<h2 id="system-logs">System Logs</h2>
 
-<h3 id="authorization-log:4c454463c0650fb7abbcecdc97e3f4e2">Authorization Log</h3>
+<h3 id="authorization-log">Authorization Log</h3>
 
 <p>Info about user logins and usage of the sudo command</p>
 
@@ -72,28 +72,28 @@ grep sudo /var/log/auth.log | tail -n 50
 <pre><code>grep &quot;Apr 18 13&quot; /var/log/auth.log
 </code></pre>
 
-<h3 id="daemon-log:4c454463c0650fb7abbcecdc97e3f4e2">Daemon Log</h3>
+<h3 id="daemon-log">Daemon Log</h3>
 
 <p>Info about running system and application daemons</p>
 
 <pre><code>tail /var/log/daemon.log 
 </code></pre>
 
-<h3 id="debug-log:4c454463c0650fb7abbcecdc97e3f4e2">Debug Log</h3>
+<h3 id="debug-log">Debug Log</h3>
 
 <p>Detailed debug messages from the Ubuntu system and applications</p>
 
 <pre><code>tail /var/log/debug
 </code></pre>
 
-<h3 id="kernel-log:4c454463c0650fb7abbcecdc97e3f4e2">Kernel Log</h3>
+<h3 id="kernel-log">Kernel Log</h3>
 
 <p>Detailed log of messages from the Ubuntu Linux kernel</p>
 
 <pre><code>tail /var/log/kern.log
 </code></pre>
 
-<h3 id="kernel-ring-buffer:4c454463c0650fb7abbcecdc97e3f4e2">Kernel Ring Buffer</h3>
+<h3 id="kernel-ring-buffer">Kernel Ring Buffer</h3>
 
 <p>Not really a log file per se, but rather an area in the running kernel you can
 query for kernel bootup messages via the dmesg utility</p>
@@ -105,7 +105,7 @@ dmesg | grep pnp | tail
 /var/log/dmesg | tail
 </code></pre>
 
-<h3 id="system-log:4c454463c0650fb7abbcecdc97e3f4e2">System Log</h3>
+<h3 id="system-log">System Log</h3>
 
 <p>Most information about Ubuntu system,
 also contains everything that used to be in <code>/var/log/messages</code></p>
@@ -113,16 +113,16 @@ also contains everything that used to be in <code>/var/log/messages</code></p>
 <pre><code>tail /var/log/syslog
 </code></pre>
 
-<h2 id="application-logs:4c454463c0650fb7abbcecdc97e3f4e2">Application Logs</h2>
+<h2 id="application-logs">Application Logs</h2>
 
-<h3 id="apache-http-server-logs:4c454463c0650fb7abbcecdc97e3f4e2">Apache HTTP Server Logs</h3>
+<h3 id="apache-http-server-logs">Apache HTTP Server Logs</h3>
 
 <pre><code>tail /var/log/apache2/access.log
 
 tail /var/log/apache2/error.log
 </code></pre>
 
-<h2 id="system-logging-daemon-syslogd:4c454463c0650fb7abbcecdc97e3f4e2">System Logging Daemon (syslogd)</h2>
+<h2 id="system-logging-daemon-syslogd">System Logging Daemon (syslogd)</h2>
 
 <p>Awaits logging messages from numerous sources and routes the messages to the
 appropriate file or network destination</p>
