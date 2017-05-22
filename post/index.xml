@@ -149,6 +149,50 @@ rm file.db
 &lt;h2 id=&#34;postgres&#34;&gt;Postgres&lt;/h2&gt;
 
 &lt;p&gt;TODO&amp;hellip;&lt;/p&gt;
+
+&lt;h2 id=&#34;elk-stack-https-www-oreilly-com-learning-a-guide-to-elasticsearch-5-and-the-elkelastic-stack&#34;&gt;&lt;a href=&#34;https://www.oreilly.com/learning/a-guide-to-elasticsearch-5-and-the-elkelastic-stack&#34;&gt;ELK stack&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Elastic Search&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install openjdk-8-jdk
+
+wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+echo &amp;quot;deb https://artifacts.elastic.co/packages/5.x/apt stable main&amp;quot; | sudo tee -a /etc/apt/sources.list.d/elasticsearch-5.x.list
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install elasticsearch
+
+# Set max mem available to ES by changing -Xms option, e.g. -Xms512m,
+# as a rule of thumb make it half the system mem
+sudo vi /etc/elasticsearch/jvm.options
+
+# Start ES service
+sudo service elasticsearch start
+
+# Confirm ES is running
+sudo apt-get install httpie
+http http://localhost:9200
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kibana&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install kibana
+sudo service kibana start
+
+Setting &amp;gt; Network &amp;gt; Advanced &amp;gt; Port Forwarding
+# Kibana   5601 =&amp;gt; 5601
+
+# Confirm Kibana is running
+http://localhost:5601
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Filebeat&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;TODO...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Logstash&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;TODO...
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

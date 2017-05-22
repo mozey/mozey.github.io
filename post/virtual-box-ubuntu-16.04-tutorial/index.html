@@ -187,6 +187,50 @@ rm file.db
 
 <p>TODO&hellip;</p>
 
+<h2 id="elk-stack-https-www-oreilly-com-learning-a-guide-to-elasticsearch-5-and-the-elkelastic-stack"><a href="https://www.oreilly.com/learning/a-guide-to-elasticsearch-5-and-the-elkelastic-stack">ELK stack</a></h2>
+
+<p>Elastic Search</p>
+
+<pre><code>sudo apt-get install openjdk-8-jdk
+
+wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+echo &quot;deb https://artifacts.elastic.co/packages/5.x/apt stable main&quot; | sudo tee -a /etc/apt/sources.list.d/elasticsearch-5.x.list
+sudo apt-get update &amp;&amp; sudo apt-get install elasticsearch
+
+# Set max mem available to ES by changing -Xms option, e.g. -Xms512m,
+# as a rule of thumb make it half the system mem
+sudo vi /etc/elasticsearch/jvm.options
+
+# Start ES service
+sudo service elasticsearch start
+
+# Confirm ES is running
+sudo apt-get install httpie
+http http://localhost:9200
+</code></pre>
+
+<p>Kibana</p>
+
+<pre><code>sudo apt-get install kibana
+sudo service kibana start
+
+Setting &gt; Network &gt; Advanced &gt; Port Forwarding
+# Kibana   5601 =&gt; 5601
+
+# Confirm Kibana is running
+http://localhost:5601
+</code></pre>
+
+<p>Filebeat</p>
+
+<pre><code>TODO...
+</code></pre>
+
+<p>Logstash</p>
+
+<pre><code>TODO...
+</code></pre>
+
     </section>
 
     <hr>
