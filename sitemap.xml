@@ -2,6 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mozey.co/post/virtual-box-ubuntu-16.04-tutorial/</loc>
+    <lastmod>2017-05-19T16:36:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mozey.co/post/vmware-tools-ubuntu-16.04/</loc>
+    <lastmod>2017-05-09T16:54:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mozey.co/post/computer-system-design-hints-1983/</loc>
+    <lastmod>2017-04-21T11:15:26+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mozey.co/post/aws-vs-google-cloud-free-tiers/</loc>
+    <lastmod>2017-04-15T13:58:10+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mozey.co/post/s3-hosting-http-auth-golang/</loc>
+    <lastmod>2017-04-03T09:29:27+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://mozey.co/post/97-things-every-programmer-should-know/</loc>
     <lastmod>2017-03-14T09:36:10+02:00</lastmod>
   </url>
@@ -578,13 +603,13 @@
   
   <url>
     <loc>http://mozey.co/post/</loc>
-    <lastmod>2017-03-14T09:36:10+02:00</lastmod>
+    <lastmod>2017-05-19T16:36:57+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mozey.co/</loc>
-    <lastmod>2017-03-14T09:36:10+02:00</lastmod>
+    <lastmod>2017-05-19T16:36:57+02:00</lastmod>
     <priority>0</priority>
   </url>
   

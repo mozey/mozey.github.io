@@ -434,6 +434,23 @@ git gc --prune=now
 git push origin --force --tags
 </code></pre>
 
+<h1 id="see-all-changed-files-on-a-branch-http-stackoverflow-com-a-6913546-639133"><a href="http://stackoverflow.com/a/6913546/639133">See all changed files on a branch</a></h1>
+
+<p>With branch checked out</p>
+
+<pre><code>git diff --name-only master...
+</code></pre>
+
+<p>If not on branch</p>
+
+<pre><code>git diff --name-only master...local_proxy
+</code></pre>
+
+<p>List changes per commit</p>
+
+<pre><code>git whatchanged --name-only
+</code></pre>
+
     </section>
 
     <hr>

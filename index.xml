@@ -6,8 +6,287 @@
     <description>Recent content on mozey.co</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Mar 2017 09:36:10 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 19 May 2017 16:36:57 +0200</lastBuildDate>
     <atom:link href="http://mozey.co/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>virtual box ubuntu 16.04 tutorial</title>
+      <link>http://mozey.co/post/virtual-box-ubuntu-16.04-tutorial/</link>
+      <pubDate>Fri, 19 May 2017 16:36:57 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/virtual-box-ubuntu-16.04-tutorial/</guid>
+      <description>
+
+&lt;h1 id=&#34;virtual-box&#34;&gt;Virtual Box&lt;/h1&gt;
+
+&lt;h2 id=&#34;disk&#34;&gt;Disk&lt;/h2&gt;
+
+&lt;p&gt;Use the VMDK disk format, it&amp;rsquo;s compatible with other virtualization software&lt;/p&gt;
+
+&lt;p&gt;Select dynamic size and split the disk into 2GB chunks&lt;/p&gt;
+
+&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+
+&lt;p&gt;Once the virtual machine has been created start it to select the ubuntu iso&lt;/p&gt;
+
+&lt;p&gt;Go through the installation manually&lt;/p&gt;
+
+&lt;h2 id=&#34;networking&#34;&gt;Networking&lt;/h2&gt;
+
+&lt;p&gt;User NAT&lt;/p&gt;
+
+&lt;p&gt;Setup port forwarding for 2222 on host to 22 on guest,
+assuming OpenSSH was installed the following should now work on the host&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh -p 2222 USER@localhost
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;shared-folders-https-askubuntu-com-a-161883&#34;&gt;&lt;a href=&#34;https://askubuntu.com/a/161883&#34;&gt;Shared folders&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Add the share&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Settings &amp;gt; Shared Folders &amp;gt; Machine Folders
+# Auto-mount
+# Make permanent
+
+sudo reboot now
+
+sudo usermod -a -G vboxsf USER
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a symlink&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~/
+
+ln -s /media/sf_SHARE SHARE
+
+# User might have logout/login first
+ls SHARE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;software&#34;&gt;Software&lt;/h1&gt;
+
+&lt;h2 id=&#34;lamp&#34;&gt;LAMP&lt;/h2&gt;
+
+&lt;h3 id=&#34;apache&#34;&gt;Apache&lt;/h3&gt;
+
+&lt;p&gt;Setup port forwarding&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Setting &amp;gt; Network &amp;gt; Advanced &amp;gt; Port Forwarding
+# HTTP   8080 =&amp;gt; 80
+# HTTPS  8443 =&amp;gt; 443
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Test from host, should show default apache page&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://localhost:8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Also see &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-16-04&#34;&gt;setting up virtual hosts&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;mysql&#34;&gt;MySQL&lt;/h3&gt;
+
+&lt;p&gt;Ssh to VM then use mysql client to connect&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mysql -u root -p
+
+use mysql;
+
+show tables;
+
+select * from user\G
+
+select Host, User from user;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://dev.mysql.com/doc/refman/5.7/en/tutorial.html&#34;&gt;MySQL tutorial&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.w3schools.com/sql/&#34;&gt;SQL tutorial&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;php&#34;&gt;PHP&lt;/h3&gt;
+
+&lt;p&gt;Tests it&amp;rsquo;s working&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;&amp;lt;?php print(1+2);&amp;quot; | php
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt;
+
+&lt;p&gt;Tests it&amp;rsquo;s working&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;print(1+2)&amp;quot; | python
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;sqlite&#34;&gt;SQLite&lt;/h2&gt;
+
+&lt;p&gt;Create a database&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~
+
+sqlite3 file.db
+
+.databases
+
+create table monkey (id integer primary key, name text not null);
+
+.tables
+
+insert into monkey (name) values (&#39;chris&#39;);
+insert into monkey (name) values (&#39;pj&#39;);
+
+select * from monkey;
+
+.quit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Delete the database&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ls -lah file.db
+
+rm file.db
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;postgres&#34;&gt;Postgres&lt;/h2&gt;
+
+&lt;p&gt;TODO&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vmware tools ubuntu 16.04</title>
+      <link>http://mozey.co/post/vmware-tools-ubuntu-16.04/</link>
+      <pubDate>Tue, 09 May 2017 16:54:54 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/vmware-tools-ubuntu-16.04/</guid>
+      <description>
+
+&lt;h1 id=&#34;vmware-ubuntu-16-04-lts-http-partnerweb-vmware-com-gosig-ubuntu-16-04-lts-html&#34;&gt;&lt;a href=&#34;http://partnerweb.vmware.com/GOSIG/Ubuntu_16_04_LTS.html&#34;&gt;Vmware Ubuntu 16.04 LTS&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;&amp;ldquo;VMware recommends using the Open VM Tools in Ubuntu 16.04 LTS&amp;rdquo;&lt;/p&gt;
+
+&lt;h1 id=&#34;enabling-shared-folders-with-open-vm-tools-https-askubuntu-com-questions-580319-enabling-shared-folders-with-open-vm-tools&#34;&gt;&lt;a href=&#34;https://askubuntu.com/questions/580319/enabling-shared-folders-with-open-vm-tools&#34;&gt;Enabling shared folders with open-vm-tools&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Configure shared folders&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Virtual Machine &amp;gt; Settings &amp;gt; Sharing
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make mount persistent by adding it to fstab&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo vi /etc/fstab
+# .host:/ /mnt/hgfs fuse.vmhgfs-fuse allow_other 0 0
+
+sudo mkdir /mnt/hgfs
+
+sudo mount -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create symlinks to shared folder in home dir&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~
+ln -s /mnt/hgfs/SHARE
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>computer system design hints 1983</title>
+      <link>http://mozey.co/post/computer-system-design-hints-1983/</link>
+      <pubDate>Fri, 21 Apr 2017 11:15:26 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/computer-system-design-hints-1983/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/acrobat-17.pdf&#34;&gt;Hints for Computer System Design&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Most of these hints depend on the notion of an interface that separates an
+implementation of some abstraction from the clients who use the abstraction&lt;/p&gt;
+
+&lt;p&gt;an interface should be simple, it should be complete, and it should
+admit a sufficiently small and fast implementation&lt;/p&gt;
+
+&lt;p&gt;The main reason interfaces are difficult to design is that each interface is a
+small programming language&lt;/p&gt;
+
+&lt;p&gt;Keep secrets of the implementation. Secrets are assumptions about an
+implementation that client programs are not allowed to make&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>aws vs google cloud free tiers</title>
+      <link>http://mozey.co/post/aws-vs-google-cloud-free-tiers/</link>
+      <pubDate>Sat, 15 Apr 2017 13:58:10 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/aws-vs-google-cloud-free-tiers/</guid>
+      <description>
+
+&lt;h1 id=&#34;google-cloud-https-cloud-google-com-free&#34;&gt;&lt;a href=&#34;https://cloud.google.com/free/&#34;&gt;Google Cloud&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Compute Engine&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1x f1-micro with 30GB HDD always free
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Container Engine&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Each node is charged at standard Compute Engine pricing,
+basic cluster (up to 5 nodes) is always free
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cloud Data Store (NoSQL)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1GB (~20K rpd) always free
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cloud SQL&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;No free tier?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cloud Functions&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2M rpm, 200K seconds pm always free
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;aws-https-aws-amazon-com-free&#34;&gt;&lt;a href=&#34;https://aws.amazon.com/free&#34;&gt;AWS&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;EC2&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;No free tier after 12 month trial
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Container Service&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Requires EC2 instance
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Dynamo DB (NoSQL)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;25GB (200M rpm) always free
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Relational Database Service&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;No free tier after 12 month trial
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lambda&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1M rpm, 3.2M seconds pm always free
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>s3 hosting http auth golang</title>
+      <link>http://mozey.co/post/s3-hosting-http-auth-golang/</link>
+      <pubDate>Mon, 03 Apr 2017 09:29:27 +0200</pubDate>
+      
+      <guid>http://mozey.co/post/s3-hosting-http-auth-golang/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/12130046/639133&#34;&gt;Does Amazon S3 support HTTP request with basic authentication&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Port this &lt;a href=&#34;http://www.s3auth.com/&#34;&gt;repos&lt;/a&gt; to golang?&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>97 things every programmer should know</title>
@@ -469,186 +748,6 @@ docker rmi hello-node
 &lt;h1 id=&#34;kubectl-for-docker-users-http-kubernetes-io-docs-user-guide-docker-cli-to-kubectl&#34;&gt;&lt;a href=&#34;http://kubernetes.io/docs/user-guide/docker-cli-to-kubectl&#34;&gt;kubectl for Docker Users&lt;/a&gt;&lt;/h1&gt;
 
 &lt;h1 id=&#34;elasticsearch-https-hub-docker-com-elasticsearch&#34;&gt;&lt;a href=&#34;https://hub.docker.com/_/elasticsearch/&#34;&gt;elasticsearch&lt;/a&gt;&lt;/h1&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>elastic search</title>
-      <link>http://mozey.co/post/elastic-search/</link>
-      <pubDate>Mon, 24 Oct 2016 12:18:27 +0200</pubDate>
-      
-      <guid>http://mozey.co/post/elastic-search/</guid>
-      <description>
-
-&lt;h1 id=&#34;elasticsearch-https-www-digitalocean-com-community-tutorials-how-to-install-and-configure-elasticsearch-on-ubuntu-14-04&#34;&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-14-04&#34;&gt;Elasticsearch&lt;/a&gt;&lt;/h1&gt;
-
-&lt;h2 id=&#34;install-jdk&#34;&gt;Install JDK&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install openjdk-7-jre
-
-java -version
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;install-elasticsearch&#34;&gt;Install elasticsearch&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.2.deb
-
-sudo dpkg -i elasticsearch-1.7.2.deb
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Make sure elasticsearch starts and stops automatically&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo update-rc.d elasticsearch defaults
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;is-it-working&#34;&gt;Is it working?&lt;/h2&gt;
-
-&lt;p&gt;This will list cluster name, version, etc&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -XGET &#39;localhost:9200&#39; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;kibana-https-www-elastic-co-downloads-kibana&#34;&gt;&lt;a href=&#34;https://www.elastic.co/downloads/kibana&#34;&gt;Kibana&lt;/a&gt;&lt;/h1&gt;
-
-&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://download.elastic.co/kibana/kibana/kibana-4.6.1-amd64.deb
-
-sudo dpkg -i kibana-4.6.1-amd64.deb
-
-sudo update-rc.d kibana defaults
-
-sudo service kibana start
-
-curl -XGET &#39;localhost:5601&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;getting-started-https-www-elastic-co-guide-en-kibana-current-getting-started-html&#34;&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/kibana/current/getting-started.html&#34;&gt;Getting started&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Download Shakespeare data set&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://www.elastic.co/guide/en/kibana/3.0/snippets/shakespeare.json
-
-wget https://github.com/bly2k/files/blob/master/accounts.zip
-
-unzip accounts.zip
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Setup mapping for the Shakespeare data set,
-accounts doesn&amp;rsquo;t require a mapping.&lt;/p&gt;
-
-&lt;p&gt;Bulk load into elasticsearch&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -XPOST &#39;localhost:9200/shakespeare/_bulk?pretty&#39; --data-binary @shakespeare.json
-curl -XPOST &#39;localhost:9200/bank/account/_bulk?pretty&#39; --data-binary @accounts.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Verify bulk load&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl &#39;localhost:9200/_cat/indices?v&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;elk-stack-arduino-https-www-elastic-co-blog-arduino-based-home-weather-station-on-the-elastic-stack&#34;&gt;&lt;a href=&#34;https://www.elastic.co/blog/arduino-based-home-weather-station-on-the-elastic-stack&#34;&gt;ELK Stack Arduino&lt;/a&gt;&lt;/h1&gt;
-
-&lt;h1 id=&#34;docker-https-hub-docker-com-elasticsearch&#34;&gt;&lt;a href=&#34;https://hub.docker.com/_/elasticsearch/&#34;&gt;Docker&lt;/a&gt;&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;docker run -d -v &amp;quot;$PWD/esdata&amp;quot;:/usr/share/elasticsearch/data elasticsearch -p 9200:9200
-
-docker ps
-
-docker exec -it ac10fbffff12 bash
-
-curl -XGET &#39;localhost:9200&#39;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>taskwarrior</title>
-      <link>http://mozey.co/post/taskwarrior/</link>
-      <pubDate>Wed, 19 Oct 2016 13:13:02 +0200</pubDate>
-      
-      <guid>http://mozey.co/post/taskwarrior/</guid>
-      <description>
-
-&lt;h1 id=&#34;taskserver-backups-https-taskwarrior-org-docs-taskserver-prep-html&#34;&gt;&lt;a href=&#34;https://taskwarrior.org/docs/taskserver/prep.html&#34;&gt;Taskserver Backups&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;Alternative&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Use script to do rolling backups when bash profile is loaded&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Use git to version dot and data files in home dir&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;time-tracking-https-taskwarrior-org-docs-timewarrior&#34;&gt;&lt;a href=&#34;https://taskwarrior.org/docs/timewarrior&#34;&gt;Time tracking&lt;/a&gt;&lt;/h1&gt;
-
-&lt;h2 id=&#34;install-timewarrior&#34;&gt;Install timewarrior&lt;/h2&gt;
-
-&lt;p&gt;Use &lt;a href=&#34;https://taskwarrior.org/docs/timewarrior/taskwarrior.html&#34;&gt;on-modify hook&lt;/a&gt;
-to integrate with taskwarrior&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;brew install timewarrior
-
-cp /usr/local/Cellar/timewarrior/1.0.0/share/doc/timew/ext/on-modify.timewarrior ~/.task/hooks/
-
-chmod +x ~/.task/hooks/on-modify.timewarrior
-
-task diagnostics
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>postgres</title>
-      <link>http://mozey.co/post/postgres/</link>
-      <pubDate>Thu, 06 Oct 2016 11:32:38 +0200</pubDate>
-      
-      <guid>http://mozey.co/post/postgres/</guid>
-      <description>
-
-&lt;h1 id=&#34;scaling&#34;&gt;Scaling&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://news.ycombinator.com/item?id=12649734&#34;&gt;Designing your SaaS Database for Scale with Postgres&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://news.ycombinator.com/item?id=13641377&#34;&gt;Is PostgreSQL good enough?&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;install-osx-https-launchschool-com-blog-how-to-install-postgresql-on-a-mac&#34;&gt;&lt;a href=&#34;https://launchschool.com/blog/how-to-install-postgresql-on-a-mac&#34;&gt;Install OSX&lt;/a&gt;&lt;/h1&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>distributing python applications</title>
-      <link>http://mozey.co/post/distributing-python-applications/</link>
-      <pubDate>Tue, 20 Sep 2016 10:03:34 +0200</pubDate>
-      
-      <guid>http://mozey.co/post/distributing-python-applications/</guid>
-      <description>&lt;p&gt;Currently using &lt;code&gt;cx_Freeze&lt;/code&gt;, investigate alternatives below&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/kholia/dedrop&#34;&gt;dedrop&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.openwall.com/presentations/WOOT13-Security-Analysis-of-Dropbox/&#34;&gt;Looking inside the (Drop) box&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/2678180/how-does-dropbox-use-python-on-windows-and-os-x&#34;&gt;How does Dropbox use Python on Windows and OS X?&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://hackerboss.com/how-to-distribute-commercial-python-applications/&#34;&gt;How to Distribute Commercial Python Applications&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>tail</title>
-      <link>http://mozey.co/post/tail/</link>
-      <pubDate>Tue, 13 Sep 2016 15:30:45 +0200</pubDate>
-      
-      <guid>http://mozey.co/post/tail/</guid>
-      <description>&lt;p&gt;Use scan-back logic from link to do exactly the number of lines requested.
-Possibly by counting newlines?&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/17864134/639133&#34;&gt;How to Read last lines from a big file with Go&amp;hellip;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://trac.mondorescue.org/browser/trunk/mindi-busybox/coreutils/tail.c&#34;&gt;GNU tail source code&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
