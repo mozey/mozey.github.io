@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="Christiaan van Zyl">
+        <meta name="keywords" content="awesome, definitely">
+	
+        <meta property="og:site_name" content="mozey.co">
+        <meta property="og:title" content="mozey.co">
+        <meta property="og:url" content="http://mozey.co/post/virtual-box-ubuntu-16.04-tutorial/">
+        <meta property="og:description" content="">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="Christiaan van Zyl" />
+        <meta property="og:article:published_time" content="2017-05-19T16:36:57&#43;02:00" />
+    
+        <meta name="generator" content="Hugo 0.19" />
+        <title>virtual box ubuntu 16.04 tutorial &middot; mozey.co </title>
+        <link rel="canonical" href="http://mozey.co/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/main.css"/>
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/custom.css"/>
+        <link href='http://mozey.co/css/montserrat.css' rel='stylesheet' type='text/css'>
+        <link href="http://mozey.co/css/font-awesome.css" rel="stylesheet">
+        <script src="http://mozey.co/js/jquery-1.10.2.min.js"></script>
+        <link rel="icon" href="http://mozey.co/favicon.ico">
+    </head>
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://mozey.co/" alt="mozey.co"><h1 class="blog-title heading">mozey.co</h1></a>
+            <p class="blog-description"></p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="post">
+	<header class="post-header">
+        <h3 class="p-post-title">virtual box ubuntu 16.04 tutorial</h3>
+    </header>
+
+    <section class="post-content">
+        
+
+<h1 id="virtual-box">Virtual Box</h1>
+
+<h2 id="disk">Disk</h2>
+
+<p>Use the VMDK disk format, it&rsquo;s compatible with other virtualization software</p>
+
+<p>Select dynamic size and split the disk into 2GB chunks</p>
+
+<h2 id="install">Install</h2>
+
+<p>Once the virtual machine has been created start it to select the ubuntu iso</p>
+
+<p>Go through the installation manually</p>
+
+<h2 id="networking">Networking</h2>
+
+<p>User NAT</p>
+
+<p>Setup port forwarding for 2222 on host to 22 on guest,
+assuming OpenSSH was installed the following should now work on the host</p>
+
+<pre><code>ssh -p 2222 USER@localhost
+</code></pre>
+
+<h2 id="shared-folders-https-askubuntu-com-a-161883"><a href="https://askubuntu.com/a/161883">Shared folders</a></h2>
+
+<p>Add the share</p>
+
+<pre><code>Settings &gt; Shared Folders &gt; Machine Folders
+# Auto-mount
+# Make permanent
+
+sudo reboot now
+
+sudo usermod -a -G vboxsf USER
+</code></pre>
+
+<p>Create a symlink</p>
+
+<pre><code>cd ~/
+
+ln -s /media/sf_SHARE SHARE
+
+# User might have logout/login first
+ls SHARE
+</code></pre>
+
+<h1 id="software">Software</h1>
+
+<h2 id="lamp">LAMP</h2>
+
+<h3 id="apache">Apache</h3>
+
+<p>Setup port forwarding</p>
+
+<pre><code>Setting &gt; Network &gt; Advanced &gt; Port Forwarding
+# HTTP   8080 =&gt; 80
+# HTTPS  8443 =&gt; 443
+</code></pre>
+
+<p>Test from host, should show default apache page</p>
+
+<pre><code>http://localhost:8080
+</code></pre>
+
+<p>Also see <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-16-04">setting up virtual hosts</a></p>
+
+<h3 id="mysql">MySQL</h3>
+
+<p>Ssh to VM then use mysql client to connect</p>
+
+<pre><code>mysql -u root -p
+
+use mysql;
+
+show tables;
+
+select * from user\G
+
+select Host, User from user;
+</code></pre>
+
+<p><a href="https://dev.mysql.com/doc/refman/5.7/en/tutorial.html">MySQL tutorial</a></p>
+
+<p><a href="https://www.w3schools.com/sql/">SQL tutorial</a></p>
+
+<h3 id="php">PHP</h3>
+
+<p>Tests it&rsquo;s working</p>
+
+<pre><code>echo &quot;&lt;?php print(1+2);&quot; | php
+</code></pre>
+
+<h3 id="python">Python</h3>
+
+<p>Tests it&rsquo;s working</p>
+
+<pre><code>echo &quot;print(1+2)&quot; | python
+</code></pre>
+
+<h2 id="sqlite">SQLite</h2>
+
+<p>Create a database</p>
+
+<pre><code>cd ~
+
+sqlite3 file.db
+
+.databases
+
+create table monkey (id integer primary key, name text not null);
+
+.tables
+
+insert into monkey (name) values ('chris');
+insert into monkey (name) values ('pj');
+
+select * from monkey;
+
+.quit
+</code></pre>
+
+<p>Delete the database</p>
+
+<pre><code>ls -lah file.db
+
+rm file.db
+</code></pre>
+
+<h2 id="postgres">Postgres</h2>
+
+<p>TODO&hellip;</p>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            <section class="author">
+                <p>Words by Christiaan van Zyl</p>
+            </section>
+            
+            
+            <p class="f-post-time"><time datetime="2017-05-19T16:36:57&#43;02:00">May 19, 2017</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=virtual%20box%20ubuntu%2016.04%20tutorial&url=http%3a%2f%2fmozey.co%2fpost%2fvirtual-box-ubuntu-16.04-tutorial%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmozey.co%2fpost%2fvirtual-box-ubuntu-16.04-tutorial%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fmozey.co%2fpost%2fvirtual-box-ubuntu-16.04-tutorial%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://mozey.co/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://mozey.co/">Christiaan van Zyl</a> 2015 | All rights reserved</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://mozey.co/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>
