@@ -70,11 +70,12 @@ ls SHARE
 
 &lt;h3 id=&#34;apache&#34;&gt;Apache&lt;/h3&gt;
 
-&lt;p&gt;Setup port forwarding&lt;/p&gt;
+&lt;p&gt;Setup port forwarding,
+using &lt;code&gt;127.0.0.1&lt;/code&gt; prevents connections not originating on the host&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;Setting &amp;gt; Network &amp;gt; Advanced &amp;gt; Port Forwarding
-# HTTP   8080 =&amp;gt; 80
-# HTTPS  8443 =&amp;gt; 443
+# HTTP   127.0.0.1 8080 =&amp;gt;  80
+# HTTPS  127.0.0.1 8443 =&amp;gt; 443
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Test from host, should show default apache page&lt;/p&gt;
@@ -177,8 +178,13 @@ http http://localhost:9200
 &lt;pre&gt;&lt;code&gt;sudo apt-get install kibana
 sudo service kibana start
 
+# Allow remote connections
+sudo vi /etc/kibana/kibana.yml
+# server.host: &amp;quot;0.0.0.0&amp;quot;
+sudo service kibana restart
+
 Setting &amp;gt; Network &amp;gt; Advanced &amp;gt; Port Forwarding
-# Kibana   5601 =&amp;gt; 5601
+# Kibana 127.0.0.1 5601 =&amp;gt; 5601
 
 # Confirm Kibana is running
 http://localhost:5601
