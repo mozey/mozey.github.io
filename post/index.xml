@@ -168,9 +168,19 @@ sudo vi /etc/elasticsearch/jvm.options
 # Start ES service
 sudo service elasticsearch start
 
+# Allow remote connections
+sudo vi /etc/elasticsearch/elasticsearch.yml
+# network.host: 0.0.0.0
+sudo service elasticsearch restart
+
+Setting &amp;gt; Network &amp;gt; Advanced &amp;gt; Port Forwarding
+# Kibana 127.0.0.1 9200 =&amp;gt; 9200
+
+# Make sure firewall is disabled
+sudo ufw disable
+
 # Confirm ES is running
-sudo apt-get install httpie
-http http://localhost:9200
+http://localhost:9200
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Kibana&lt;/p&gt;
