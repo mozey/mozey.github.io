@@ -153,7 +153,7 @@ rm file.db
 
 &lt;h2 id=&#34;elk-stack-https-www-oreilly-com-learning-a-guide-to-elasticsearch-5-and-the-elkelastic-stack&#34;&gt;&lt;a href=&#34;https://www.oreilly.com/learning/a-guide-to-elasticsearch-5-and-the-elkelastic-stack&#34;&gt;ELK stack&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;Elastic Search&lt;/p&gt;
+&lt;h3 id=&#34;elastic-search&#34;&gt;Elastic Search&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo apt-get install openjdk-8-jdk
 
@@ -164,51 +164,77 @@ sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install elasticsearch
 # Set max mem available to ES by changing -Xms option, e.g. -Xms512m,
 # as a rule of thumb make it half the system mem
 sudo vi /etc/elasticsearch/jvm.options
-
-# Start ES service
-sudo service elasticsearch start
-
-# Allow remote connections
-sudo vi /etc/elasticsearch/elasticsearch.yml
-# network.host: 0.0.0.0
-sudo service elasticsearch restart
-
-Setting &amp;gt; Network &amp;gt; Advanced &amp;gt; Port Forwarding
-# Kibana 127.0.0.1 9200 =&amp;gt; 9200
-
-# Make sure firewall is disabled
-sudo ufw disable
-
-# Confirm ES is running
-http://localhost:9200
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Kibana&lt;/p&gt;
+&lt;p&gt;Start ES service&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo service elasticsearch start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Allow remote connections&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo vi /etc/elasticsearch/elasticsearch.yml
+# network.host: 0.0.0.0
+sudo service elasticsearch restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Port forwarding&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Setting &amp;gt; Network &amp;gt; Advanced &amp;gt; Port Forwarding
+# Elastic Search 127.0.0.1 9200 =&amp;gt; 9200
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make sure firewall is disabled&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo ufw disable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Confirm ES is running&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://localhost:9200
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;kibana&#34;&gt;Kibana&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo apt-get install kibana
 sudo service kibana start
+&lt;/code&gt;&lt;/pre&gt;
 
-# Allow remote connections
-sudo vi /etc/kibana/kibana.yml
+&lt;p&gt;Allow remote connections&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo vi /etc/kibana/kibana.yml
 # server.host: &amp;quot;0.0.0.0&amp;quot;
 sudo service kibana restart
+&lt;/code&gt;&lt;/pre&gt;
 
-Setting &amp;gt; Network &amp;gt; Advanced &amp;gt; Port Forwarding
+&lt;p&gt;Port forwarding&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Setting &amp;gt; Network &amp;gt; Advanced &amp;gt; Port Forwarding
 # Kibana 127.0.0.1 5601 =&amp;gt; 5601
-
-# Confirm Kibana is running
-http://localhost:5601
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Filebeat&lt;/p&gt;
+&lt;p&gt;Confirm Kibana is running&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://localhost:5601
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;filebeat&#34;&gt;Filebeat&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;TODO...
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Logstash&lt;/p&gt;
+&lt;h3 id=&#34;logstash&#34;&gt;Logstash&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;TODO...
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;x-pack-https-www-elastic-co-guide-en-x-pack-current-installing-xpack-html&#34;&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/x-pack/current/installing-xpack.html&#34;&gt;X-Pack&lt;/a&gt;&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/share/elasticsearch
+sudo bin/elasticsearch-plugin install x-pack
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/x-pack/current/encrypting-communications.html&#34;&gt;Encrypting communication&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

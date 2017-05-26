@@ -417,6 +417,13 @@ export SENSITIVE_SHA=&quot;123ABC&quot;
 git show ${SENSITIVE_SHA} -- ${SENSITIVE_DATA}
 </code></pre>
 
+<p>Push to remote</p>
+
+<pre><code>git push origin --force --all
+
+git push origin --force --tags
+</code></pre>
+
 <p>Force all objects in your local repository
 to be de-referenced and garbage collected</p>
 
@@ -425,13 +432,6 @@ to be de-referenced and garbage collected</p>
 git reflog expire --expire=now --all
 
 git gc --prune=now
-</code></pre>
-
-<p>Push to remote</p>
-
-<pre><code>git push origin --force --all
-
-git push origin --force --tags
 </code></pre>
 
 <h1 id="see-all-changed-files-on-a-branch-http-stackoverflow-com-a-6913546-639133"><a href="http://stackoverflow.com/a/6913546/639133">See all changed files on a branch</a></h1>
@@ -443,7 +443,7 @@ git push origin --force --tags
 
 <p>If not on branch</p>
 
-<pre><code>git diff --name-only master...local_proxy
+<pre><code>git diff --name-only master...BRANCH_NAME
 </code></pre>
 
 <p>List changes per commit</p>
