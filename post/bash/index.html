@@ -73,6 +73,11 @@
 for user in $(cut -f1 -d: /etc/passwd); do echo $user; crontab -u $user -l; done
 </code></pre>
 
+<h1 id="count-lines-of-code-in-a-directory">Count lines of code in a directory</h1>
+
+<pre><code>find . -name '*.js' | xargs wc -l
+</code></pre>
+
     </section>
 
     <hr>

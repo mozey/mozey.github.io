@@ -69,11 +69,34 @@ Git
 SSH server
 </code></pre>
 
+<h3 id="install-go-https-www-digitalocean-com-community-tutorials-how-to-install-go-1-6-on-ubuntu-16-04"><a href="https://www.digitalocean.com/community/tutorials/how-to-install-go-1-6-on-ubuntu-16-04">Install go</a></h3>
+
+<p><a href="https://golang.org/dl/">Downloads page</a></p>
+
+<pre><code>curl -O https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
+
+tar xvf go1.8.3.linux-amd64.tar.gz
+
+sudo chown -R root:root ./go
+
+sudo mv go /usr/local
+
+vi ~/.profile
+# export GOPATH=$HOME/go
+# export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+source ~/.profile
+
+mkdir $HOME/go
+</code></pre>
+
 <h3 id="download-binary-and-extract">Download binary and extract</h3>
 
-<pre><code>wget https://dl.gogs.io/gogs_v0.9.13_linux_amd64.tar.gz
+<pre><code>wget https://github.com/gogits/gogs/releases/download/v0.11.19/linux_amd64.tar.gz 
 
-tar xvzf gogs_v0.9.13_linux_amd64.tar.gz
+mv linux_amd64.tar.gz gogs_v0.11.19.linux_amd64.tar.gz
+
+tar xvzf gogs_v0.11.19.linux_amd64.tar.gz
 </code></pre>
 
 <h3 id="create-database">Create database</h3>
@@ -85,32 +108,57 @@ mysql -u root -p &lt; scripts/mysql.sql
 
 <h3 id="create-custom-config-example-https-raw-githubusercontent-com-gogits-gogs-master-conf-app-ini">Create custom config, <a href="https://raw.githubusercontent.com/gogits/gogs/master/conf/app.ini">example</a></h3>
 
-<pre><code>mkdir -p gogs/custom/conf
+<pre><code>cd gogs
 
-vi gogs/custom/conf/app.ini
+mkdir -p custom/conf
+
+vi custom/conf/app.ini
 </code></pre>
 
 <h3 id="run-server">Run server</h3>
 
-<pre><code>cd gogs &amp;&amp; ./gogs web
+<pre><code>cd gogs
+
+./gogs web &amp;
+
+ps ax | grep gogs
 </code></pre>
 
 <h3 id="connect-via-web-interface-to-complete-install">Connect via web interface to complete install</h3>
 
-<h3 id="create-self-signed-cert">Create self signed cert</h3>
+<pre><code>Run user = ubuntu
 
-<pre><code>mkdir custom/https &amp;&amp; cd custom/https
+Sign up to create admin user (id = 1)
+</code></pre>
 
-../../gogs cert -ca=true -duration=8760h0m0s -host=host.example.com
+<h3 id="create-letsencrypt-cert">Create letsencrypt cert</h3>
+
+<pre><code>sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install -y python-certbot-apache
+
+sudo certbot --standalone certonly -d host.example.com
+# /etc/letsencrypt/live/host.example.com/fullchain.pem
+
+mkdir ~/gogs/certs
+sudo cp /etc/letsencrypt/live/host.example.com/* ~/gogs/certs
+sudo chown -R ubuntu:ubuntu ~/gogs/certs
+chmod 400 ~/gogs/certs/*
 </code></pre>
 
 <h3 id="update-config-for-https">Update config for HTTPS</h3>
 
-<pre><code>PROTOCOL = https
-DOMAIN = host.example.com
-ROOT_URL = https://host.example.com/
-CERT_FILE = custom/https/cert.pem
-KEY_FILE = custom/https/key.pem
+<pre><code>vi custom/conf/app.ini
+# PROTOCOL = https
+# DOMAIN = host.example.com
+# ROOT_URL = https://host.example.com/
+# CERT_FILE = /home/ubuntu/gogs/certs/fullchain.pem
+# KEY_FILE = /home/ubuntu/gogs/certs/privkey.pem
+</code></pre>
+
+<h3 id="disable-user-registration">Disable user registration</h3>
+
+<pre><code>DISABLE_REGISTRATION = true
 </code></pre>
 
 <h2 id="usage">Usage</h2>
@@ -119,12 +167,7 @@ KEY_FILE = custom/https/key.pem
 
 <pre><code>git remote -v
 
-git remote set-url origin https://git.mozey.co:8080/mozey/crm-project.git
-</code></pre>
-
-<h3 id="disable-ssl-verification-for-single-repository">Disable SSL verification for single repository</h3>
-
-<pre><code>git config http.sslVerify false
+git remote set-url origin https://host.example.com:3000/user/repos.git
 </code></pre>
 
 <h1 id="go-get">go get</h1>

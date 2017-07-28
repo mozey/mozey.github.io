@@ -67,13 +67,21 @@
 sudo mount /dev/xvdf1 /mnt/recovery
 </code></pre>
 
+<h3 id="create-new-key-pair-if-required">Create new key pair if required</h3>
+
+<p>If you still have access to <code>KEY.pem</code>, then see below to re-create public key,
+otherwise generate a new key pair using email to label it</p>
+
+<pre><code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;
+</code></pre>
+
 <h3 id="replace-private-key">Replace private key</h3>
 
 <pre><code>cd /mnt/recovery/home/ubuntu
 
 cp ./.ssh/id_rsa ./.ssh/id_rsa.bak
 
-mv /home/ubuntu/LOST_KEY.pem ./.ssh/id_rsa
+mv /home/ubuntu/KEY.pem ./.ssh/id_rsa
 </code></pre>
 
 <h3 id="re-create-public-key-from-private-key">Re-create public key from private key</h3>

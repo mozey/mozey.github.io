@@ -341,6 +341,13 @@ No need to merge an clutter the history.</p>
 <pre><code>git checkout -b BRANCH_NAME
 </code></pre>
 
+<p><a href="http://stackoverflow.com/a/7200641/639133">Reapply branch commits on top of master</a></p>
+
+<pre><code># Only do this if branch is not pushed yet
+git fetch   
+git rebase origin/master
+</code></pre>
+
 <p>Push branch and add upstream tracking.
 Upstream tracking is useful for displaying server changes with <code>git status</code>.
 Many commands will apply to the upstream tracking branch by default</p>
@@ -348,13 +355,9 @@ Many commands will apply to the upstream tracking branch by default</p>
 <pre><code>git push -u origin BRANCH_NAME
 </code></pre>
 
-<p><a href="http://stackoverflow.com/a/7200641/639133">Reapply branch commits on top of master</a></p>
+<p><a href="https://stackoverflow.com/a/34679616/639133">After push don&rsquo;t rebase rather merge master</a></p>
 
-<pre><code>git fetch 
-git rebase origin/master
-
-# or
-git rebase master
+<pre><code>git merge master
 </code></pre>
 
 <p>Merge branch</p>
@@ -403,7 +406,7 @@ git push origin --delete BRANCH_NAME
 <pre><code>export SENSITIVE_DATA=&quot;path/to/config.js&quot;
 
 git filter-branch --force --index-filter \
-'git rm --cached --ignore-unmatch ${SENSITIVE_DATA}' \
+'git rm -r --cached --ignore-unmatch ${SENSITIVE_DATA}' \
 --prune-empty --tag-name-filter cat -- --all
 
 echo &quot;${SENSITIVE_DATA}&quot; &gt;&gt; .gitignore
@@ -449,6 +452,14 @@ git gc --prune=now
 <p>List changes per commit</p>
 
 <pre><code>git whatchanged --name-only
+</code></pre>
+
+<h1 id="git-not-listing-all-remote-branches-https-stackoverflow-com-a-23077494-639133"><a href="https://stackoverflow.com/a/23077494/639133">Git not listing all remote branches</a></h1>
+
+<p>Remove and add remote, then fetch all</p>
+
+<pre><code>git remote remove origin
+git remote add origin https://github.com/path/to/repos.git
 </code></pre>
 
     </section>
