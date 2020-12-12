@@ -10,14 +10,16 @@
     <atom:link href="http://mozey.co/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Android SSHD</title>
-      <link>http://mozey.co/post/android-sshd/</link>
+      <title>Termux</title>
+      <link>http://mozey.co/post/termux/</link>
       <pubDate>Sat, 12 Dec 2020 11:04:05 +0100</pubDate>
       
-      <guid>http://mozey.co/post/android-sshd/</guid>
+      <guid>http://mozey.co/post/termux/</guid>
       <description>
 
-&lt;h1 id=&#34;termux-with-dropbear-https-wiki-termux-com-wiki-remote-access&#34;&gt;&lt;a href=&#34;https://wiki.termux.com/wiki/Remote_Access&#34;&gt;Termux with Dropbear&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;remote-access-via-ssh&#34;&gt;Remote access via SSH&lt;/h1&gt;
+
+&lt;h2 id=&#34;dropbear-https-wiki-termux-com-wiki-remote-access&#34;&gt;&lt;a href=&#34;https://wiki.termux.com/wiki/Remote_Access&#34;&gt;Dropbear&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Install &lt;strong&gt;Termux&lt;/strong&gt; using &lt;strong&gt;Google Play Store&lt;/strong&gt;&lt;/p&gt;
 
@@ -40,9 +42,12 @@ curl https://YOUR_USERNAME.keybase.pub/id_rsa.pub --output authorized_keys
 &lt;pre&gt;&lt;code&gt;ifconfig
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Only allow public key auth, and start in fore-ground&lt;/p&gt;
+&lt;p&gt;Only allow public key auth&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;dropbear -sF
+&lt;pre&gt;&lt;code&gt;dropbear -s
+
+# or start in fore-ground
+dropbear -sF
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Connect remotely from the machine with public key &lt;code&gt;id_rsa.pub&lt;/code&gt;
@@ -51,9 +56,10 @@ to the default dropbear port &lt;code&gt;8022&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ssh -p 8022 1.2.3.4
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;simplesshd-http-www-galexander-org-software-simplesshd&#34;&gt;&lt;a href=&#34;http://www.galexander.org/software/simplesshd/&#34;&gt;SimpleSSHD&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;simplesshd-http-www-galexander-org-software-simplesshd&#34;&gt;&lt;a href=&#34;http://www.galexander.org/software/simplesshd/&#34;&gt;SimpleSSHD&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;NOTE Not that useful without also installing &lt;code&gt;busybox&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This app isn&amp;rsquo;t useful without also installing &lt;code&gt;busybox&lt;/code&gt;,
+or somehow making it work with termux?&lt;/p&gt;
 
 &lt;p&gt;See &lt;a href=&#34;http://abidmujtaba.blogspot.com/2017/07/ubuntu-ssh-in-to-android-phone-google.html&#34;&gt;this link&lt;/a&gt;&lt;/p&gt;
 
@@ -77,6 +83,23 @@ rm ~/authorized_keys
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The &lt;code&gt;ssh&lt;/code&gt; command above should now work without prompting&lt;/p&gt;
+
+&lt;h1 id=&#34;internal-and-external-storage-https-wiki-termux-com-wiki-internal-and-external-storage&#34;&gt;&lt;a href=&#34;https://wiki.termux.com/wiki/Internal_and_external_storage&#34;&gt;Internal and external storage&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;First setup permissions and create the symlink &lt;code&gt;$HOME/storage&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;termux-setup-storage
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;touch-keyboard-https-wiki-termux-com-wiki-touch-keyboard&#34;&gt;&lt;a href=&#34;https://wiki.termux.com/wiki/Touch_Keyboard&#34;&gt;Touch Keyboard&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Create &lt;code&gt;~/.termux/termux.properties&lt;/code&gt; with content&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;extra-keys = [ \
+ [&#39;ESC&#39;,&#39;|&#39;,&#39;/&#39;,&#39;HOME&#39;,&#39;UP&#39;,&#39;END&#39;,&#39;PGUP&#39;,&#39;DEL&#39;], \
+ [&#39;TAB&#39;,&#39;CTRL&#39;,&#39;ALT&#39;,&#39;LEFT&#39;,&#39;DOWN&#39;,&#39;RIGHT&#39;,&#39;PGDN&#39;,&#39;BKSP&#39;] \
+]
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

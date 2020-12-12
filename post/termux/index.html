@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="Christiaan van Zyl">
+        <meta name="keywords" content="awesome, definitely">
+	
+        <meta property="og:site_name" content="mozey.co">
+        <meta property="og:title" content="mozey.co">
+        <meta property="og:url" content="http://mozey.co/post/termux/">
+        <meta property="og:description" content="">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="Christiaan van Zyl" />
+        <meta property="og:article:published_time" content="2020-12-12T11:04:05&#43;01:00" />
+    
+        <meta name="generator" content="Hugo 0.19" />
+        <title>Termux &middot; mozey.co </title>
+        <link rel="canonical" href="http://mozey.co/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/main.css"/>
+        <link rel="stylesheet" type='text/css' href="http://mozey.co/css/custom.css"/>
+        <link href='http://mozey.co/css/montserrat.css' rel='stylesheet' type='text/css'>
+        <link href="http://mozey.co/css/font-awesome.css" rel="stylesheet">
+        <script src="http://mozey.co/js/jquery-1.10.2.min.js"></script>
+        <link rel="icon" href="http://mozey.co/favicon.ico">
+    </head>
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://mozey.co/" alt="mozey.co"><h1 class="blog-title heading">mozey.co</h1></a>
+            <p class="blog-description"></p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="post">
+	<header class="post-header">
+        <h3 class="p-post-title">Termux</h3>
+    </header>
+
+    <section class="post-content">
+        
+
+<h1 id="remote-access-via-ssh">Remote access via SSH</h1>
+
+<h2 id="dropbear-https-wiki-termux-com-wiki-remote-access"><a href="https://wiki.termux.com/wiki/Remote_Access">Dropbear</a></h2>
+
+<p>Install <strong>Termux</strong> using <strong>Google Play Store</strong></p>
+
+<p>Install <strong>dropbear</strong> on Termux</p>
+
+<pre><code>pkg install dropbear
+</code></pre>
+
+<p>Setup public key auth,
+assuming you&rsquo;ve already generate <code>id_rsa.pub</code>,
+and <code>.ssh/authorized_keys</code> does not exist</p>
+
+<pre><code>mkdir .ssh
+cd .ssh
+curl https://YOUR_USERNAME.keybase.pub/id_rsa.pub --output authorized_keys
+</code></pre>
+
+<p>Connect using <code>wlan</code> IP</p>
+
+<pre><code>ifconfig
+</code></pre>
+
+<p>Only allow public key auth</p>
+
+<pre><code>dropbear -s
+
+# or start in fore-ground
+dropbear -sF
+</code></pre>
+
+<p>Connect remotely from the machine with public key <code>id_rsa.pub</code>
+to the default dropbear port <code>8022</code></p>
+
+<pre><code>ssh -p 8022 1.2.3.4
+</code></pre>
+
+<h2 id="simplesshd-http-www-galexander-org-software-simplesshd"><a href="http://www.galexander.org/software/simplesshd/">SimpleSSHD</a></h2>
+
+<p>This app isn&rsquo;t useful without also installing <code>busybox</code>,
+or somehow making it work with termux?</p>
+
+<p>See <a href="http://abidmujtaba.blogspot.com/2017/07/ubuntu-ssh-in-to-android-phone-google.html">this link</a></p>
+
+<p>Install <strong>SimpleSSHD</strong> using <strong>Google Play Store</strong></p>
+
+<p>Launch SimpleSSHD and click <strong>START</strong></p>
+
+<p>Check it works, connect to the IP address as displayed in the app.
+Single use password will be displayed in the app</p>
+
+<pre><code>#ssh -o StrictHostKeyChecking=no -p 2222 1.2.3.4
+ssh -p 2222 1.2.3.4
+</code></pre>
+
+<p>Install your public key on the phone,
+better security and convenience of not having to type a password</p>
+
+<pre><code>cp ~/.ssh/id_rsa.pub ~/authorized_keys
+scp -P 2222 authorized_keys 1.2.3.4:/data/data/org.galexander.sshd/files
+rm ~/authorized_keys
+</code></pre>
+
+<p>The <code>ssh</code> command above should now work without prompting</p>
+
+<h1 id="internal-and-external-storage-https-wiki-termux-com-wiki-internal-and-external-storage"><a href="https://wiki.termux.com/wiki/Internal_and_external_storage">Internal and external storage</a></h1>
+
+<p>First setup permissions and create the symlink <code>$HOME/storage</code></p>
+
+<pre><code>termux-setup-storage
+</code></pre>
+
+<h1 id="touch-keyboard-https-wiki-termux-com-wiki-touch-keyboard"><a href="https://wiki.termux.com/wiki/Touch_Keyboard">Touch Keyboard</a></h1>
+
+<p>Create <code>~/.termux/termux.properties</code> with content</p>
+
+<pre><code>extra-keys = [ \
+ ['ESC','|','/','HOME','UP','END','PGUP','DEL'], \
+ ['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN','BKSP'] \
+]
+</code></pre>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            <section class="author">
+                <p>Words by Christiaan van Zyl</p>
+            </section>
+            
+            
+            <p class="f-post-time"><time datetime="2020-12-12T11:04:05&#43;01:00">December 12, 2020</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=Termux&url=http%3a%2f%2fmozey.co%2fpost%2ftermux%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmozey.co%2fpost%2ftermux%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fmozey.co%2fpost%2ftermux%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://mozey.co/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://mozey.co/">Christiaan van Zyl</a> 2015 | All rights reserved</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://mozey.co/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>
