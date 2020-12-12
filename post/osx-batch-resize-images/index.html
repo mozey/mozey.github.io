@@ -59,9 +59,25 @@
 <pre><code>cd path/to/images
 </code></pre>
 
-<p><strong>WARNING</strong> This command overwrites the original files</p>
+<p>Get image dimensions</p>
+
+<pre><code>sips -g pixelHeight -g pixelWidth file.jpg
+</code></pre>
+
+<p>Resize images
+<strong>WARNING</strong> This command overwrites the original files</p>
 
 <pre><code>sips -Z 1024 *.jpg
+</code></pre>
+
+<p>Adjust image quality</p>
+
+<pre><code>sips --setProperty formatOptions 80 file.jpg
+</code></pre>
+
+<p>Adjust size and quality</p>
+
+<pre><code>sips -Z 2048 --setProperty formatOptions 36 file.jpg
 </code></pre>
 
 <h1 id="preview">Preview</h1>

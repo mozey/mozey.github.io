@@ -54,6 +54,17 @@
     <section class="post-content">
         
 
+<h1 id="upgrade-bash-on-macos">Upgrade bash on macOS</h1>
+
+<pre><code>brew install bash
+
+# Add /usr/local/bin/bash to shells
+vi /etc/shells
+
+# Set default shell
+chsh -s /usr/local/bin/bash
+</code></pre>
+
 <h1 id="list-running-processes">List running processes</h1>
 
 <p>Include PID $2 and COMMAND $11 columns</p>

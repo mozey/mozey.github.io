@@ -67,6 +67,29 @@
 
 <p>Restart Fusion to restart the networking service</p>
 
+<h1 id="add-hard-disk">Add hard disk</h1>
+
+<pre><code>Settings &gt; Add Device &gt; New Hard Disk
+</code></pre>
+
+<p><a href="https://askubuntu.com/a/333604">List hard drives</a></p>
+
+<pre><code>sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL
+</code></pre>
+
+<p>Format and mount</p>
+
+<pre><code>sudo mkfs -t ext4 /dev/sdb
+
+mkdir ~/data
+
+sudo mount /dev/sdb ~/data
+
+df -h
+</code></pre>
+
+<p>Add mount to fstab</p>
+
     </section>
 
     <hr>

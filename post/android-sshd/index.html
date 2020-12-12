@@ -17,15 +17,15 @@
 	
         <meta property="og:site_name" content="mozey.co">
         <meta property="og:title" content="mozey.co">
-        <meta property="og:url" content="http://mozey.co/post/python-dev-on-osx-yosemite/">
+        <meta property="og:url" content="http://mozey.co/post/android-sshd/">
         <meta property="og:description" content="">
     
         <meta property="og:type" content="article" />
         <meta property="og:article:author" content="Christiaan van Zyl" />
-        <meta property="og:article:published_time" content="2015-07-01T00:00:00Z" />
+        <meta property="og:article:published_time" content="2020-12-12T11:04:05&#43;01:00" />
     
         <meta name="generator" content="Hugo 0.19" />
-        <title>python dev on osx yosemite &middot; mozey.co </title>
+        <title>Android SSHD &middot; mozey.co </title>
         <link rel="canonical" href="http://mozey.co/" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="">
         <link rel="stylesheet" type='text/css' href="http://mozey.co/css/main.css"/>
@@ -48,86 +48,32 @@
 	<div class="container">
 		<article class="post">
 	<header class="post-header">
-        <h3 class="p-post-title">python dev on osx yosemite</h3>
+        <h3 class="p-post-title">Android SSHD</h3>
     </header>
 
     <section class="post-content">
-        
+        <p>See <a href="http://abidmujtaba.blogspot.com/2017/07/ubuntu-ssh-in-to-android-phone-google.html">this link</a></p>
 
-<p><a href="http://hackercodex.com/guide/python-development-environment-on-mac-osx/">Python Development Environment on Mac OS X Yosemite 10.10</a></p>
+<p>Install <strong>SimpleSSHD</strong> using <strong>Google Play Store</strong></p>
 
-<p>The bundled python on OSX has been modified by Apple.
-Installed packages might also be removed then the OS is upgraded.</p>
+<p>Launch SimpleSSHD and click <strong>START</strong></p>
 
-<h1 id="install-python-2">Install python 2</h1>
+<p>Check it works, connect to the IP address as displayed in the app.
+Single use password will be displayed in the app</p>
 
-<pre><code>brew install python
-
-pip install &lt;package&gt;
+<pre><code>#ssh -o StrictHostKeyChecking=no -p 2222 1.2.3.4
+ssh -p 2222 1.2.3.4
 </code></pre>
 
-<h1 id="install-python-3">Install python 3</h1>
+<p>Install your public key on the phone,
+better security and convenience of not having to type a password</p>
 
-<pre><code>brew install python3
-
-pip3 install &lt;package&gt;
+<pre><code>cp ~/.ssh/id_rsa.pub ~/authorized_keys
+scp -P 2222 authorized_keys 1.2.3.4:/data/data/org.galexander.sshd/files
+rm ~/authorized_keys
 </code></pre>
 
-<h1 id="virtualenv">Virtualenv</h1>
-
-<pre><code>pip install virtualenv
-
-mkdir ~/.venvs
-</code></pre>
-
-<h1 id="create-a-virtualenv">Create a virtualenv</h1>
-
-<pre><code>cd ~/.venvs
-
-virtualenv -p python3 NAME
-
-source ~/.venvs/NAME/bin/activate
-</code></pre>
-
-<h1 id="virtualenv-wrapper">virtualenv wrapper</h1>
-
-<pre><code>pip install virtualenvwrapper
-</code></pre>
-
-<p>Update profile</p>
-
-<pre><code>vi ~/.profile
-
-export WORKON_HOME=~/.venvs
-source /usr/local/bin/virtualenvwrapper.sh
-
-source ~/.profile
-</code></pre>
-
-<p>How to use virtualenv wrapper</p>
-
-<pre><code>mkvirtualenv -p python3 NAME
-
-workon NAME
-
-deactivate
-
-rmvirtualenv NAME
-
-lsvirtualenv
-</code></pre>
-
-<h1 id="rename-virtualenv-https-stackoverflow-com-questions-6628476-renaming-a-virtualenv-folder-without-breaking-it"><a href="https://stackoverflow.com/questions/6628476/renaming-a-virtualenv-folder-without-breaking-it">Rename virtualenv</a></h1>
-
-<p>Run this after you&rsquo;ve installed any packages into the environment.
-If you make an environment relocatable, then install a new package,
-you must run virtualenv &ndash;relocatable again.</p>
-
-<p>The &ndash;relocatable option currently has a number of issues,
-and is not guaranteed to work in all circumstances.</p>
-
-<pre><code>virtualenv --relocatable ENV
-</code></pre>
+<p>The <code>ssh</code> command above should now work without prompting</p>
 
     </section>
 
@@ -141,21 +87,21 @@ and is not guaranteed to work in all circumstances.</p>
             </section>
             
             
-            <p class="f-post-time"><time datetime="2015-07-01T00:00:00Z">July 1, 2015</time></p>
+            <p class="f-post-time"><time datetime="2020-12-12T11:04:05&#43;01:00">December 12, 2020</time></p>
         </section>
                         
         <section class="f-2">
             <section class="share">
                 <span>Share:
-                <a class="icon-twitter" href="http://twitter.com/share?text=python%20dev%20on%20osx%20yosemite&url=http%3a%2f%2fmozey.co%2fpost%2fpython-dev-on-osx-yosemite%2f"
+                <a class="icon-twitter" href="http://twitter.com/share?text=Android%20SSHD&url=http%3a%2f%2fmozey.co%2fpost%2fandroid-sshd%2f"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmozey.co%2fpost%2fpython-dev-on-osx-yosemite%2f"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fmozey.co%2fpost%2fandroid-sshd%2f"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fmozey.co%2fpost%2fpython-dev-on-osx-yosemite%2f"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fmozey.co%2fpost%2fandroid-sshd%2f"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <i class="fa fa-google-plus"></i>
                 </a>

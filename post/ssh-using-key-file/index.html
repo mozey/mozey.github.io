@@ -61,17 +61,15 @@
 <pre><code>ssh -i /path/to/key.pem user@server
 </code></pre>
 
-<p>We could also install the key file in order to ssh without having to pass it as an option.</p>
+<p>We could also install the key file in order to ssh without having to pass it as an option,
+Install the key file by mapping it to the IP address/Domain name of the server</p>
 
-<pre><code>sudo vi /etc/ssh/ssh_config
+<pre><code>sudo vi ~/.ssh/config
 </code></pre>
 
-<p>Install the key file by mapping it to the IP address of the server</p>
-
-<pre><code>Host xxx.xxx.xxx.xxx
-  IdentityFile /path/to/key.pem
-  Port 22
-</code></pre>
+<p>Host xxx.xxx.xxx.xxx
+    User USERNAME
+    IdentityFile /PATH/TO/KEY.PEM</p>
 
     </section>
 

@@ -54,67 +54,120 @@
     <section class="post-content">
         
 
-<h1 id="elasticsearch-https-www-digitalocean-com-community-tutorials-how-to-install-and-configure-elasticsearch-on-ubuntu-14-04"><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-14-04">Elasticsearch</a></h1>
+<h1 id="elasticsearch-5-x-https-www-elastic-co-guide-en-elasticsearch-reference-current-installation-html"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html">Elasticsearch 5.x</a></h1>
 
-<h2 id="install-jdk">Install JDK</h2>
+<p>Install</p>
 
-<pre><code>sudo apt-get install openjdk-7-jre
+<pre><code>mkdir /opt/elasticsearch
 
-java -version
+cd /opt/elasticsearch
+
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.3.tar.gz
+
+sudo tar -xvzf elasticsearch-5.6.3.tar.gz
+
+sudo chown -R USER elasticsearch-5.6.3
 </code></pre>
 
-<h2 id="install-elasticsearch">Install elasticsearch</h2>
+<p>Run</p>
 
-<pre><code>wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.2.deb
+<pre><code>cd elasticsearch-5.6.3
 
-sudo dpkg -i elasticsearch-1.7.2.deb
+./bin/elasticsearch
 </code></pre>
 
-<p>Make sure elasticsearch starts and stops automatically</p>
+<p>Check it&rsquo;s working</p>
 
-<pre><code>sudo update-rc.d elasticsearch defaults
+<pre><code>http 'http://localhost:9200'
 </code></pre>
 
-<h2 id="is-it-working">Is it working?</h2>
-
-<p>This will list cluster name, version, etc</p>
-
-<pre><code>curl -XGET 'localhost:9200' 
-</code></pre>
-
-<h1 id="kibana-https-www-elastic-co-downloads-kibana"><a href="https://www.elastic.co/downloads/kibana">Kibana</a></h1>
+<h1 id="kibana-5-x-https-www-elastic-co-guide-en-kibana-current-targz-html"><a href="https://www.elastic.co/guide/en/kibana/current/targz.html">Kibana 5.x</a></h1>
 
 <h2 id="install">Install</h2>
 
-<pre><code>wget https://download.elastic.co/kibana/kibana/kibana-4.6.1-amd64.deb
+<pre><code>cd /opt/elasticsearch
 
-sudo dpkg -i kibana-4.6.1-amd64.deb
+wget https://artifacts.elastic.co/downloads/kibana/kibana-5.6.3-linux-x86_64.tar.gz
 
-sudo update-rc.d kibana defaults
+sha1sum kibana-5.6.3-linux-x86_64.tar.gz 
 
-sudo service kibana start
-
-curl -XGET 'localhost:5601'
+sudo tar -xzf kibana-5.6.3-linux-x86_64.tar.gz
 </code></pre>
 
-<h2 id="getting-started-https-www-elastic-co-guide-en-kibana-current-getting-started-html"><a href="https://www.elastic.co/guide/en/kibana/current/getting-started.html">Getting started</a></h2>
+<p>Run</p>
+
+<pre><code>cd kibana-5.6.3-linux-x86_64/
+
+./bin/kibana
+</code></pre>
+
+<p>Config</p>
+
+<pre><code>sudo vi config/kibana.yml 
+# server.host: &quot;MY.IP.ADDRESS&quot;
+</code></pre>
+
+<p>Check it&rsquo;s working</p>
+
+<pre><code>http 'http://localhost:9200'
+</code></pre>
+
+<h1 id="getting-started-https-www-elastic-co-guide-en-kibana-current-getting-started-html"><a href="https://www.elastic.co/guide/en/kibana/current/getting-started.html">Getting started</a></h1>
 
 <p>Download Shakespeare data set</p>
 
-<pre><code>wget https://www.elastic.co/guide/en/kibana/3.0/snippets/shakespeare.json
+<pre><code>wget https://download.elastic.co/demos/kibana/gettingstarted/shakespeare.json
 
-wget https://github.com/bly2k/files/blob/master/accounts.zip
+wget https://download.elastic.co/demos/kibana/gettingstarted/accounts.zip
+
+wget https://download.elastic.co/demos/kibana/gettingstarted/logs.jsonl.gz
 
 unzip accounts.zip
+
+gunzip logs.jsonl.gz
 </code></pre>
 
-<p>Setup mapping for the Shakespeare data set,
-accounts doesn&rsquo;t require a mapping.</p>
+<p>Setup mapping for the Shakespeare and logs data sets</p>
+
+<pre><code>curl -XPUT 'localhost:9200/shakespeare?pretty' -H 'Content-Type: application/json' -d'
+{
+ &quot;mappings&quot; : {
+  &quot;_default_&quot; : {
+   &quot;properties&quot; : {
+    &quot;speaker&quot; : {&quot;type&quot;: &quot;keyword&quot; },
+    &quot;play_name&quot; : {&quot;type&quot;: &quot;keyword&quot; },
+    &quot;line_id&quot; : { &quot;type&quot; : &quot;integer&quot; },
+    &quot;speech_number&quot; : { &quot;type&quot; : &quot;integer&quot; }
+   }
+  }
+ }
+}
+'
+
+curl -XPUT 'localhost:9200/logstash-2015.05.20?pretty' -H 'Content-Type: application/json' -d'
+{
+  &quot;mappings&quot;: {
+    &quot;log&quot;: {
+      &quot;properties&quot;: {
+        &quot;geo&quot;: {
+          &quot;properties&quot;: {
+            &quot;coordinates&quot;: {
+              &quot;type&quot;: &quot;geo_point&quot;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+'
+</code></pre>
 
 <p>Bulk load into elasticsearch</p>
 
-<pre><code>curl -XPOST 'localhost:9200/shakespeare/_bulk?pretty' --data-binary @shakespeare.json
-curl -XPOST 'localhost:9200/bank/account/_bulk?pretty' --data-binary @accounts.json
+<pre><code>curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/bank/account/_bulk?pretty' --data-binary @accounts.json
+curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/shakespeare/_bulk?pretty' --data-binary @shakespeare.json
+curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/_bulk?pretty' --data-binary @logs.jsonl
 </code></pre>
 
 <p>Verify bulk load</p>
@@ -122,18 +175,69 @@ curl -XPOST 'localhost:9200/bank/account/_bulk?pretty' --data-binary @accounts.j
 <pre><code>curl 'localhost:9200/_cat/indices?v'
 </code></pre>
 
-<h1 id="elk-stack-arduino-https-www-elastic-co-blog-arduino-based-home-weather-station-on-the-elastic-stack"><a href="https://www.elastic.co/blog/arduino-based-home-weather-station-on-the-elastic-stack">ELK Stack Arduino</a></h1>
+<h1 id="filebeat-https-www-elastic-co-products-beats-filebeat"><a href="https://www.elastic.co/products/beats/filebeat">Filebeat</a></h1>
 
-<h1 id="docker-https-hub-docker-com-elasticsearch"><a href="https://hub.docker.com/_/elasticsearch/">Docker</a></h1>
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html">Install</a></p>
 
-<pre><code>docker run -d -v &quot;$PWD/esdata&quot;:/usr/share/elasticsearch/data elasticsearch -p 9200:9200
+<pre><code>curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.3-amd64.deb
 
-docker ps
-
-docker exec -it ac10fbffff12 bash
-
-curl -XGET 'localhost:9200'
+sudo dpkg -i filebeat-5.6.3-amd64.deb
 </code></pre>
+
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-configuration.html">Config</a></p>
+
+<pre><code>sudo vi /etc/filebeat/filebeat.yml 
+</code></pre>
+
+<p>Test config</p>
+
+<pre><code>sudo /usr/bin/filebeat.sh -configtest -e
+</code></pre>
+
+<p>Manually load template</p>
+
+<pre><code>curl -H 'Content-Type: application/json' -XPUT 'http://localhost:9200/_template/filebeat' -d@/etc/filebeat/filebeat.template.json
+</code></pre>
+
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-starting.html">Service</a></p>
+
+<pre><code>sudo /etc/init.d/filebeat start
+
+sudo /etc/init.d/filebeat stop
+</code></pre>
+
+<h2 id="registry-file-https-www-elastic-co-guide-en-beats-filebeat-current-how-filebeat-works-html-how-does-filebeat-keep-the-state-of-files"><a href="https://www.elastic.co/guide/en/beats/filebeat/current/how-filebeat-works.html#_how_does_filebeat_keep_the_state_of_files">Registry file</a></h2>
+
+<p>Delete filebeat index</p>
+
+<pre><code>curl -XDELETE 'http://localhost:9200/filebeat-2017.10.25'
+</code></pre>
+
+<p>Clear registry</p>
+
+<pre><code>sudo vi /var/lib/filebeat/registry
+</code></pre>
+
+<p>Run filebeat only once until all harvesters reach EOF</p>
+
+<pre><code>sudo /usr/bin/filebeat.sh -once
+</code></pre>
+
+<p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules-quickstart.html#running-modules-quickstart">Run filebeat with modules enabled</a></p>
+
+<pre><code>cd /opt/elasticsearch/elasticsearch-5.6.3
+
+sudo bin/elasticsearch-plugin install ingest-geoip
+
+sudo /usr/bin/filebeat.sh -e -modules=system -setup
+</code></pre>
+
+<h2 id="apache2-module-https-www-elastic-co-guide-en-beats-filebeat-current-filebeat-module-apache2-html"><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-apache2.html">Apache2 Module</a></h2>
+
+<pre><code>TODO
+</code></pre>
+
+<h1 id="elk-stack-arduino-https-www-elastic-co-blog-arduino-based-home-weather-station-on-the-elastic-stack"><a href="https://www.elastic.co/blog/arduino-based-home-weather-station-on-the-elastic-stack">ELK Stack Arduino</a></h1>
 
     </section>
 

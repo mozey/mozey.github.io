@@ -58,6 +58,11 @@
 
 <h3 id="change-mysql-data-directory-to-a-new-location">Change MySQL data directory to a new location</h3>
 
+<p>Get current data dir</p>
+
+<pre><code>select @@datadir;
+</code></pre>
+
 <p>Stop the MySQL service</p>
 
 <pre><code>sudo service mysql stop
@@ -78,8 +83,8 @@ exit
 <p>Change MySQL config to point to new location</p>
 
 <pre><code>sudo vi /etc/mysql/my.cnf
-
-datadir = /new/path
+# [mysqld]
+# datadir = /new/path
 </code></pre>
 
 <p>Rewrite App Armor paths for MySQL data files</p>
@@ -94,6 +99,21 @@ alias /var/lib/mysql/ -&gt; /new/path,
 <pre><code>sudo service apparmor reload
 
 sudo service mysql start
+</code></pre>
+
+<p>View logs</p>
+
+<pre><code>systemctl status mysql.service
+
+journalctl -xe
+</code></pre>
+
+<p>Debugging,
+first check <code>/new/path</code> is owned by mysql user</p>
+
+<pre><code>sudo /usr/bin/mysqld_safe --datadir=/new/path --skip-grant-tables &amp;
+
+mysql -h localhost
 </code></pre>
 
 <h3 id="move-mysql-log-files-to-a-new-location">Move MySQL log files to a new location</h3>

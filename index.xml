@@ -6,8 +6,39 @@
     <description>Recent content on mozey.co</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Jun 2017 08:27:22 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 12 Dec 2020 11:04:05 +0100</lastBuildDate>
     <atom:link href="http://mozey.co/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Android SSHD</title>
+      <link>http://mozey.co/post/android-sshd/</link>
+      <pubDate>Sat, 12 Dec 2020 11:04:05 +0100</pubDate>
+      
+      <guid>http://mozey.co/post/android-sshd/</guid>
+      <description>&lt;p&gt;See &lt;a href=&#34;http://abidmujtaba.blogspot.com/2017/07/ubuntu-ssh-in-to-android-phone-google.html&#34;&gt;this link&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Install &lt;strong&gt;SimpleSSHD&lt;/strong&gt; using &lt;strong&gt;Google Play Store&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Launch SimpleSSHD and click &lt;strong&gt;START&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Check it works, connect to the IP address as displayed in the app.
+Single use password will be displayed in the app&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#ssh -o StrictHostKeyChecking=no -p 2222 1.2.3.4
+ssh -p 2222 1.2.3.4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Install your public key on the phone,
+better security and convenience of not having to type a password&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cp ~/.ssh/id_rsa.pub ~/authorized_keys
+scp -P 2222 authorized_keys 1.2.3.4:/data/data/org.galexander.sshd/files
+rm ~/authorized_keys
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;ssh&lt;/code&gt; command above should now work without prompting&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>osx network</title>
@@ -602,6 +633,8 @@ by typing into the search bar like this&lt;/p&gt;
       <guid>http://mozey.co/post/vim/</guid>
       <description>
 
+&lt;h1 id=&#34;how-to-learn-vim-a-four-week-plan-https-medium-com-peterxjang-how-to-learn-vim-a-four-week-plan-cd8b376a9b85&#34;&gt;&lt;a href=&#34;https://medium.com/@peterxjang/how-to-learn-vim-a-four-week-plan-cd8b376a9b85&#34;&gt;How To Learn Vim: A Four Week Plan&lt;/a&gt;&lt;/h1&gt;
+
 &lt;h1 id=&#34;spf13-vim-https-github-com-spf13-spf13-vim&#34;&gt;&lt;a href=&#34;https://github.com/spf13/spf13-vim&#34;&gt;spf13-vim&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/Shougo/neocomplete.vim#vim-for-mac-os-x&#34;&gt;Install vim with lua&lt;/a&gt;&lt;/p&gt;
@@ -662,18 +695,6 @@ set spelllang=en,af
 
 &lt;pre&gt;&lt;code&gt;z=
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>htop</title>
-      <link>http://mozey.co/post/htop/</link>
-      <pubDate>Sat, 03 Dec 2016 14:02:56 +0200</pubDate>
-      
-      <guid>http://mozey.co/post/htop/</guid>
-      <description>&lt;p&gt;htop display is nicer than top&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://peteris.rocks/blog/htop/&#34;&gt;htop explained&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

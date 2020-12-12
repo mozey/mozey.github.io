@@ -210,10 +210,19 @@ git branch -r
 
 <pre><code>git checkout master
 
-git pull upstream master 
+git pull upstream master
 
 git push origin master
 </code></pre>
+
+<h2 id="creating-a-pull-request-from-a-fork-https-help-github-com-articles-creating-a-pull-request-from-a-fork"><a href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/">Creating a pull request from a fork</a></h2>
+
+<ul>
+<li>Click &ldquo;New pull request&rdquo; in the original repos</li>
+<li>Use base branch drop-down menu to select the branch of the upstream repository</li>
+<li>Use the head fork drop-down menu to select your fork</li>
+<li>Use the compare branch drop-down menu to select the branch with changes</li>
+</ul>
 
 <h2 id="fetch-branch-from-upstream-that-does-not-exist-in-origin">Fetch branch from upstream that does not exist in origin</h2>
 
@@ -344,7 +353,7 @@ No need to merge an clutter the history.</p>
 <p><a href="http://stackoverflow.com/a/7200641/639133">Reapply branch commits on top of master</a></p>
 
 <pre><code># Only do this if branch is not pushed yet
-git fetch   
+git fetch
 git rebase origin/master
 </code></pre>
 
@@ -376,7 +385,7 @@ git commit -m &quot;Merged BRANCH_NAME&quot;
 
 <p>Delete local branch</p>
 
-<pre><code># Use --force to to delete irrespective of its merged status
+<pre><code># Use --force or -D to to delete irrespective of its merged status
 git branch -d BRANCH_NAME
 </code></pre>
 
@@ -460,6 +469,40 @@ git gc --prune=now
 
 <pre><code>git remote remove origin
 git remote add origin https://github.com/path/to/repos.git
+</code></pre>
+
+<h1 id="splitting-a-subfolder-out-into-a-new-repository-https-help-github-com-articles-splitting-a-subfolder-out-into-a-new-repository"><a href="https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/">Splitting a subfolder out into a new repository</a></h1>
+
+<p>Filter sub folder from the rest of the files</p>
+
+<pre><code>git clone https://github.com/USERNAME/REPOSITORY-NAME
+
+cd REPOSITORY-NAME
+
+git filter-branch --prune-empty --subdirectory-filter FOLDER-NAME  BRANCH-NAME
+</code></pre>
+
+<p>Create a new git repos and setup remote url</p>
+
+<pre><code>git remote -v
+
+git remote set-url origin https://github.com/USERNAME/NEW-REPOSITORY-NAME.git
+
+git push -u origin BRANCH-NAME
+</code></pre>
+
+<h1 id="go-get-results-in-terminal-prompts-disabled-https-stackoverflow-com-a-38237165-639133"><a href="https://stackoverflow.com/a/38237165/639133">go get results in &lsquo;terminal prompts disabled&rsquo;</a></h1>
+
+<pre><code>env GIT_TERMINAL_PROMPT=1 go get xxxx
+</code></pre>
+
+<h1 id="git-reset-origin-to-specific-commit-https-www-christianengvall-se-git-reset-origin-master-to-commit"><a href="https://www.christianengvall.se/git-reset-origin-master-to-commit/">Git reset origin to specific commit</a></h1>
+
+<p><strong>WARNING</strong> This will remove all commits that came after SHA</p>
+
+<pre><code>git reset --hard SHA
+
+git push --force origin master
 </code></pre>
 
     </section>

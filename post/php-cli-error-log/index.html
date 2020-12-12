@@ -54,6 +54,26 @@
     <section class="post-content">
         
 
+<h3 id="setup-php-errors-log-for-cli-on-ubuntu-16-04">Setup php_errors.log for CLI on Ubuntu 16.04</h3>
+
+<p>Check if <code>error_log</code> is set</p>
+
+<pre><code>php -i | grep error
+</code></pre>
+
+<p>Find path to <code>php.ini</code></p>
+
+<pre><code>php -i | grep Configuration
+</code></pre>
+
+<p>Enable error logging</p>
+
+<pre><code>sudo vi /etc/php/7.0/cli/php.ini
+#log_errors = On
+#error_log = /var/log/php_errors.log
+#error_reporting = E_ALL | E_STRICT    
+</code></pre>
+
 <h3 id="setup-php-errors-log-for-cli-on-ubuntu-12-04">Setup php_errors.log for CLI on Ubuntu 12.04</h3>
 
 <p>Enable error logging</p>

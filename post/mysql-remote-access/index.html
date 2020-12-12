@@ -109,6 +109,14 @@ flush privileges;
 <pre><code>netstat -tupan | grep mysql
 </code></pre>
 
+<h1 id="test-remote-access-using-telnet">Test remote access using telnet</h1>
+
+<pre><code>telnet example.com 3306
+</code></pre>
+
+<p>On success should display <code>Connected to example.com</code>,
+otherwise <code>telnet: Unable to connect to remote host</code></p>
+
     </section>
 
     <hr>
