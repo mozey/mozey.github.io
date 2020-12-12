@@ -52,7 +52,47 @@
     </header>
 
     <section class="post-content">
-        <p>See <a href="http://abidmujtaba.blogspot.com/2017/07/ubuntu-ssh-in-to-android-phone-google.html">this link</a></p>
+        
+
+<h1 id="termux-with-dropbear-https-wiki-termux-com-wiki-remote-access"><a href="https://wiki.termux.com/wiki/Remote_Access">Termux with Dropbear</a></h1>
+
+<p>Install <strong>Termux</strong> using <strong>Google Play Store</strong></p>
+
+<p>Install <strong>dropbear</strong> on Termux</p>
+
+<pre><code>pkg install dropbear
+</code></pre>
+
+<p>Setup public key auth,
+assuming you&rsquo;ve already generate <code>id_rsa.pub</code>,
+and <code>.ssh/authorized_keys</code> does not exist</p>
+
+<pre><code>mkdir .ssh
+cd .ssh
+curl https://YOUR_USERNAME.keybase.pub/id_rsa.pub --output authorized_keys
+</code></pre>
+
+<p>Connect using <code>wlan</code> IP</p>
+
+<pre><code>ifconfig
+</code></pre>
+
+<p>Only allow public key auth, and start in fore-ground</p>
+
+<pre><code>dropbear -sF
+</code></pre>
+
+<p>Connect remotely from the machine with public key <code>id_rsa.pub</code>
+to the default dropbear port <code>8022</code></p>
+
+<pre><code>ssh -p 8022 1.2.3.4
+</code></pre>
+
+<h1 id="simplesshd-http-www-galexander-org-software-simplesshd"><a href="http://www.galexander.org/software/simplesshd/">SimpleSSHD</a></h1>
+
+<p>NOTE Not that useful without also installing <code>busybox</code></p>
+
+<p>See <a href="http://abidmujtaba.blogspot.com/2017/07/ubuntu-ssh-in-to-android-phone-google.html">this link</a></p>
 
 <p>Install <strong>SimpleSSHD</strong> using <strong>Google Play Store</strong></p>
 

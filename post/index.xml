@@ -15,7 +15,47 @@
       <pubDate>Sat, 12 Dec 2020 11:04:05 +0100</pubDate>
       
       <guid>http://mozey.co/post/android-sshd/</guid>
-      <description>&lt;p&gt;See &lt;a href=&#34;http://abidmujtaba.blogspot.com/2017/07/ubuntu-ssh-in-to-android-phone-google.html&#34;&gt;this link&lt;/a&gt;&lt;/p&gt;
+      <description>
+
+&lt;h1 id=&#34;termux-with-dropbear-https-wiki-termux-com-wiki-remote-access&#34;&gt;&lt;a href=&#34;https://wiki.termux.com/wiki/Remote_Access&#34;&gt;Termux with Dropbear&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Install &lt;strong&gt;Termux&lt;/strong&gt; using &lt;strong&gt;Google Play Store&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Install &lt;strong&gt;dropbear&lt;/strong&gt; on Termux&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pkg install dropbear
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Setup public key auth,
+assuming you&amp;rsquo;ve already generate &lt;code&gt;id_rsa.pub&lt;/code&gt;,
+and &lt;code&gt;.ssh/authorized_keys&lt;/code&gt; does not exist&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir .ssh
+cd .ssh
+curl https://YOUR_USERNAME.keybase.pub/id_rsa.pub --output authorized_keys
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Connect using &lt;code&gt;wlan&lt;/code&gt; IP&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ifconfig
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Only allow public key auth, and start in fore-ground&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dropbear -sF
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Connect remotely from the machine with public key &lt;code&gt;id_rsa.pub&lt;/code&gt;
+to the default dropbear port &lt;code&gt;8022&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh -p 8022 1.2.3.4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;simplesshd-http-www-galexander-org-software-simplesshd&#34;&gt;&lt;a href=&#34;http://www.galexander.org/software/simplesshd/&#34;&gt;SimpleSSHD&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;NOTE Not that useful without also installing &lt;code&gt;busybox&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&#34;http://abidmujtaba.blogspot.com/2017/07/ubuntu-ssh-in-to-android-phone-google.html&#34;&gt;this link&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Install &lt;strong&gt;SimpleSSHD&lt;/strong&gt; using &lt;strong&gt;Google Play Store&lt;/strong&gt;&lt;/p&gt;
 
